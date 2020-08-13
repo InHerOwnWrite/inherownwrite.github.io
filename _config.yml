@@ -1,5 +1,5 @@
 title: In Her Own Write
-email: veronicaprteam@gmail.com
+email: inherownwriteblog@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is the place where I talk about stuff that's too meta for Insta.
 author: Veronica Cheung
@@ -7,12 +7,12 @@ baseurl:            ""
 url:                "inherownwrite.github.io"
 
 # Social Profiles
-twitter_username: RoniC1105
+twitter_username: OhMyGawdRoni
 github_username:  veronicacheung
 linkedin_username: veronica-cheung
 
 # Add your google-analytics ID here to activate google analytics
-google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+google_analytics:   UA-175285034-1 # out your google-analytics code
 
 # Build settings
 markdown:           kramdown
@@ -22,3 +22,4 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+
