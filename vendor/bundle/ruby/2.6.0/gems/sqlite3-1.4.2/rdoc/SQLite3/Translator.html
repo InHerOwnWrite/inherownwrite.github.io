@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class SQLite3::Translator - sqlite3-1.4.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_translator">#add_translator</a>
+    
+    <li ><a href="#method-i-register_default_translators">#register_default_translators</a>
+    
+    <li ><a href="#method-i-translate">#translate</a>
+    
+    <li ><a href="#method-i-type_name">#type_name</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-SQLite3::Translator">
+  <h1 id="class-SQLite3::Translator" class="class">
+    class SQLite3::Translator
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Translator.html"><code>Translator</code></a> class encapsulates the logic and callbacks necessary for converting string data to a value of some specified type. Every <a href="Database.html"><code>Database</code></a> instance may have a <a href="Translator.html"><code>Translator</code></a> instance, in order to assist in type translation (Database#type_translation).</p>
+
+<p>Further, applications may define their own custom type translation logic by registering translator blocks with the corresponding database&#39;s translator instance (Database#translator).</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Translator.html"><code>Translator</code></a> instance. It will be preinitialized with default translators for most SQL data types.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/translator.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-ivar">@translators</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">type</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">value</span> } )
+  <span class="ruby-ivar">@type_name_cache</span> = {}
+  <span class="ruby-identifier">register_default_translators</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_translator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_translator</span><span
+            class="method-args">( type ) { |type, value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a new translator block, which will be invoked to process type translations to the given type. The type should be an SQL datatype, and may include parentheses (i.e., “VARCHAR(30)”). However, any parenthetical information is stripped off and discarded, so type translation decisions are made solely on the “base” type name.</p>
+
+<p>The translator block itself should accept two parameters, “type” and “value”. In this case, the “type” is the full type name (including parentheses), so the block itself may include logic for changing how a type is translated based on the additional data. The “value” parameter is the (string) data to convert.</p>
+
+<p>The block should return the translated value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_translator-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/translator.rb, line 37</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_translator</span>( <span class="ruby-identifier">type</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> ) <span class="ruby-comment"># :yields: type, value</span>
+      <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">&lt;&lt;-eowarn</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+<span class="ruby-value">#{caller[0]} is calling `add_translator`.
+Built in translators are deprecated and will be removed in version 2.0.0
+</span><span class="ruby-identifier">      eowarn</span>
+      <span class="ruby-ivar">@translators</span>[ <span class="ruby-identifier">type_name</span>( <span class="ruby-identifier">type</span> ) ] = <span class="ruby-identifier">block</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-translate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">translate</span><span
+            class="method-args">( type, value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Translate the given string value to a value of the given type. In the absense of an installed translator block for the given type, the value itself is always returned. Further, <code>nil</code> values are never translated, and are always passed straight through regardless of the type parameter.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="translate-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/translator.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">translate</span>( <span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span> )
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-comment"># FIXME: this is a hack to support Sequel</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-node">%w{ datetime timestamp }</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">downcase</span>)
+      <span class="ruby-ivar">@translators</span>[ <span class="ruby-identifier">type_name</span>( <span class="ruby-identifier">type</span> ) ].<span class="ruby-identifier">call</span>( <span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span> )
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@translators</span>[ <span class="ruby-identifier">type_name</span>( <span class="ruby-identifier">type</span> ) ].<span class="ruby-identifier">call</span>( <span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span> )
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-register_default_translators" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_default_translators</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Register the default translators for the current <a href="Translator.html"><code>Translator</code></a> instance. This includes translators for most major SQL data types.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="register_default_translators-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/translator.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_default_translators</span>
+  [ <span class="ruby-string">&quot;time&quot;</span>,
+    <span class="ruby-string">&quot;timestamp&quot;</span> ].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add_translator</span>( <span class="ruby-identifier">type</span> ) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>( <span class="ruby-identifier">v</span> ) } }
+
+  <span class="ruby-identifier">add_translator</span>( <span class="ruby-string">&quot;date&quot;</span> ) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">v</span>) }
+  <span class="ruby-identifier">add_translator</span>( <span class="ruby-string">&quot;datetime&quot;</span> ) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">v</span>) }
+
+  [ <span class="ruby-string">&quot;decimal&quot;</span>,
+    <span class="ruby-string">&quot;float&quot;</span>,
+    <span class="ruby-string">&quot;numeric&quot;</span>,
+    <span class="ruby-string">&quot;double&quot;</span>,
+    <span class="ruby-string">&quot;real&quot;</span>,
+    <span class="ruby-string">&quot;dec&quot;</span>,
+    <span class="ruby-string">&quot;fixed&quot;</span> ].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add_translator</span>( <span class="ruby-identifier">type</span> ) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_f</span> } }
+
+  [ <span class="ruby-string">&quot;integer&quot;</span>,
+    <span class="ruby-string">&quot;smallint&quot;</span>,
+    <span class="ruby-string">&quot;mediumint&quot;</span>,
+    <span class="ruby-string">&quot;int&quot;</span>,
+    <span class="ruby-string">&quot;bigint&quot;</span> ].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add_translator</span>( <span class="ruby-identifier">type</span> ) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_i</span> } }
+
+  [ <span class="ruby-string">&quot;bit&quot;</span>,
+    <span class="ruby-string">&quot;bool&quot;</span>,
+    <span class="ruby-string">&quot;boolean&quot;</span> ].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">add_translator</span>( <span class="ruby-identifier">type</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-operator">!</span>( <span class="ruby-identifier">v</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/00+/</span>,<span class="ruby-string">&quot;0&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;0&quot;</span> <span class="ruby-operator">||</span>
+         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;false&quot;</span> <span class="ruby-operator">||</span>
+         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;f&quot;</span> <span class="ruby-operator">||</span>
+         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;no&quot;</span> <span class="ruby-operator">||</span>
+         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;n&quot;</span> )
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">add_translator</span>( <span class="ruby-string">&quot;tinyint&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\(\s*1\s*\)/</span>
+      <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-type_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type_name</span><span
+            class="method-args">( type )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A convenience method for working with type names. This returns the “base” type name, without any parenthetical data.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="type_name-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/translator.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">type_name</span>( <span class="ruby-identifier">type</span> )
+  <span class="ruby-ivar">@type_name_cache</span>[<span class="ruby-identifier">type</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-node">$1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^(.*?)\(/</span>
+    <span class="ruby-identifier">type</span>.<span class="ruby-identifier">upcase</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

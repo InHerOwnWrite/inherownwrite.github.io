@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>CHANGELOG - sqlite3-1.4.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-1.4.2">1.4.2</a>
+    <li><a href="#label-1.4.1">1.4.1</a>
+    <li><a href="#label-1.4.0">1.4.0</a>
+    <li><a href="#label-1.3.13">1.3.13</a>
+    <li><a href="#label-1.3.12">1.3.12</a>
+    <li><a href="#label-1.3.11+-2F+2015-10-10">1.3.11 / 2015-10-10</a>
+    <li><a href="#label-1.3.10+-2F+2014-10-30">1.3.10 / 2014-10-30</a>
+    <li><a href="#label-1.3.9+-2F+2014-02-25">1.3.9 / 2014-02-25</a>
+    <li><a href="#label-1.3.8+-2F+2013-08-17">1.3.8 / 2013-08-17</a>
+    <li><a href="#label-1.3.7+-2F+2013-01-11">1.3.7 / 2013-01-11</a>
+    <li><a href="#label-1.3.6+-2F+2012-04-16">1.3.6 / 2012-04-16</a>
+    <li><a href="#label-1.3.5+-2F+2011-12-03+-+ZOMG+Holidays+are+here+Edition-21">1.3.5 / 2011-12-03 - ZOMG Holidays are here Edition!</a>
+    <li><a href="#label-1.3.4+-2F+2011-07-25">1.3.4 / 2011-07-25</a>
+    <li><a href="#label-1.3.3+-2F+2010-01-16">1.3.3 / 2010-01-16</a>
+    <li><a href="#label-1.3.2+-2F+2010-10-30+-2F+RubyConf+Uruguay+Edition-21">1.3.2 / 2010-10-30 / RubyConf Uruguay Edition!</a>
+    <li><a href="#label-1.3.1+-2F+2010-07-09">1.3.1 / 2010-07-09</a>
+    <li><a href="#label-1.3.0+-2F+2010-06-06">1.3.0 / 2010-06-06</a>
+    <li><a href="#label-1.3.0.beta.2+-2F+2010-05-15">1.3.0.beta.2 / 2010-05-15</a>
+    <li><a href="#label-1.3.0.beta.1+-2F+2010-05-10">1.3.0.beta.1 / 2010-05-10</a>
+    <li><a href="#label-1.2.5+-2F+25+Jul+2009">1.2.5 / 25 Jul 2009</a>
+    <li><a href="#label-1.2.4.1+-28internal-29+-2F+5+Jul+2009">1.2.4.1 (internal) / 5 Jul 2009</a>
+    <li><a href="#label-1.2.4+-2F+27+Aug+2008">1.2.4 / 27 Aug 2008</a>
+    <li><a href="#label-1.2.3+-2F+26+Aug+2008">1.2.3 / 26 Aug 2008</a>
+    <li><a href="#label-1.2.2+-2F+31+May+2008">1.2.2 / 31 May 2008</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./API_CHANGES_rdoc.html">API_CHANGES</a>
+  
+    <li><a href="./CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./ext/sqlite3/Makefile.html">Makefile</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page CHANGELOG.rdoc">
+
+<h3 id="label-1.4.2">1.4.2<span><a href="#label-1.4.2">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Travis: Drop unused setting “sudo: false”</p>
+</li><li>
+<p>The taint mechanism will be deprecated in Ruby 2.7</p>
+</li><li>
+<p>Fix Ruby 2.7 rb_check_safe_obj warnings</p>
+</li><li>
+<p>Update travis config</p>
+</li></ul>
+
+<h3 id="label-1.4.1">1.4.1<span><a href="#label-1.4.1">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Don&#39;t mandate dl functions for the extention build</p>
+</li><li>
+<p>bumping version</p>
+</li></ul>
+
+<h3 id="label-1.4.0">1.4.0<span><a href="#label-1.4.0">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Better aggregator support</p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Various</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.13">1.3.13<span><a href="#label-1.3.13">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enancements</p>
+<ul><li>
+<p>Support SQLite flags when defining functions</p>
+</li><li>
+<p>Add definition for SQLITE_DETERMINISTIC flag</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.12">1.3.12<span><a href="#label-1.3.12">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Bugfixes:</p>
+<ul><li>
+<p>OS X install will default to homebrew if available. Fixes #195</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.11+-2F+2015-10-10">1.3.11 / 2015-10-10<span><a href="#label-1.3.11+-2F+2015-10-10">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements:</p>
+<ul><li>
+<p>Windows: build against SQLite 3.8.11.1</p>
+</li></ul>
+</li><li>
+<p>Internal:</p>
+<ul><li>
+<p>Use rake-compiler-dock to build Windows binaries. Pull #159 [larskanis]</p>
+</li><li>
+<p>Expand Ruby versions being tested for Travis and AppVeyor</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.10+-2F+2014-10-30">1.3.10 / 2014-10-30<span><a href="#label-1.3.10+-2F+2014-10-30">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements:</p>
+<ul><li>
+<p>Windows: build against SQLite 3.8.6. Closes #135 [Hubro]</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.9+-2F+2014-02-25">1.3.9 / 2014-02-25<span><a href="#label-1.3.9+-2F+2014-02-25">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Bugfixes:</p>
+<ul><li>
+<p>Reset exception message. Closes #80</p>
+</li><li>
+<p>Reduce warnings due unused pointers. Closes #89</p>
+</li><li>
+<p>Add BSD-3 license reference to gemspec. Refs #99 and #106</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.8+-2F+2013-08-17">1.3.8 / 2013-08-17<span><a href="#label-1.3.8+-2F+2013-08-17">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements:</p>
+<ul><li>
+<p>Windows: build against SQLite 3.7.17</p>
+</li></ul>
+</li><li>
+<p>Bugfixes:</p>
+<ul><li>
+<p>Reset exception message. Closes #80</p>
+</li><li>
+<p>Correctly convert BLOB values to Ruby. Closes #65</p>
+</li><li>
+<p>Add MIT license reference to gemspec. Closes #99</p>
+</li><li>
+<p>Remove unused pointer. Closes #89</p>
+</li></ul>
+</li><li>
+<p>Internal:</p>
+<ul><li>
+<p>Backport improvements in cross compilation for Windows</p>
+</li><li>
+<p>Use of Minitest for internal tests</p>
+</li><li>
+<p>Use Gemfile (generated by Hoe) to deal with dependencies</p>
+</li><li>
+<p>Cleanup Travis CI</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.7+-2F+2013-01-11">1.3.7 / 2013-01-11<span><a href="#label-1.3.7+-2F+2013-01-11">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Closing a bad statement twice will not segv.</p>
+</li><li>
+<p>Aggregate handlers are initialized on each query. Closes #44</p>
+</li></ul>
+</li><li>
+<p>Internal</p>
+<ul><li>
+<p>Unset environment variables that could affect cross compilation.</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.6+-2F+2012-04-16">1.3.6 / 2012-04-16<span><a href="#label-1.3.6+-2F+2012-04-16">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Windows: build against SQLite 3.7.11</p>
+</li><li>
+<p>Added <a href="SQLite3/ResultSet.html#method-i-each_hash"><code>SQLite3::ResultSet#each_hash</code></a> for fetching each row as a hash.</p>
+</li><li>
+<p>Added <a href="SQLite3/ResultSet.html#method-i-next_hash"><code>SQLite3::ResultSet#next_hash</code></a> for fetching one row as a hash.</p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Support both UTF-16LE and UTF-16BE encoding modes on PPC. Closes #63</p>
+</li><li>
+<p>Protect parameters to custom functions from being garbage collected too soon. Fixes #60. Thanks hirataya!</p>
+</li><li>
+<p>Fix backwards compatibility with 1.2.5 with bind vars and `query` method. Fixes #35.</p>
+</li><li>
+<p>Fix double definition error caused by defining sqlite3_int64/uint64.</p>
+</li><li>
+<p>Fix suspicious version regexp.</p>
+</li></ul>
+</li><li>
+<p>Deprecations</p>
+<ul><li>
+<p>ArrayWithTypesAndFields#types is deprecated and the class will be removed in version 2.0.0.  Please use the `types` method on the ResultSet class that created this object.</p>
+</li><li>
+<p>ArrayWithTypesAndFields#fields is deprecated and the class will be removed in version 2.0.0.  Please use the `columns` method on the ResultSet class that created this object.</p>
+</li><li>
+<p>The ArrayWithTypesAndFields class will be removed in 2.0.0</p>
+</li><li>
+<p>The ArrayWithTypes class will be removed in 2.0.0</p>
+</li><li>
+<p>HashWithTypesAndFields#types is deprecated and the class will be removed in version 2.0.0.  Please use the `types` method on the ResultSet class that created this object.</p>
+</li><li>
+<p>HashWithTypesAndFields#fields is deprecated and the class will be removed in version 2.0.0.  Please use the `columns` method on the ResultSet class that created this object.</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.5+-2F+2011-12-03+-+ZOMG+Holidays+are+here+Edition-21">1.3.5 / 2011-12-03 - ZOMG Holidays are here Edition!<span><a href="#label-1.3.5+-2F+2011-12-03+-+ZOMG+Holidays+are+here+Edition-21">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Windows: build against SQLite 3.7.9</p>
+</li><li>
+<p>Static: enable SQLITE_ENABLE_COLUMN_METADATA</p>
+</li><li>
+<p>Added Statement#clear_bindings! to set bindings back to nil</p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Fixed a segv on Database.new. Fixes #34 (thanks nobu!)</p>
+</li><li>
+<p>Database error is not reset, so don&#39;t check it in Statement#reset!</p>
+</li><li>
+<p>Remove conditional around Bignum statement bindings. Fixes #52. Fixes #56. Thank you Evgeny Myasishchev.</p>
+</li></ul>
+</li><li>
+<p>Internal</p>
+<ul><li>
+<p>Use proper endianness when testing database connection with UTF-16. Fixes #40. Fixes #51</p>
+</li><li>
+<p>Use -fPIC for static compilation when host is x86_64.</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.4+-2F+2011-07-25">1.3.4 / 2011-07-25<span><a href="#label-1.3.4+-2F+2011-07-25">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements:</p>
+<ul><li>
+<p>Windows: build against SQLite 3.7.7.1</p>
+</li><li>
+<p>Windows: build static binaries that do not depend on sqlite3.dll be installed anymore</p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Backup API is conditionaly required so that older libsqlite3 can be used. Thanks Hongli Lai.</p>
+</li><li>
+<p>Fixed segmentation fault when nil is passed to <a href="SQLite3/Statement.html#method-c-new"><code>SQLite3::Statement.new</code></a></p>
+</li><li>
+<p>Fix extconf&#39;s hardcoded path that affected installation on certain systems.</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.3+-2F+2010-01-16">1.3.3 / 2010-01-16<span><a href="#label-1.3.3+-2F+2010-01-16">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Abort on installation if sqlite3_backup_init is missing. Fixes #19</p>
+</li><li>
+<p>Gem has been renamed to &#39;sqlite3&#39;.  Please use `gem install sqlite3`</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.2+-2F+2010-10-30+-2F+RubyConf+Uruguay+Edition-21">1.3.2 / 2010-10-30 / RubyConf Uruguay Edition!<span><a href="#label-1.3.2+-2F+2010-10-30+-2F+RubyConf+Uruguay+Edition-21">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements:</p>
+<ul><li>
+<p>Windows: build against 3.7.3 version of <a href="SQLite3.html"><code>SQLite3</code></a></p>
+</li><li>
+<p><a href="SQLite3/Database.html"><code>SQLite3::Database</code></a> can now be open as readonly</p>
+
+<pre class="ruby"><span class="ruby-identifier">db</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;my.db&#39;</span>, <span class="ruby-value">:readonly</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+</li><li>
+<p>Added SQLite3::SQLITE_VERSION and SQLite3::SQLITE_VERSION_NUMBER [nurse]</p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>type_translation= works along with Database#execute and a block</p>
+</li><li>
+<p>defined functions are kept in a hash to prevent GC. #7</p>
+</li><li>
+<p>Removed GCC specific flags from extconf.</p>
+</li></ul>
+</li><li>
+<p>DEPRECATIONS</p>
+<ul><li>
+<p>SQLite3::Database#type_translation= will be deprecated in the future with no replacement.</p>
+</li><li>
+<p>SQlite3::Version will be deprecated in 2.0.0 with SQLite3::VERSION as the replacement.</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.1+-2F+2010-07-09">1.3.1 / 2010-07-09<span><a href="#label-1.3.1+-2F+2010-07-09">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Custom collations may be defined using <a href="SQLite3/Database.html#method-i-collation"><code>SQLite3::Database#collation</code></a></p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Statements returning 0 columns are automatically stepped. [RF #28308]</p>
+</li><li>
+<p><a href="SQLite3/Database.html#method-i-encoding"><code>SQLite3::Database#encoding</code></a> works on 1.8 and 1.9</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.0+-2F+2010-06-06">1.3.0 / 2010-06-06<span><a href="#label-1.3.0+-2F+2010-06-06">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Complete rewrite of C-based adapter from SWIG to hand-crafted one [tenderlove] See <a href="API_CHANGES_rdoc.html">API_CHANGES</a> document for details. This closes: Bug #27300, Bug #27241, Patch #16020</p>
+</li><li>
+<p>Improved UTF, Unicode, M17N, all that handling and proper BLOB handling [tenderlove, nurse]</p>
+</li><li>
+<p>Added support for type translations [tenderlove]</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">translator</span>.<span class="ruby-identifier">add_translator</span>(<span class="ruby-string">&#39;sometime&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span>, <span class="ruby-identifier">thing</span><span class="ruby-operator">|</span>
+  <span class="ruby-string">&#39;output&#39;</span> <span class="ruby-comment"># this will be returned as value for that column</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li></ul>
+</li><li>
+<p>Experimental</p>
+<ul><li>
+<p>Added API to access and load extensions. [kashif] These functions maps directly into <a href="SQLite3.html"><code>SQLite3</code></a> own enable_load_extension() and load_extension() C-API functions. See <a href="SQLite3/Database.html"><code>SQLite3::Database</code></a> API documentation for details. This closes: Patches #9178</p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Corrected gem dependencies (runtime and development)</p>
+</li><li>
+<p>Fixed threaded tests [Alexey Borzenkov]</p>
+</li><li>
+<p>Removed GitHub gemspec</p>
+</li><li>
+<p>Fixed “No definition for” warnings from RDoc</p>
+</li><li>
+<p>Generate zip and tgz files for releases</p>
+</li><li>
+<p>Added Luis Lavena as gem Author (maintainer)</p>
+</li><li>
+<p>Prevent mkmf interfere with Mighty Snow Leopard</p>
+</li><li>
+<p>Allow extension compilation search for common lib paths [kashif] (lookup /usr/local, /opt/local and /usr)</p>
+</li><li>
+<p>Corrected extension compilation under MSVC [romuloceccon]</p>
+</li><li>
+<p>Define load_extension functionality based on availability [tenderlove]</p>
+</li><li>
+<p>Deprecation notices for Database#query. Fixes RF #28192</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.0.beta.2+-2F+2010-05-15">1.3.0.beta.2 / 2010-05-15<span><a href="#label-1.3.0.beta.2+-2F+2010-05-15">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Added support for type translations [tenderlove]</p>
+
+<pre class="ruby"><span class="ruby-ivar">@db</span>.<span class="ruby-identifier">translator</span>.<span class="ruby-identifier">add_translator</span>(<span class="ruby-string">&#39;sometime&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span>, <span class="ruby-identifier">thing</span><span class="ruby-operator">|</span>
+  <span class="ruby-string">&#39;output&#39;</span> <span class="ruby-comment"># this will be returned as value for that column</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Allow extension compilation search for common lib paths [kashif] (lookup /usr/local, /opt/local and /usr)</p>
+</li><li>
+<p>Corrected extension compilation under MSVC [romuloceccon]</p>
+</li><li>
+<p>Define load_extension functionality based on availability [tenderlove]</p>
+</li><li>
+<p>Deprecation notices for Database#query. Fixes RF #28192</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.3.0.beta.1+-2F+2010-05-10">1.3.0.beta.1 / 2010-05-10<span><a href="#label-1.3.0.beta.1+-2F+2010-05-10">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Complete rewrite of C-based adapter from SWIG to hand-crafted one [tenderlove] See <a href="API_CHANGES_rdoc.html">API_CHANGES</a> document for details. This closes: Bug #27300, Bug #27241, Patch #16020</p>
+</li><li>
+<p>Improved UTF, Unicode, M17N, all that handling and proper BLOB handling [tenderlove, nurse]</p>
+</li></ul>
+</li><li>
+<p>Experimental</p>
+<ul><li>
+<p>Added API to access and load extensions. [kashif] These functions maps directly into <a href="SQLite3.html"><code>SQLite3</code></a> own enable_load_extension() and load_extension() C-API functions. See <a href="SQLite3/Database.html"><code>SQLite3::Database</code></a> API documentation for details. This closes: Patches #9178</p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Corrected gem dependencies (runtime and development)</p>
+</li><li>
+<p>Fixed threaded tests [Alexey Borzenkov]</p>
+</li><li>
+<p>Removed GitHub gemspec</p>
+</li><li>
+<p>Fixed “No definition for” warnings from RDoc</p>
+</li><li>
+<p>Generate zip and tgz files for releases</p>
+</li><li>
+<p>Added Luis Lavena as gem Author (maintainer)</p>
+</li><li>
+<p>Prevent mkmf interfere with Mighty Snow Leopard</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-1.2.5+-2F+25+Jul+2009">1.2.5 / 25 Jul 2009<span><a href="#label-1.2.5+-2F+25+Jul+2009">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Check for illegal nil before executing SQL [Erik Veenstra]</p>
+</li><li>
+<p>Switch to Hoe for gem task management and packaging.</p>
+</li><li>
+<p>Advertise rake-compiler as development dependency.</p>
+</li><li>
+<p>Build gem binaries for Windows.</p>
+</li><li>
+<p>Improved Ruby 1.9 support compatibility.</p>
+</li><li>
+<p>Taint returned values. Patch #20325.</p>
+</li><li>
+<p>Database.open and Database.new now take an optional block [Gerrit Kaiser]</p>
+</li></ul>
+
+<h3 id="label-1.2.4.1+-28internal-29+-2F+5+Jul+2009">1.2.4.1 (internal) / 5 Jul 2009<span><a href="#label-1.2.4.1+-28internal-29+-2F+5+Jul+2009">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Check for illegal nil before executing SQL [Erik Veenstra]</p>
+</li><li>
+<p>Switch to Hoe for gem task management and packaging.</p>
+</li><li>
+<p>Advertise rake-compiler as development dependency.</p>
+</li><li>
+<p>Build gem binaries for Windows.</p>
+</li><li>
+<p>Improved Ruby 1.9 support compatibility.</p>
+</li></ul>
+
+<h3 id="label-1.2.4+-2F+27+Aug+2008">1.2.4 / 27 Aug 2008<span><a href="#label-1.2.4+-2F+27+Aug+2008">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Package the updated C file for source builds. [Jamis Buck]</p>
+</li></ul>
+
+<h3 id="label-1.2.3+-2F+26+Aug+2008">1.2.3 / 26 Aug 2008<span><a href="#label-1.2.3+-2F+26+Aug+2008">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix incorrect permissions on database.rb and translator.rb [Various]</p>
+</li><li>
+<p>Avoid using Object#extend for greater speedups [Erik Veenstra]</p>
+</li><li>
+<p>Ruby 1.9 compatibility tweaks for Array#zip [jimmy88@gmail.com]</p>
+</li><li>
+<p>Fix linking against Ruby 1.8.5 [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li></ul>
+
+<h3 id="label-1.2.2+-2F+31+May+2008">1.2.2 / 31 May 2008<span><a href="#label-1.2.2+-2F+31+May+2008">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Make the table_info method adjust the returned default value for the rows so that the sqlite3 change in 3.3.8 and greater can be handled transparently [Jamis Buck &lt;jamis@37signals.com&gt;]</p>
+</li><li>
+<p>Ruby 1.9 compatibility tweaks [Roman Le Negrate &lt;roman2k@free.fr&gt;]</p>
+</li><li>
+<p>Various performance enhancements [thanks Erik Veenstra]</p>
+</li><li>
+<p>Correct busy_handler documentation [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li><li>
+<p>Use int_bind64 on Fixnum values larger than a 32bit C int can take. [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li><li>
+<p>Work around a quirk in SQLite&#39;s error reporting by calling sqlite3_reset to produce a more informative error code upon a failure from sqlite3_step. [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li><li>
+<p>Various documentation, test, and style tweaks [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li><li>
+<p>Be more granular with time/data translation [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li><li>
+<p>Use Date directly for parsing rather than going via Time [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li><li>
+<p>Check for the rt library and fdatasync so we link against that when needed [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li><li>
+<p>Rename data structures to avoid collision on win32. based on patch by: Luis Lavena [Rob Holland &lt;rob@inversepath.com&gt;]</p>
+</li><li>
+<p>Add test for defaults [Daniel Rodríguez Troitiño]</p>
+</li><li>
+<p>Correctly unquote double-quoted pragma defaults [Łukasz Dargiewicz &lt;lukasz.dargiewicz@gmail.com&gt;]</p>
+</li></ul>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

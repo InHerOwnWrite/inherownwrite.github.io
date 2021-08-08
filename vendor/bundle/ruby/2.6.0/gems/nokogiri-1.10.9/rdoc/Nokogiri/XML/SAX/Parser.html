@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Nokogiri::XML::SAX::Parser - nokogiri-1.10.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-check_encoding">#check_encoding</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-parse_file">#parse_file</a>
+    
+    <li ><a href="#method-i-parse_io">#parse_io</a>
+    
+    <li ><a href="#method-i-parse_memory">#parse_memory</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Nokogiri::XML::SAX::Parser">
+  <h1 id="class-Nokogiri::XML::SAX::Parser" class="class">
+    class Nokogiri::XML::SAX::Parser
+  </h1>
+
+  <section class="description">
+    
+<p>This parser is a <a href="../SAX.html"><code>SAX</code></a> style parser that reads it&#39;s input as it deems necessary.  The parser takes a <a href="Document.html"><code>Nokogiri::XML::SAX::Document</code></a>, an optional encoding, then given an <a href="../../XML.html"><code>XML</code></a> input, sends messages to the <a href="Document.html"><code>Nokogiri::XML::SAX::Document</code></a>.</p>
+
+<p>Here is an example of using this parser:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Create a subclass of Nokogiri::XML::SAX::Document and implement</span>
+<span class="ruby-comment"># the events we care about:</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">MyDoc</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SAX</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_element</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">attrs</span> = []
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;starting: #{name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_element</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;ending: #{name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># Create our parser</span>
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SAX</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">MyDoc</span>.<span class="ruby-identifier">new</span>)
+
+<span class="ruby-comment"># Send some XML to the parser</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">ARGV</span>[<span class="ruby-value">0</span>]))
+</pre>
+
+<p>For more information about <a href="../SAX.html"><code>SAX</code></a> parsers, see <a href="../SAX.html"><code>Nokogiri::XML::SAX</code></a>.  Also see <a href="Document.html"><code>Nokogiri::XML::SAX::Document</code></a> for the available events.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ENCODINGS">ENCODINGS
+        
+        <dd><p>Encodinds this parser supports</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-document" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">document</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="Document.html"><code>Nokogiri::XML::SAX::Document</code></a> where events will be sent.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-encoding" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">encoding</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The encoding beings used for this document.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(doc = Nokogiri::XML::SAX::Document.new, encoding = &#39;UTF-8&#39;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Parser.html"><code>Parser</code></a> with <code>doc</code> and <code>encoding</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/parser.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">doc</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SAX</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">encoding</span> = <span class="ruby-string">&#39;UTF-8&#39;</span>
+  <span class="ruby-ivar">@encoding</span> = <span class="ruby-identifier">check_encoding</span>(<span class="ruby-identifier">encoding</span>)
+  <span class="ruby-ivar">@document</span> = <span class="ruby-identifier">doc</span>
+  <span class="ruby-ivar">@warned</span>   = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(thing, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parse given <code>thing</code> which may be a string containing xml, or an IO object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/parser.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse</span> <span class="ruby-identifier">thing</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">thing</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:read</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">thing</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:close</span>)
+    <span class="ruby-identifier">parse_io</span>(<span class="ruby-identifier">thing</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">parse_memory</span>(<span class="ruby-identifier">thing</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_file</span><span
+            class="method-args">(filename) { |ctx| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parse a file with <code>filename</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_file-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/parser.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_file</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EISDIR</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">ctx</span> = <span class="ruby-constant">ParserContext</span>.<span class="ruby-identifier">file</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">ctx</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">parse_with</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_io" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_io</span><span
+            class="method-args">(io, encoding = &#39;ASCII&#39;) { |ctx| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parse given <code>io</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_io-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/parser.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_io</span> <span class="ruby-identifier">io</span>, <span class="ruby-identifier">encoding</span> = <span class="ruby-string">&#39;ASCII&#39;</span>
+  <span class="ruby-ivar">@encoding</span> = <span class="ruby-identifier">check_encoding</span>(<span class="ruby-identifier">encoding</span>)
+  <span class="ruby-identifier">ctx</span> = <span class="ruby-constant">ParserContext</span>.<span class="ruby-identifier">io</span>(<span class="ruby-identifier">io</span>, <span class="ruby-constant">ENCODINGS</span>[<span class="ruby-ivar">@encoding</span>])
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">ctx</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">parse_with</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_memory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_memory</span><span
+            class="method-args">(data) { |ctx| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_memory-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/parser.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_memory</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-identifier">ctx</span> = <span class="ruby-constant">ParserContext</span>.<span class="ruby-identifier">memory</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">ctx</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">parse_with</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-check_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_encoding</span><span
+            class="method-args">(encoding)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_encoding-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/parser.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check_encoding</span>(<span class="ruby-identifier">encoding</span>)
+  <span class="ruby-identifier">encoding</span>.<span class="ruby-identifier">upcase</span>.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">enc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;&#39;#{enc}&#39; is not a valid encoding&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">ENCODINGS</span>[<span class="ruby-identifier">enc</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

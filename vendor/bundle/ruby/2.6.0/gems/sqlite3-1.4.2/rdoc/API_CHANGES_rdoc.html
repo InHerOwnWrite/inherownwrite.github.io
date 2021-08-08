@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>API_CHANGES - sqlite3-1.4.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-API+Changes">API Changes</a>
+    <li><a href="#label-Garbage+Collection+Strategy">Garbage Collection Strategy</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./API_CHANGES_rdoc.html">API_CHANGES</a>
+  
+    <li><a href="./CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./ext/sqlite3/Makefile.html">Makefile</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page API_CHANGES.rdoc">
+
+<h1 id="label-API+Changes">API Changes<span><a href="#label-API+Changes">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p><a href="SQLite3/Database.html#method-i-execute"><code>SQLite3::Database#execute</code></a> only accepts an array for bind parameters.</p>
+</li><li>
+<p><a href="SQLite3/ResultSet.html"><code>SQLite3::ResultSet</code></a> used to query the database for the first row, regardless of whether the user asked for it or not.  I have removed that so that rows will not be returned until the user asks for them.  This is a subtle but sometimes important change in behavior.</p>
+
+<p>83882d2208ed189361617d5ab8532a325aaf729d</p>
+</li><li>
+<p><a href="SQLite3/Database.html#method-i-trace"><code>SQLite3::Database#trace</code></a> now takes either a block or an object that responds to “call”.  The previous implementation passed around a VALUE that was cast to a void *.  This is dangerous because the value could get garbage collected before the proc was called.  If the user wants data passed around with the block, they should use variables available to the closure or create an object.</p>
+</li><li>
+<p><a href="SQLite3/Statement.html#method-i-step"><code>SQLite3::Statement#step</code></a> automatically converts to ruby types, where before all values were automatically yielded as strings.  This will only be a problem for people who were accessing information about the database that wasn&#39;t previously passed through the pure ruby conversion code.</p>
+</li><li>
+<p><a href="SQLite3/Database.html#method-i-errmsg"><code>SQLite3::Database#errmsg</code></a> no longer takes a parameter to return error messages as UTF-16.  Do people even use that?  I opt for staying UTF-8 when possible.  See test_integration.rb test_errmsg_utf16</p>
+</li><li>
+<p>SQLite3::Database#authorize same changes as trace</p>
+</li><li>
+<p>test/test_tc_database.rb was removed because we no longer use the Driver design pattern.</p>
+</li></ul>
+
+<h1 id="label-Garbage+Collection+Strategy">Garbage Collection Strategy<span><a href="#label-Garbage+Collection+Strategy">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>All statements keep pointers back to their respective database connections. The @connection instance variable on the Statement handle keeps the database connection alive.  Memory allocated for a statement handler will be freed in two cases:</p>
+<ul><li>
+<p>close is called on the statement</p>
+</li><li>
+<p>The <a href="SQLite3/Database.html"><code>SQLite3::Database</code></a> object gets garbage collected</p>
+</li></ul>
+
+<p>We can&#39;t free the memory for the statement in the garbage collection function for the statement handler.  The reason is because there exists a race condition.  We cannot guarantee the order in which objects will be garbage collected.  So, it is possible that a connection and a statement are up for garbage collection.  If the database connection were to be free&#39;d before the statement, then boom.  Instead we&#39;ll be conservative and free unclosed statements when the connection is terminated.</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

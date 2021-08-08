@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Binding - irb-1.2.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-irb">#irb</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Binding">
+  <h1 id="class-Binding" class="class">
+    class Binding
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-irb" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">irb</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Opens an IRB session where <code>binding.irb</code> is called which allows for interactive debugging. You can call any methods or variables available in the current scope, and mutate state if you need to.</p>
+
+<p>Given a Ruby file called <code>potato.rb</code> containing the following code:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Potato</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+    <span class="ruby-ivar">@cooked</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">irb</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Cooked potato: #{@cooked}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Potato</span>.<span class="ruby-identifier">new</span>
+</pre>
+
+<p>Running <code>ruby potato.rb</code> will open an IRB session where <code>binding.irb</code> is called, and you will see the following:</p>
+
+<pre>$ ruby potato.rb
+
+From: potato.rb @ line 4 :
+
+    1: class Potato
+    2:   def initialize
+    3:     @cooked = false
+ =&gt; 4:     binding.irb
+    5:     puts &quot;Cooked potato: #{@cooked}&quot;
+    6:   end
+    7: end
+    8:
+    9: Potato.new
+
+irb(#&lt;Potato:0x00007feea1916670&gt;):001:0&gt;</pre>
+
+<p>You can type any valid Ruby code and it will be evaluated in the current context. This allows you to debug without having to run your code repeatedly:</p>
+
+<pre>irb(#&lt;Potato:0x00007feea1916670&gt;):001:0&gt; @cooked
+=&gt; false
+irb(#&lt;Potato:0x00007feea1916670&gt;):002:0&gt; self.class
+=&gt; Potato
+irb(#&lt;Potato:0x00007feea1916670&gt;):003:0&gt; caller.first
+=&gt; &quot;.../2.5.1/lib/ruby/2.5.0/irb/workspace.rb:85:in `eval&#39;&quot;
+irb(#&lt;Potato:0x00007feea1916670&gt;):004:0&gt; @cooked = true
+=&gt; true</pre>
+
+<p>You can exit the IRB session with the <code>exit</code> command. Note that exiting will resume execution where <code>binding.irb</code> had paused it, as you can see from the output printed to standard output in this example:</p>
+
+<pre>irb(#&lt;Potato:0x00007feea1916670&gt;):005:0&gt; exit
+Cooked potato: true</pre>
+
+<p>See IRB for more information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="irb-source">
+            <pre><span class="ruby-comment"># File lib/irb.rb, line 868</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">irb</span>
+  <span class="ruby-constant">IRB</span>.<span class="ruby-identifier">setup</span>(<span class="ruby-identifier">source_location</span>[<span class="ruby-value">0</span>], <span class="ruby-value">argv:</span> [])
+  <span class="ruby-identifier">workspace</span> = <span class="ruby-constant">IRB</span><span class="ruby-operator">::</span><span class="ruby-constant">WorkSpace</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">print</span>(<span class="ruby-identifier">workspace</span>.<span class="ruby-identifier">code_around_binding</span>)
+  <span class="ruby-identifier">binding_irb</span> = <span class="ruby-constant">IRB</span><span class="ruby-operator">::</span><span class="ruby-constant">Irb</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">workspace</span>)
+  <span class="ruby-identifier">binding_irb</span>.<span class="ruby-identifier">context</span>.<span class="ruby-identifier">irb_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">source_location</span>[<span class="ruby-value">0</span>])
+  <span class="ruby-identifier">binding_irb</span>.<span class="ruby-identifier">run</span>(<span class="ruby-constant">IRB</span>.<span class="ruby-identifier">conf</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

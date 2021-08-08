@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Test::Unit::Data::ClassMethods - test-unit-3.3.5 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-data">#data</a>
+    
+    <li ><a href="#method-i-load_data">#load_data</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Test::Unit::Data::ClassMethods">
+  <h1 id="module-Test::Unit::Data::ClassMethods" class="module">
+    module Test::Unit::Data::ClassMethods
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data</span><span
+            class="method-args">(*arguments, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method provides Data-Driven-Test functionality.</p>
+
+<p>Define test data in the test code.</p>
+
+<p>@overload data(label, data, options={})</p>
+
+<pre>@param [String] label specify test case name.
+@param data specify test data.
+@param [Hash] options specify options.
+@option options [Boolean] :keep whether or not to use
+  this data in the following test methods
+
+@example data(label, data)
+  data(&quot;empty string&quot;, [true, &quot;&quot;])
+  data(&quot;plain string&quot;, [false, &quot;hello&quot;])
+  def test_empty?(data)
+    expected, target = data
+    assert_equal(expected, target.empty?)
+  end</pre>
+
+<p>@overload data(variable, patterns, options={})</p>
+
+<pre>@param [Symbol] variable specify test pattern variable name.
+@param [Array] patterns specify test patterns for the variable.
+@param [Hash] options specify options.
+@option options [Boolean] :keep whether or not to use
+  this data in the following test methods
+@option options [Object] :group the test pattern group.
+  Test matrix is generated for each test pattern group separately.
+
+@example data(variable, patterns)
+  data(:x, [1, 2, 3])
+  data(:y, [&quot;a&quot;, &quot;b&quot;])
+  def test_patterns(data)
+    # 3 * 2 times executed
+    # 3: the number of patterns of :x
+    # 2: the number of patterns of :y
+    p data
+      # =&gt; {:x =&gt; 1, :y =&gt; &quot;a&quot;}
+      # =&gt; {:x =&gt; 1, :y =&gt; &quot;b&quot;}
+      # =&gt; {:x =&gt; 2, :y =&gt; &quot;a&quot;}
+      # =&gt; {:x =&gt; 2, :y =&gt; &quot;b&quot;}
+      # =&gt; {:x =&gt; 3, :y =&gt; &quot;a&quot;}
+      # =&gt; {:x =&gt; 3, :y =&gt; &quot;b&quot;}
+  end
+
+Generates test matrix from variable and patterns pairs.</pre>
+
+<p>@overload data(data_set, options={})</p>
+
+<pre>@param [Hash] data_set specify test data as a Hash that
+  key is test label and value is test data.
+@param [Hash] options specify options.
+@option options [Boolean] :keep whether or not to use
+  this data in the following test methods
+
+@example data(data_set)
+  data(&quot;empty string&quot; =&gt; [true, &quot;&quot;],
+       &quot;plain string&quot; =&gt; [false, &quot;hello&quot;])
+  def test_empty?(data)
+    expected, target = data
+    assert_equal(expected, target.empty?)
+  end</pre>
+
+<p>@overload data(options={}, &amp;block)</p>
+
+<pre>@param [Hash] options specify options.
+@option options [Boolean] :keep whether or not to use
+  this data in the following test methods
+@yieldreturn [Hash&lt;String, Object&gt;] return test data set
+  as a Hash that key is test label and value is test data.
+
+@example data(&amp;block)
+  data do
+    data_set = {}
+    data_set[&quot;empty string&quot;] = [true, &quot;&quot;]
+    data_set[&quot;plain string&quot;] = [false, &quot;hello&quot;]
+    data_set
+  end
+  def test_empty?(data)
+    expected, target = data
+    assert_equal(expected, target.empty?)
+  end</pre>
+
+<p>@overload data(options={}, &amp;block)</p>
+
+<pre>@param [Hash] options specify options.
+@option options [Boolean] :keep whether or not to use
+  this data in the following test methods
+@yieldreturn [Array&lt;Symbol, Array&gt;] return test data set
+  as an Array of variable and patterns.
+
+@example data(&amp;block)
+  data do
+    patterns = 3.times.to_a
+    [:x, patterns]
+  end
+  data do
+    patterns = []
+    character = &quot;a&quot;
+    2.times.each do
+      patterns &lt;&lt; character
+      character = character.succ
+    end
+    [:y, patterns]
+  end
+  def test_patterns(data)
+    # 3 * 2 times executed
+    # 3: the number of patterns of :x
+    # 2: the number of patterns of :y
+    p data
+      # =&gt; {:x =&gt; 0, :y =&gt; &quot;a&quot;}
+      # =&gt; {:x =&gt; 0, :y =&gt; &quot;b&quot;}
+      # =&gt; {:x =&gt; 1, :y =&gt; &quot;a&quot;}
+      # =&gt; {:x =&gt; 1, :y =&gt; &quot;b&quot;}
+      # =&gt; {:x =&gt; 2, :y =&gt; &quot;a&quot;}
+      # =&gt; {:x =&gt; 2, :y =&gt; &quot;b&quot;}
+  end
+
+Generates test matrix from variable and patterns pairs.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="data-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/data.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">data</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">arguments</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">n_arguments</span> = <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">n_arguments</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;no block is given&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">data_set</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+      <span class="ruby-identifier">data_set</span> = <span class="ruby-identifier">block</span>
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">data_set</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">arguments</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+      <span class="ruby-identifier">data_set</span> = {<span class="ruby-identifier">arguments</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">arguments</span>[<span class="ruby-value">1</span>]}
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+      <span class="ruby-identifier">data_set</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">variable</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-identifier">patterns</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-identifier">data_set</span> = [<span class="ruby-identifier">variable</span>, <span class="ruby-identifier">patterns</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">arguments</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+      <span class="ruby-identifier">data_set</span> = {<span class="ruby-identifier">arguments</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">arguments</span>[<span class="ruby-value">1</span>]}
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">variable</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-identifier">patterns</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-identifier">data_set</span> = [<span class="ruby-identifier">variable</span>, <span class="ruby-identifier">patterns</span>]
+      <span class="ruby-identifier">options</span> = <span class="ruby-identifier">arguments</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;wrong number arguments(#{n_arguments} for 0..3)&quot;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">message</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">options</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-identifier">data_sets</span> = <span class="ruby-identifier">current_attribute</span>(<span class="ruby-value">:data</span>)[<span class="ruby-value">:value</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">DataSets</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">data_sets</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">data_set</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:keep</span>]
+    <span class="ruby-identifier">keep_hook</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">value:</span> <span class="ruby-identifier">attr</span>[<span class="ruby-value">:value</span>].<span class="ruby-identifier">keep</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">keep_hook:</span> <span class="ruby-identifier">keep_hook</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">attribute</span>(<span class="ruby-value">:data</span>, <span class="ruby-identifier">data_sets</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_data</span><span
+            class="method-args">(file_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method provides Data-Driven-Test functionality.</p>
+
+<p>Load test data from the file. This is shorthand to load test data from file.  If you want to load complex file, you can use {#data} with block.</p>
+
+<p>@param [String] file_name full path to test data file.</p>
+
+<pre>File format is automatically detected from filename extension.</pre>
+
+<p>@raise [ArgumentError] if `file_name` is not supported file format. @see <a href="ClassMethods/Loader.html#method-i-load"><code>Loader#load</code></a></p>
+
+<p>@example Load data from CSV file</p>
+
+<pre class="ruby"><span class="ruby-identifier">load_data</span>(<span class="ruby-string">&quot;/path/to/test-data.csv&quot;</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_empty?</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;expected&quot;</span>], <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;target&quot;</span>].<span class="ruby-identifier">empty?</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="load_data-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/data.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_data</span>(<span class="ruby-identifier">file_name</span>)
+  <span class="ruby-identifier">loader</span> = <span class="ruby-constant">Loader</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">loader</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">file_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

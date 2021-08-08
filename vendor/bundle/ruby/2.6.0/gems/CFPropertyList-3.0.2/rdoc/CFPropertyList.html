@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module CFPropertyList - CFPropertyList-3.0.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-guess">::guess</a>
+    
+    <li ><a href="#method-c-native_types">::native_types</a>
+    
+    <li ><a href="#method-i-guess">#guess</a>
+    
+    <li ><a href="#method-i-native_types">#native_types</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-CFPropertyList">
+  <h1 id="module-CFPropertyList" class="module">
+    module CFPropertyList
+  </h1>
+
+  <section class="description">
+    
+<p><a href="CFPropertyList.html"><code>CFPropertyList</code></a> implementation</p>
+
+<p>class to read, manipulate and write both XML and binary property list files (plist(5)) as defined by Apple. Have a look at <a href="CFPropertyList/List.html"><code>CFPropertyList::List</code></a> for more documentation.</p>
+
+<h2 id="module-CFPropertyList-label-Example">Example<span><a href="#module-CFPropertyList-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;cfpropertylist&#39;</span>
+
+<span class="ruby-comment"># create a arbitrary data structure of basic data types</span>
+<span class="ruby-identifier">data</span> = {
+  <span class="ruby-string">&#39;name&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;John Doe&#39;</span>,
+  <span class="ruby-string">&#39;missing&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>,
+  <span class="ruby-string">&#39;last_seen&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>,
+  <span class="ruby-string">&#39;friends&#39;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;Jane Doe&#39;</span>,<span class="ruby-string">&#39;Julian Doe&#39;</span>],
+  <span class="ruby-string">&#39;likes&#39;</span> <span class="ruby-operator">=&gt;</span> {
+    <span class="ruby-string">&#39;me&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>
+  }
+}
+
+<span class="ruby-comment"># create CFPropertyList::List object</span>
+<span class="ruby-identifier">plist</span> = <span class="ruby-constant">CFPropertyList</span><span class="ruby-operator">::</span><span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-comment"># call CFPropertyList.guess() to create corresponding CFType values</span>
+<span class="ruby-comment"># pass in optional :convert_unknown_to_string =&gt; true to convert things like symbols into strings.</span>
+<span class="ruby-identifier">plist</span>.<span class="ruby-identifier">value</span> = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">data</span>)
+
+<span class="ruby-comment"># write plist to file</span>
+<span class="ruby-identifier">plist</span>.<span class="ruby-identifier">save</span>(<span class="ruby-string">&quot;example.plist&quot;</span>, <span class="ruby-constant">CFPropertyList</span><span class="ruby-operator">::</span><span class="ruby-constant">List</span><span class="ruby-operator">::</span><span class="ruby-constant">FORMAT_BINARY</span>)
+
+<span class="ruby-comment"># … later, read it again</span>
+<span class="ruby-identifier">plist</span> = <span class="ruby-constant">CFPropertyList</span><span class="ruby-operator">::</span><span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:file</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;example.plist&quot;</span>)
+<span class="ruby-identifier">data</span> = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">native_types</span>(<span class="ruby-identifier">plist</span>.<span class="ruby-identifier">value</span>)
+</pre>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Christian Kruse (<a href="mailto:cjk@wwwtech.de">cjk@wwwtech.de</a>)</p>
+</dd><dt>Copyright
+<dd>
+<p>Copyright © 2010</p>
+</dd><dt>License
+<dd>
+<p>MIT License</p>
+</dd></dl>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-xml_parser_interface" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">xml_parser_interface</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-guess" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess</span><span
+            class="method-args">(object, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create <a href="CFPropertyList/CFType.html"><code>CFType</code></a> hierarchy by guessing the correct <a href="CFPropertyList/CFType.html"><code>CFType</code></a>, e.g.</p>
+
+<pre class="ruby"><span class="ruby-identifier">x</span> = {
+  <span class="ruby-string">&#39;a&#39;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;b&#39;</span>,<span class="ruby-string">&#39;c&#39;</span>,<span class="ruby-string">&#39;d&#39;</span>]
+}
+<span class="ruby-identifier">cftypes</span> = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">x</span>)
+</pre>
+
+<p>pass optional options hash. Only possible value actually:</p>
+<dl class="rdoc-list note-list"><dt><code>convert_unknown_to_string</code>
+<dd>
+<p>Convert unknown objects to string calling to_str()</p>
+</dd><dt><code>converter_method</code>
+<dd>
+<p>Convert unknown objects to known objects calling <code>method_name</code></p>
+</dd></dl>
+
+<pre class="ruby"><span class="ruby-identifier">cftypes</span> = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">x</span>,<span class="ruby-value">:convert_unknown_to_string</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>,<span class="ruby-value">:converter_method</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:to_hash</span>, <span class="ruby-value">:converter_with_opts</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="guess-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFPropertyList.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">guess</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>               <span class="ruby-keyword">then</span> <span class="ruby-constant">CFInteger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">UidFixnum</span>             <span class="ruby-keyword">then</span> <span class="ruby-constant">CFUid</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Float</span>                 <span class="ruby-keyword">then</span> <span class="ruby-constant">CFReal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">TrueClass</span>, <span class="ruby-constant">FalseClass</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">CFBoolean</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Blob</span>
+    <span class="ruby-constant">CFData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>, <span class="ruby-constant">CFData</span><span class="ruby-operator">::</span><span class="ruby-constant">DATA_RAW</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
+    <span class="ruby-constant">CFString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_s</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Time</span>, <span class="ruby-constant">DateTime</span>, <span class="ruby-constant">Date</span>
+    <span class="ruby-constant">CFDate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>, <span class="ruby-constant">Enumerator</span>
+    <span class="ruby-identifier">ary</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">CFArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ary</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">hsh</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">k</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+      <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">CFDictionary</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">hsh</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">case</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-string">&#39;BigDecimal&#39;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">BigDecimal</span>)
+      <span class="ruby-constant">CFReal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:read</span>)
+      <span class="ruby-identifier">raw_data</span> = <span class="ruby-identifier">object</span>.<span class="ruby-identifier">read</span>
+      <span class="ruby-comment"># treat the data as a bytestring (ASCII-8BIT) if Ruby supports it.  Do this by forcing</span>
+      <span class="ruby-comment"># the encoding, on the assumption that the bytes were read correctly, and just tagged with</span>
+      <span class="ruby-comment"># an inappropriate encoding, rather than transcoding.</span>
+      <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:force_encoding</span>)
+      <span class="ruby-constant">CFData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">raw_data</span>, <span class="ruby-constant">CFData</span><span class="ruby-operator">::</span><span class="ruby-constant">DATA_RAW</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_method</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_method</span>])
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_with_opts</span>]
+        <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_method</span>],<span class="ruby-identifier">options</span>),<span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_method</span>]),<span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:convert_unknown_to_string</span>]
+      <span class="ruby-constant">CFString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFTypeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Unknown class #{object.class.to_s}. Try using :convert_unknown_to_string if you want to use unknown object types!&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-native_types" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">native_types</span><span
+            class="method-args">(object,keys_as_symbols=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts a <a href="CFPropertyList/CFType.html"><code>CFType</code></a> hiercharchy to native Ruby types</p>
+          
+          
+
+          
+          <div class="method-source-code" id="native_types-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFPropertyList.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">native_types</span>(<span class="ruby-identifier">object</span>,<span class="ruby-identifier">keys_as_symbols</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFDate</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFString</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFInteger</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFReal</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFBoolean</span>)) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFUid</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFData</span>)) <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">CFPropertyList</span><span class="ruby-operator">::</span><span class="ruby-constant">Blob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">decoded_value</span>)
+  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFArray</span>)) <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">ary</span> = []
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">native_types</span>(<span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">ary</span>
+  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFDictionary</span>)) <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">hsh</span> = {}
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">k</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys_as_symbols</span>
+      <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">native_types</span>(<span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">hsh</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-guess" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guess</span><span
+            class="method-args">(object, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create <a href="CFPropertyList/CFType.html"><code>CFType</code></a> hierarchy by guessing the correct <a href="CFPropertyList/CFType.html"><code>CFType</code></a>, e.g.</p>
+
+<pre class="ruby"><span class="ruby-identifier">x</span> = {
+  <span class="ruby-string">&#39;a&#39;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;b&#39;</span>,<span class="ruby-string">&#39;c&#39;</span>,<span class="ruby-string">&#39;d&#39;</span>]
+}
+<span class="ruby-identifier">cftypes</span> = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">x</span>)
+</pre>
+
+<p>pass optional options hash. Only possible value actually:</p>
+<dl class="rdoc-list note-list"><dt><code>convert_unknown_to_string</code>
+<dd>
+<p>Convert unknown objects to string calling to_str()</p>
+</dd><dt><code>converter_method</code>
+<dd>
+<p>Convert unknown objects to known objects calling <code>method_name</code></p>
+</dd></dl>
+
+<pre class="ruby"><span class="ruby-identifier">cftypes</span> = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">x</span>,<span class="ruby-value">:convert_unknown_to_string</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>,<span class="ruby-value">:converter_method</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:to_hash</span>, <span class="ruby-value">:converter_with_opts</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="guess-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFPropertyList.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">guess</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>               <span class="ruby-keyword">then</span> <span class="ruby-constant">CFInteger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">UidFixnum</span>             <span class="ruby-keyword">then</span> <span class="ruby-constant">CFUid</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Float</span>                 <span class="ruby-keyword">then</span> <span class="ruby-constant">CFReal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">TrueClass</span>, <span class="ruby-constant">FalseClass</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">CFBoolean</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Blob</span>
+    <span class="ruby-constant">CFData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>, <span class="ruby-constant">CFData</span><span class="ruby-operator">::</span><span class="ruby-constant">DATA_RAW</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
+    <span class="ruby-constant">CFString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_s</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Time</span>, <span class="ruby-constant">DateTime</span>, <span class="ruby-constant">Date</span>
+    <span class="ruby-constant">CFDate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>, <span class="ruby-constant">Enumerator</span>
+    <span class="ruby-identifier">ary</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">CFArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ary</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">hsh</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">k</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+      <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">CFDictionary</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">hsh</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">case</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-string">&#39;BigDecimal&#39;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">BigDecimal</span>)
+      <span class="ruby-constant">CFReal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:read</span>)
+      <span class="ruby-identifier">raw_data</span> = <span class="ruby-identifier">object</span>.<span class="ruby-identifier">read</span>
+      <span class="ruby-comment"># treat the data as a bytestring (ASCII-8BIT) if Ruby supports it.  Do this by forcing</span>
+      <span class="ruby-comment"># the encoding, on the assumption that the bytes were read correctly, and just tagged with</span>
+      <span class="ruby-comment"># an inappropriate encoding, rather than transcoding.</span>
+      <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:force_encoding</span>)
+      <span class="ruby-constant">CFData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">raw_data</span>, <span class="ruby-constant">CFData</span><span class="ruby-operator">::</span><span class="ruby-constant">DATA_RAW</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_method</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_method</span>])
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_with_opts</span>]
+        <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_method</span>],<span class="ruby-identifier">options</span>),<span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">guess</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:converter_method</span>]),<span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:convert_unknown_to_string</span>]
+      <span class="ruby-constant">CFString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFTypeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Unknown class #{object.class.to_s}. Try using :convert_unknown_to_string if you want to use unknown object types!&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-native_types" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">native_types</span><span
+            class="method-args">(object,keys_as_symbols=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts a <a href="CFPropertyList/CFType.html"><code>CFType</code></a> hiercharchy to native Ruby types</p>
+          
+          
+
+          
+          <div class="method-source-code" id="native_types-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFPropertyList.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">native_types</span>(<span class="ruby-identifier">object</span>,<span class="ruby-identifier">keys_as_symbols</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFDate</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFString</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFInteger</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFReal</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFBoolean</span>)) <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFUid</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFData</span>)) <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">CFPropertyList</span><span class="ruby-operator">::</span><span class="ruby-constant">Blob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">decoded_value</span>)
+  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFArray</span>)) <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">ary</span> = []
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">native_types</span>(<span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">ary</span>
+  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFDictionary</span>)) <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">hsh</span> = {}
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">k</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys_as_symbols</span>
+      <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-constant">CFPropertyList</span>.<span class="ruby-identifier">native_types</span>(<span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">hsh</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

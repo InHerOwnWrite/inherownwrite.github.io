@@ -1,0 +1,2940 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class SQLite3::Database - sqlite3-1.4.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Pragmas.html">SQLite3::Pragmas</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-arity">::arity</a>
+    
+    <li ><a href="#method-c-finalize">::finalize</a>
+    
+    <li ><a href="#method-c-name">::name</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-quote">::quote</a>
+    
+    <li ><a href="#method-c-step">::step</a>
+    
+    <li ><a href="#method-c-template">::template</a>
+    
+    <li ><a href="#method-i-authorizer">#authorizer</a>
+    
+    <li ><a href="#method-i-authorizer-3D">#authorizer=</a>
+    
+    <li ><a href="#method-i-busy_handler">#busy_handler</a>
+    
+    <li ><a href="#method-i-busy_timeout">#busy_timeout</a>
+    
+    <li ><a href="#method-i-busy_timeout-3D">#busy_timeout=</a>
+    
+    <li ><a href="#method-i-changes">#changes</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-closed-3F">#closed?</a>
+    
+    <li ><a href="#method-i-collation">#collation</a>
+    
+    <li ><a href="#method-i-commit">#commit</a>
+    
+    <li ><a href="#method-i-complete-3F">#complete?</a>
+    
+    <li ><a href="#method-i-create_aggregate">#create_aggregate</a>
+    
+    <li ><a href="#method-i-create_aggregate_handler">#create_aggregate_handler</a>
+    
+    <li ><a href="#method-i-create_function">#create_function</a>
+    
+    <li ><a href="#method-i-db_filename">#db_filename</a>
+    
+    <li ><a href="#method-i-define_aggregator">#define_aggregator</a>
+    
+    <li ><a href="#method-i-define_function">#define_function</a>
+    
+    <li ><a href="#method-i-define_function_with_flags">#define_function_with_flags</a>
+    
+    <li ><a href="#method-i-enable_load_extension">#enable_load_extension</a>
+    
+    <li ><a href="#method-i-encoding">#encoding</a>
+    
+    <li ><a href="#method-i-errcode">#errcode</a>
+    
+    <li ><a href="#method-i-errmsg">#errmsg</a>
+    
+    <li ><a href="#method-i-exec_batch">#exec_batch</a>
+    
+    <li ><a href="#method-i-execute">#execute</a>
+    
+    <li ><a href="#method-i-execute2">#execute2</a>
+    
+    <li ><a href="#method-i-execute_batch">#execute_batch</a>
+    
+    <li ><a href="#method-i-execute_batch2">#execute_batch2</a>
+    
+    <li ><a href="#method-i-extended_result_codes-3D">#extended_result_codes=</a>
+    
+    <li ><a href="#method-i-filename">#filename</a>
+    
+    <li ><a href="#method-i-finalize">#finalize</a>
+    
+    <li ><a href="#method-i-get_first_row">#get_first_row</a>
+    
+    <li ><a href="#method-i-get_first_value">#get_first_value</a>
+    
+    <li ><a href="#method-i-interrupt">#interrupt</a>
+    
+    <li ><a href="#method-i-last_insert_row_id">#last_insert_row_id</a>
+    
+    <li ><a href="#method-i-load_extension">#load_extension</a>
+    
+    <li ><a href="#method-i-make_type_translator">#make_type_translator</a>
+    
+    <li ><a href="#method-i-open16">#open16</a>
+    
+    <li ><a href="#method-i-open_v2">#open_v2</a>
+    
+    <li ><a href="#method-i-prepare">#prepare</a>
+    
+    <li ><a href="#method-i-query">#query</a>
+    
+    <li ><a href="#method-i-readonly-3F">#readonly?</a>
+    
+    <li ><a href="#method-i-rollback">#rollback</a>
+    
+    <li ><a href="#method-i-step">#step</a>
+    
+    <li ><a href="#method-i-total_changes">#total_changes</a>
+    
+    <li ><a href="#method-i-trace">#trace</a>
+    
+    <li ><a href="#method-i-transaction">#transaction</a>
+    
+    <li ><a href="#method-i-transaction_active-3F">#transaction_active?</a>
+    
+    <li ><a href="#method-i-translate_from_db">#translate_from_db</a>
+    
+    <li ><a href="#method-i-translator">#translator</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-SQLite3::Database">
+  <h1 id="class-SQLite3::Database" class="class">
+    class SQLite3::Database
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Database.html"><code>Database</code></a> class encapsulates a single connection to a <a href="../SQLite3.html"><code>SQLite3</code></a> database. Its usage is very straightforward:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;sqlite3&#39;</span>
+
+<span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&quot;data.db&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">db</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">db</span>.<span class="ruby-identifier">execute</span>( <span class="ruby-string">&quot;select * from table&quot;</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">p</span> <span class="ruby-identifier">row</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>It wraps the lower-level methods provides by the selected driver, and includes the <a href="Pragmas.html"><code>Pragmas</code></a> module for access to various pragma convenience methods.</p>
+
+<p>The <a href="Database.html"><code>Database</code></a> class provides type translation services as well, by which the <a href="../SQLite3.html"><code>SQLite3</code></a> data types (which are all represented as strings) may be converted into their corresponding types (as defined in the schemas for their tables). This translation only occurs when querying data from the database–insertions and updates are all still typeless.</p>
+
+<p>Furthermore, the <a href="Database.html"><code>Database</code></a> class has been designed to work well with the ArrayFields module from Ara Howard. If you require the ArrayFields module before performing a query, and if you have not enabled results as hashes, then the results will all be indexible by field name.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="NULL_TRANSLATOR">NULL_TRANSLATOR
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-collations" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">collations</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-results_as_hash" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">results_as_hash</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>A boolean that indicates whether rows in result sets should be returned as hashes or not. By default, rows are returned as arrays.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-arity" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">arity</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="arity-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 471</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">arity</span>
+  <span class="ruby-ivar">@arity</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-finalize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finalize</span><span
+            class="method-args">( &amp;block )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="finalize-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 448</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">finalize</span>( <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:finalize_with_ctx</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 467</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">name</span>
+  <span class="ruby-ivar">@name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            SQLite3::Database.new(file, options = {})
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Database.html"><code>Database</code></a> object that opens the given file. If utf16 is <code>true</code>, the filename is interpreted as a UTF-16 encoded string.</p>
+
+<p>By default, the new database will return result rows as arrays (#results_as_hash) and has type translation disabled (#type_translation=).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">file</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-identifier">zvfs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">mode</span> = <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">Open</span><span class="ruby-operator">::</span><span class="ruby-constant">READWRITE</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">Open</span><span class="ruby-operator">::</span><span class="ruby-constant">CREATE</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_16LE</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_16BE</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:utf16</span>]
+    <span class="ruby-identifier">open16</span> <span class="ruby-identifier">file</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># The three primary flag values for sqlite3_open_v2 are:</span>
+    <span class="ruby-comment"># SQLITE_OPEN_READONLY</span>
+    <span class="ruby-comment"># SQLITE_OPEN_READWRITE</span>
+    <span class="ruby-comment"># SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE -- always used for sqlite3_open and sqlite3_open16</span>
+    <span class="ruby-identifier">mode</span> = <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">Open</span><span class="ruby-operator">::</span><span class="ruby-constant">READONLY</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:readonly</span>]
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:readwrite</span>]
+      <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;conflicting options: readonly and readwrite&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:readonly</span>]
+      <span class="ruby-identifier">mode</span> = <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">Open</span><span class="ruby-operator">::</span><span class="ruby-constant">READWRITE</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:flags</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:readonly</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:readwrite</span>]
+        <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;conflicting options: flags with readonly and/or readwrite&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">mode</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:flags</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">open_v2</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;utf-8&quot;</span>), <span class="ruby-identifier">mode</span>, <span class="ruby-identifier">zvfs</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tracefunc</span>        = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@authorizer</span>       = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@encoding</span>         = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@busy_handler</span>     = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@collations</span>       = {}
+  <span class="ruby-ivar">@functions</span>        = {}
+  <span class="ruby-ivar">@results_as_hash</span>  = <span class="ruby-identifier">options</span>[<span class="ruby-value">:results_as_hash</span>]
+  <span class="ruby-ivar">@type_translation</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:type_translation</span>]
+  <span class="ruby-ivar">@type_translator</span>  = <span class="ruby-identifier">make_type_translator</span> <span class="ruby-ivar">@type_translation</span>
+  <span class="ruby-ivar">@readonly</span>         = <span class="ruby-identifier">mode</span> <span class="ruby-operator">&amp;</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">Open</span><span class="ruby-operator">::</span><span class="ruby-constant">READONLY</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">close</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-quote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quote</span><span
+            class="method-args">( string )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Quotes the given string, making it safe to use in an SQL statement. It replaces all instances of the single-quote character with two single-quote characters. The modified string is returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="quote-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">quote</span>( <span class="ruby-identifier">string</span> )
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">gsub</span>( <span class="ruby-regexp">/&#39;/</span>, <span class="ruby-string">&quot;&#39;&#39;&quot;</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-step" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">step</span><span
+            class="method-args">( &amp;block )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="step-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 444</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">step</span>( <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:step_with_ctx</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 582</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">template</span>
+  <span class="ruby-ivar">@template</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-authorizer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authorizer</span><span
+            class="method-args">( &amp;block )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Installs (or removes) a block that will be invoked for every access to the database. If the block returns 0 (or <code>nil</code>), the statement is allowed to proceed. Returning 1 causes an authorization error to occur, and returning 2 causes the access to be silently denied.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="authorizer-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">authorizer</span>( <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">authorizer</span> = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-authorizer-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_authorizer = auth
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the authorizer for this database.  <code>auth</code> must respond to <code>call</code>, and <code>call</code> must take 5 arguments.</p>
+
+<p>Installs (or removes) a block that will be invoked for every access to the database. If the block returns 0 (or <code>true</code>), the statement is allowed to proceed. Returning 1 or false causes an authorization error to occur, and returning 2 or nil causes the access to be silently denied.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="authorizer-3D-source">
+            <pre>static VALUE set_authorizer(VALUE self, VALUE authorizer)
+{
+  sqlite3RubyPtr ctx;
+  int status;
+
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  status = sqlite3_set_authorizer(
+      ctx-&gt;db, NIL_P(authorizer) ? NULL : rb_sqlite3_auth, (void *)self
+  );
+
+  CHECK(ctx-&gt;db, status);
+
+  rb_iv_set(self, &quot;@authorizer&quot;, authorizer);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-busy_handler" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            busy_handler { |count| ... }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            busy_handler(Class.new { def call count; end }.new)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Register a busy handler with this database instance. When a requested resource is busy, this handler will be invoked. If the handler returns <code>false</code>, the operation will be aborted; otherwise, the resource will be requested again.</p>
+
+<p>The handler will be invoked with the name of the resource that was busy, and the number of times it has been retried.</p>
+
+<p>See also the mutually exclusive <a href="Database.html#method-i-busy_timeout"><code>busy_timeout</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="busy_handler-source">
+            <pre>static VALUE busy_handler(int argc, VALUE *argv, VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  VALUE block;
+  int status;
+
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  rb_scan_args(argc, argv, &quot;01&quot;, &amp;block);
+
+  if(NIL_P(block) &amp;&amp; rb_block_given_p()) block = rb_block_proc();
+
+  rb_iv_set(self, &quot;@busy_handler&quot;, block);
+
+  status = sqlite3_busy_handler(
+      ctx-&gt;db, NIL_P(block) ? NULL : rb_sqlite3_busy_handler, (void *)self);
+
+  CHECK(ctx-&gt;db, status);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-busy_timeout" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">busy_timeout</span><span
+            class="method-args">(p1)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Database.html#method-i-busy_timeout-3D">busy_timeout=</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-busy_timeout-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            busy_timeout = ms
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Indicates that if a request for a resource terminates because that resource is busy, SQLite should sleep and retry for up to the indicated number of milliseconds. By default, SQLite does not retry busy resources. To restore the default behavior, send 0 as the <code>ms</code> parameter.</p>
+
+<p>See also the mutually exclusive <a href="Database.html#method-i-busy_handler"><code>busy_handler</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="busy_timeout-3D-source">
+            <pre>static VALUE set_busy_timeout(VALUE self, VALUE timeout)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  CHECK(ctx-&gt;db, sqlite3_busy_timeout(ctx-&gt;db, (int)NUM2INT(timeout)));
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Database.html#method-i-busy_timeout">busy_timeout</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-changes" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            changes
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of changes made to this database instance by the last operation performed. Note that a “delete from table” without a where clause will not affect this value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="changes-source">
+            <pre>static VALUE changes(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  return INT2NUM(sqlite3_changes(ctx-&gt;db));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            close
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Closes this database.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre>static VALUE sqlite3_rb_close(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  sqlite3 * db;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+
+  db = ctx-&gt;db;
+  CHECK(db, sqlite3_close(ctx-&gt;db));
+
+  ctx-&gt;db = NULL;
+
+  rb_iv_set(self, &quot;-aggregators&quot;, Qnil);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-closed-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            closed?
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if this database instance has been closed (see <a href="Database.html#method-i-close"><code>close</code></a>).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="closed-3F-source">
+            <pre>static VALUE closed_p(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+
+  if(!ctx-&gt;db) return Qtrue;
+
+  return Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collation" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            collation(name, comparator)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Add a collation with name <code>name</code>, and a <code>comparator</code> object.  The <code>comparator</code> object should implement a method called “compare” that takes two parameters and returns an integer less than, equal to, or greater than 0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="collation-source">
+            <pre>static VALUE collation(VALUE self, VALUE name, VALUE comparator)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  CHECK(ctx-&gt;db, sqlite3_create_collation(
+        ctx-&gt;db,
+        StringValuePtr(name),
+        SQLITE_UTF8,
+        (void *)comparator,
+        NIL_P(comparator) ? NULL : rb_comparator_func));
+
+  /* Make sure our comparator doesn&#39;t get garbage collected. */
+  rb_hash_aset(rb_iv_get(self, &quot;@collations&quot;), name, comparator);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-commit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">commit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Commits the current transaction. If there is no current transaction, this will cause an error to be raised. This returns <code>true</code>, in order to allow it to be used in idioms like <code>abort? and rollback or commit</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="commit-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 649</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">commit</span>
+  <span class="ruby-identifier">execute</span> <span class="ruby-string">&quot;commit transaction&quot;</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-complete-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            complete?(sql)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return <code>true</code> if the string is a valid (ie, parsable) SQL statement, and <code>false</code> otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="complete-3F-source">
+            <pre>static VALUE complete_p(VALUE UNUSED(self), VALUE sql)
+{
+  if(sqlite3_complete(StringValuePtr(sql)))
+    return Qtrue;
+
+  return Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_aggregate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_aggregate</span><span
+            class="method-args">( name, arity, step=nil, finalize=nil, text_rep=Constants::TextRep::ANY, &amp;block )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new aggregate function for use in SQL statements. Aggregate functions are functions that apply over every row in the result set, instead of over just a single row. (A very common aggregate function is the “count” function, for determining the number of rows that match a query.)</p>
+
+<p>The new function will be added as <code>name</code>, with the given <code>arity</code>. (For variable arity functions, use -1 for the arity.)</p>
+
+<p>The <code>step</code> parameter must be a proc object that accepts as its first parameter a <a href="Database/FunctionProxy.html"><code>FunctionProxy</code></a> instance (representing the function invocation), with any subsequent parameters (up to the function&#39;s arity). The <code>step</code> callback will be invoked once for each row of the result set.</p>
+
+<p>The <code>finalize</code> parameter must be a <code>proc</code> object that accepts only a single parameter, the <a href="Database/FunctionProxy.html"><code>FunctionProxy</code></a> instance representing the current function invocation. It should invoke <a href="Database/FunctionProxy.html#attribute-i-result"><code>FunctionProxy#result=</code></a> to store the result of the function.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">db</span>.<span class="ruby-identifier">create_aggregate</span>( <span class="ruby-string">&quot;lengths&quot;</span>, <span class="ruby-value">1</span> ) <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">step</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">func</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">func</span>[ <span class="ruby-value">:total</span> ] <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">func</span>[ <span class="ruby-value">:total</span> ] <span class="ruby-operator">+=</span> ( <span class="ruby-identifier">value</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span> )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">finalize</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">func</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">func</span>.<span class="ruby-identifier">result</span> = <span class="ruby-identifier">func</span>[ <span class="ruby-value">:total</span> ] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">db</span>.<span class="ruby-identifier">get_first_value</span>( <span class="ruby-string">&quot;select lengths(name) from table&quot;</span> )
+</pre>
+
+<p>See also <a href="Database.html#method-i-create_aggregate_handler"><code>create_aggregate_handler</code></a> for a more object-oriented approach to aggregate functions.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_aggregate-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 440</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_aggregate</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">arity</span>, <span class="ruby-identifier">step</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">finalize</span>=<span class="ruby-keyword">nil</span>,
+  <span class="ruby-identifier">text_rep</span>=<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">TextRep</span><span class="ruby-operator">::</span><span class="ruby-constant">ANY</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+
+  <span class="ruby-identifier">proxy</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">step</span>( <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:step_with_ctx</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">finalize</span>( <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:finalize_with_ctx</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:step_with_ctx</span>, <span class="ruby-identifier">step</span>)
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:finalize_with_ctx</span>, <span class="ruby-identifier">finalize</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># class instance variables</span>
+    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+    <span class="ruby-ivar">@arity</span> = <span class="ruby-identifier">arity</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">name</span>
+      <span class="ruby-ivar">@name</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">arity</span>
+      <span class="ruby-ivar">@arity</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+      <span class="ruby-ivar">@ctx</span> = <span class="ruby-constant">FunctionProxy</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">step</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+      <span class="ruby-identifier">step_with_ctx</span>(<span class="ruby-ivar">@ctx</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finalize</span>
+      <span class="ruby-identifier">finalize_with_ctx</span>(<span class="ruby-ivar">@ctx</span>)
+      <span class="ruby-ivar">@ctx</span>.<span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">define_aggregator2</span>(<span class="ruby-identifier">proxy</span>, <span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_aggregate_handler" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_aggregate_handler</span><span
+            class="method-args">( handler )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This is another approach to creating an aggregate function (see <a href="Database.html#method-i-create_aggregate"><code>create_aggregate</code></a>). Instead of explicitly specifying the name, callbacks, arity, and type, you specify a factory object (the “handler”) that knows how to obtain all of that information. The handler should respond to the following messages:</p>
+<dl class="rdoc-list note-list"><dt><code>arity</code>
+<dd>
+<p>corresponds to the <code>arity</code> parameter of <a href="Database.html#method-i-create_aggregate"><code>create_aggregate</code></a>. This message is optional, and if the handler does not respond to it, the function will have an arity of -1.</p>
+</dd><dt><code>name</code>
+<dd>
+<p>this is the name of the function. The handler <em>must</em> implement this message.</p>
+</dd><dt><code>new</code>
+<dd>
+<p>this must be implemented by the handler. It should return a new instance of the object that will handle a specific invocation of the function.</p>
+</dd></dl>
+
+<p>The handler instance (the object returned by the <code>new</code> message, described above), must respond to the following messages:</p>
+<dl class="rdoc-list note-list"><dt><code>step</code>
+<dd>
+<p>this is the method that will be called for each step of the aggregate function&#39;s evaluation. It should implement the same signature as the <code>step</code> callback for <a href="Database.html#method-i-create_aggregate"><code>create_aggregate</code></a>.</p>
+</dd><dt><code>finalize</code>
+<dd>
+<p>this is the method that will be called to finalize the aggregate function&#39;s evaluation. It should implement the same signature as the <code>finalize</code> callback for <a href="Database.html#method-i-create_aggregate"><code>create_aggregate</code></a>.</p>
+</dd></dl>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">LengthsAggregateHandler</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">arity</span>; <span class="ruby-value">1</span>; <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">name</span>; <span class="ruby-string">&#39;lengths&#39;</span>; <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+    <span class="ruby-ivar">@total</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">step</span>( <span class="ruby-identifier">ctx</span>, <span class="ruby-identifier">name</span> )
+    <span class="ruby-ivar">@total</span> <span class="ruby-operator">+=</span> ( <span class="ruby-identifier">name</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span> )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finalize</span>( <span class="ruby-identifier">ctx</span> )
+    <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">result</span> = <span class="ruby-ivar">@total</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">db</span>.<span class="ruby-identifier">create_aggregate_handler</span>( <span class="ruby-constant">LengthsAggregateHandler</span> )
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">db</span>.<span class="ruby-identifier">get_first_value</span>( <span class="ruby-string">&quot;select lengths(name) from A&quot;</span> )
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_aggregate_handler-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 538</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_aggregate_handler</span>( <span class="ruby-identifier">handler</span> )
+  <span class="ruby-comment"># This is a compatiblity shim so the (basically pointless) FunctionProxy</span>
+  <span class="ruby-comment"># &quot;ctx&quot; object is passed as first argument to both step() and finalize().</span>
+  <span class="ruby-comment"># Now its up to the library user whether he prefers to store his</span>
+  <span class="ruby-comment"># temporaries as instance varibales or fields in the FunctionProxy.</span>
+  <span class="ruby-comment"># The library user still must set the result value with</span>
+  <span class="ruby-comment"># FunctionProxy.result= as there is no backwards compatible way to</span>
+  <span class="ruby-comment"># change this.</span>
+  <span class="ruby-identifier">proxy</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">handler</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+      <span class="ruby-keyword">super</span>
+      <span class="ruby-ivar">@fp</span> = <span class="ruby-constant">FunctionProxy</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">step</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+      <span class="ruby-keyword">super</span>(<span class="ruby-ivar">@fp</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finalize</span>
+      <span class="ruby-keyword">super</span>(<span class="ruby-ivar">@fp</span>)
+      <span class="ruby-ivar">@fp</span>.<span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">define_aggregator2</span>(<span class="ruby-identifier">proxy</span>, <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_function" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_function</span><span
+            class="method-args">(name, arity, text_rep=Constants::TextRep::UTF8, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new function for use in SQL statements. It will be added as <code>name</code>, with the given <code>arity</code>. (For variable arity functions, use -1 for the arity.)</p>
+
+<p>The block should accept at least one parameter–the <a href="Database/FunctionProxy.html"><code>FunctionProxy</code></a> instance that wraps this function invocation–and any other arguments it needs (up to its arity).</p>
+
+<p>The block does not return a value directly. Instead, it will invoke the <a href="Database/FunctionProxy.html#attribute-i-result"><code>FunctionProxy#result=</code></a> method on the <code>func</code> parameter and indicate the return value that way.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">db</span>.<span class="ruby-identifier">create_function</span>( <span class="ruby-string">&quot;maim&quot;</span>, <span class="ruby-value">1</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">func</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">func</span>.<span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">func</span>.<span class="ruby-identifier">result</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">//</span>).<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">db</span>.<span class="ruby-identifier">get_first_value</span>( <span class="ruby-string">&quot;select maim(name) from table&quot;</span> )
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_function-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 395</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_function</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">arity</span>, <span class="ruby-identifier">text_rep</span>=<span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">TextRep</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF8</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">define_function_with_flags</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">text_rep</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">fp</span> = <span class="ruby-constant">FunctionProxy</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">fp</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-identifier">fp</span>.<span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-define_aggregator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define_aggregator</span><span
+            class="method-args">( name, aggregator )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Define an aggregate function named <code>name</code> using a object template object <code>aggregator</code>. <code>aggregator</code> must respond to <code>step</code> and <code>finalize</code>. <code>step</code> will be called with row information and <code>finalize</code> must return the return value for the aggregator function.</p>
+
+<p>_API Change:_ <code>aggregator</code> must also implement <code>clone</code>. The provided <code>aggregator</code> object will serve as template that is cloned to provide the individual instances of the aggregate function. Regular ruby objects already provide a suitable <code>clone</code>. The functions arity is the arity of the <code>step</code> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define_aggregator-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 575</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">define_aggregator</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">aggregator</span> )
+  <span class="ruby-comment"># Previously, this has been implemented in C. Now this is just yet</span>
+  <span class="ruby-comment"># another compatiblity shim</span>
+  <span class="ruby-identifier">proxy</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@template</span> = <span class="ruby-identifier">aggregator</span>
+    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">template</span>
+      <span class="ruby-ivar">@template</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">name</span>
+      <span class="ruby-ivar">@name</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">arity</span>
+      <span class="ruby-comment"># this is what sqlite3_obj_method_arity did before</span>
+      <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:step</span>).<span class="ruby-identifier">arity</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+      <span class="ruby-ivar">@klass</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">template</span>.<span class="ruby-identifier">clone</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">step</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-ivar">@klass</span>.<span class="ruby-identifier">step</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finalize</span>
+      <span class="ruby-ivar">@klass</span>.<span class="ruby-identifier">finalize</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">define_aggregator2</span>(<span class="ruby-identifier">proxy</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-define_function" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            define_function(name) { |args,...| }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Define a function named <code>name</code> with <code>args</code>.  The arity of the block will be used as the arity for the function defined.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define_function-source">
+            <pre>static VALUE define_function(VALUE self, VALUE name)
+{
+  return define_function_with_flags(self, name, INT2FIX(SQLITE_UTF8));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-define_function_with_flags" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            define_function_with_flags(name, flags) { |args,...| }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Define a function named <code>name</code> with <code>args</code> using TextRep bitflags <code>flags</code>.  The arity of the block will be used as the arity for the function defined.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define_function_with_flags-source">
+            <pre>static VALUE define_function_with_flags(VALUE self, VALUE name, VALUE flags)
+{
+  sqlite3RubyPtr ctx;
+  VALUE block;
+  int status;
+
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  block = rb_block_proc();
+
+  status = sqlite3_create_function(
+    ctx-&gt;db,
+    StringValuePtr(name),
+    rb_proc_arity(block),
+    NUM2INT(flags),
+    (void *)block,
+    rb_sqlite3_func,
+    NULL,
+    NULL
+  );
+
+  CHECK(ctx-&gt;db, status);
+
+  rb_hash_aset(rb_iv_get(self, &quot;@functions&quot;), name, block);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enable_load_extension" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enable_load_extension(onoff)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Enable or disable extension loading.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enable_load_extension-source">
+            <pre>static VALUE enable_load_extension(VALUE self, VALUE onoff)
+{
+  sqlite3RubyPtr ctx;
+  int onoffparam;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  if (Qtrue == onoff) {
+    onoffparam = 1;
+  } else if (Qfalse == onoff) {
+    onoffparam = 0;
+  } else {
+    onoffparam = (int)NUM2INT(onoff);
+  }
+
+  CHECK(ctx-&gt;db, sqlite3_enable_load_extension(ctx-&gt;db, onoffparam));
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoding" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            encoding
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Fetch the encoding set on this database</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encoding-source">
+            <pre>static VALUE db_encoding(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  VALUE enc;
+
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  enc = rb_iv_get(self, &quot;@encoding&quot;);
+
+  if(NIL_P(enc)) {
+    sqlite3_exec(ctx-&gt;db, &quot;PRAGMA encoding&quot;, enc_cb, (void *)self, NULL);
+  }
+
+  return rb_iv_get(self, &quot;@encoding&quot;);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-errcode" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            errcode
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return an integer representing the last error to have occurred with this database.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="errcode-source">
+            <pre>static VALUE errcode_(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  return INT2NUM((long)sqlite3_errcode(ctx-&gt;db));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-errmsg" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            errmsg
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return a string describing the last error to have occurred with this database.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="errmsg-source">
+            <pre>static VALUE errmsg(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  return rb_str_new2(sqlite3_errmsg(ctx-&gt;db));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">(sql, bind_vars = [], *args) { |row| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executes the given SQL statement. If additional parameters are given, they are treated as bind variables, and are bound to the placeholders in the query.</p>
+
+<p>Note that if any of the values passed to this are hashes, then the key/value pairs are each bound separately, with the key being used as the name of the placeholder to bind the value to.</p>
+
+<p>The block is optional. If given, it will be invoked for each row returned by the query. Otherwise, any results are accumulated into an array and returned wholesale.</p>
+
+<p>See also <a href="Database.html#method-i-execute2"><code>execute2</code></a>, <a href="Database.html#method-i-query"><code>query</code></a>, and <a href="Database.html#method-i-execute_batch"><code>execute_batch</code></a> for additional ways of executing statements.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 178</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute</span> <span class="ruby-identifier">sql</span>, <span class="ruby-identifier">bind_vars</span> = [], <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">bind_vars</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">bind_vars</span> = []
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">bind_vars</span> = [<span class="ruby-identifier">bind_vars</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">&lt;&lt;-eowarn</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+<span class="ruby-value">#{caller[0]} is calling SQLite3::Database#execute with nil or multiple bind params
+without using an array.  Please switch to passing bind parameters as an array.
+Support for bind parameters as *args will be removed in 2.0.0.
+</span><span class="ruby-identifier">        eowarn</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">prepare</span>( <span class="ruby-identifier">sql</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stmt</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">bind_params</span>(<span class="ruby-identifier">bind_vars</span>)
+        <span class="ruby-identifier">stmt</span>    = <span class="ruby-constant">ResultSet</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">stmt</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+          <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">yield</span> <span class="ruby-identifier">row</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">to_a</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute2</span><span
+            class="method-args">( sql, *bind_vars ) { |columns| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executes the given SQL statement, exactly as with <a href="Database.html#method-i-execute"><code>execute</code></a>. However, the first row returned (either via the block, or in the returned array) is always the names of the columns. Subsequent rows correspond to the data from the result set.</p>
+
+<p>Thus, even if the query itself returns no rows, this method will always return at least one row–the names of the columns.</p>
+
+<p>See also <a href="Database.html#method-i-execute"><code>execute</code></a>, <a href="Database.html#method-i-query"><code>query</code></a>, and <a href="Database.html#method-i-execute_batch"><code>execute_batch</code></a> for additional ways of executing statements.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="execute2-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute2</span>( <span class="ruby-identifier">sql</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> )
+  <span class="ruby-identifier">prepare</span>( <span class="ruby-identifier">sql</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stmt</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">execute</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> )
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">columns</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">row</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">inject</span>( [ <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">columns</span> ] ) { <span class="ruby-operator">|</span><span class="ruby-identifier">arr</span>,<span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">arr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">row</span>; <span class="ruby-identifier">arr</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute_batch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute_batch</span><span
+            class="method-args">( sql, bind_vars = [], *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executes all SQL statements in the given string. By contrast, the other means of executing queries will only execute the first statement in the string, ignoring all subsequent statements. This will execute each one in turn. The same bind parameters, if given, will be applied to each statement.</p>
+
+<p>This always returns <code>nil</code>, making it unsuitable for queries that return rows.</p>
+
+<p>See also <a href="Database.html#method-i-execute_batch2"><code>execute_batch2</code></a> for additional ways of executing statments.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="execute_batch-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 241</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute_batch</span>( <span class="ruby-identifier">sql</span>, <span class="ruby-identifier">bind_vars</span> = [], <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+      <span class="ruby-comment"># FIXME: remove this stuff later</span>
+      <span class="ruby-keyword">unless</span> [<span class="ruby-constant">Array</span>, <span class="ruby-constant">Hash</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">bind_vars</span>.<span class="ruby-identifier">class</span>)
+        <span class="ruby-identifier">bind_vars</span> = [<span class="ruby-identifier">bind_vars</span>]
+        <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">&lt;&lt;-eowarn</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+<span class="ruby-value">#{caller[0]} is calling SQLite3::Database#execute_batch with bind parameters
+that are not a list of a hash.  Please switch to passing bind parameters as an
+array or hash. Support for this behavior will be removed in version 2.0.0.
+</span><span class="ruby-identifier">        eowarn</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># FIXME: remove this stuff later</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">bind_vars</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">bind_vars</span> = []
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">bind_vars</span> = [<span class="ruby-keyword">nil</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">&lt;&lt;-eowarn</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+<span class="ruby-value">#{caller[0]} is calling SQLite3::Database#execute_batch with nil or multiple bind params
+without using an array.  Please switch to passing bind parameters as an array.
+Support for this behavior will be removed in version 2.0.0.
+</span><span class="ruby-identifier">        eowarn</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">sql</span> = <span class="ruby-identifier">sql</span>.<span class="ruby-identifier">strip</span>
+      <span class="ruby-keyword">until</span> <span class="ruby-identifier">sql</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">prepare</span>( <span class="ruby-identifier">sql</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stmt</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">closed?</span>
+            <span class="ruby-comment"># FIXME: this should probably use sqlite3&#39;s api for batch execution</span>
+            <span class="ruby-comment"># This implementation requires stepping over the results.</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">bind_vars</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">bind_parameter_count</span>
+              <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">bind_params</span>(<span class="ruby-identifier">bind_vars</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">step</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">sql</span> = <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">remainder</span>.<span class="ruby-identifier">strip</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># FIXME: we should not return `nil` as a success return value</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execute_batch2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute_batch2</span><span
+            class="method-args">(sql) { |val| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executes all SQL statements in the given string. By contrast, the other means of executing queries will only execute the first statement in the string, ignoring all subsequent statements. This will execute each one in turn. Bind parameters cannot be passed to <a href="Database.html#method-i-execute_batch2"><code>execute_batch2</code></a>.</p>
+
+<p>If a query is made, all values will be returned as strings. If no query is made, an empty array will be returned.</p>
+
+<p>Because all values except for &#39;NULL&#39; are returned as strings, a block can be passed to parse the values accordingly.</p>
+
+<p>See also <a href="Database.html#method-i-execute_batch"><code>execute_batch</code></a> for additional ways of executing statments.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="execute_batch2-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">execute_batch2</span>(<span class="ruby-identifier">sql</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">exec_batch</span>(<span class="ruby-identifier">sql</span>, <span class="ruby-ivar">@results_as_hash</span>)
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">exec_batch</span>(<span class="ruby-identifier">sql</span>, <span class="ruby-ivar">@results_as_hash</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extended_result_codes-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            extended_result_codes = true
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Enable extended result codes in SQLite.  These result codes allow for more detailed exception reporting, such a which type of constraint is violated.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="extended_result_codes-3D-source">
+            <pre>static VALUE set_extended_result_codes(VALUE self, VALUE enable)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  CHECK(ctx-&gt;db, sqlite3_extended_result_codes(ctx-&gt;db, RTEST(enable) ? 1 : 0));
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filename</span><span
+            class="method-args">(db_name = &#39;main&#39;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the filename for the database named <code>db_name</code>.  <code>db_name</code> defaults to “main”.  Main return `nil` or an empty string if the database is temporary or in-memory.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="filename-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">filename</span> <span class="ruby-identifier">db_name</span> = <span class="ruby-string">&#39;main&#39;</span>
+  <span class="ruby-identifier">db_filename</span> <span class="ruby-identifier">db_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-finalize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finalize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="finalize-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 483</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finalize</span>
+  <span class="ruby-identifier">finalize_with_ctx</span>(<span class="ruby-ivar">@ctx</span>)
+  <span class="ruby-ivar">@ctx</span>.<span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_first_row" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_first_row</span><span
+            class="method-args">( sql, *bind_vars )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A convenience method for obtaining the first row of a result set, and discarding all others. It is otherwise identical to <a href="Database.html#method-i-execute"><code>execute</code></a>.</p>
+
+<p>See also <a href="Database.html#method-i-get_first_value"><code>get_first_value</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_first_row-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 352</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_first_row</span>( <span class="ruby-identifier">sql</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> )
+  <span class="ruby-identifier">execute</span>( <span class="ruby-identifier">sql</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> ).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_first_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_first_value</span><span
+            class="method-args">( sql, *bind_vars )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A convenience method for obtaining the first value of the first row of a result set, and discarding all other values and rows. It is otherwise identical to <a href="Database.html#method-i-execute"><code>execute</code></a>.</p>
+
+<p>See also <a href="Database.html#method-i-get_first_row"><code>get_first_row</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_first_value-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 361</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_first_value</span>( <span class="ruby-identifier">sql</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> )
+  <span class="ruby-identifier">query</span>( <span class="ruby-identifier">sql</span>, <span class="ruby-identifier">bind_vars</span> ) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rs</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">row</span> = <span class="ruby-identifier">rs</span>.<span class="ruby-identifier">next</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@results_as_hash</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">row</span>[<span class="ruby-identifier">rs</span>.<span class="ruby-identifier">columns</span>[<span class="ruby-value">0</span>]] <span class="ruby-operator">:</span> <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interrupt" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            interrupt
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Interrupts the currently executing operation, causing it to abort.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="interrupt-source">
+            <pre>static VALUE interrupt(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  sqlite3_interrupt(ctx-&gt;db);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last_insert_row_id" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            last_insert_row_id
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtains the unique row ID of the last row to be inserted by this <a href="Database.html"><code>Database</code></a> instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last_insert_row_id-source">
+            <pre>static VALUE last_insert_row_id(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  return LL2NUM(sqlite3_last_insert_rowid(ctx-&gt;db));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_extension" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            load_extension(file)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Loads an SQLite extension library from the named file. Extension loading must be enabled using db.enable_load_extension(true) prior to calling this API.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_extension-source">
+            <pre>static VALUE load_extension(VALUE self, VALUE file)
+{
+  sqlite3RubyPtr ctx;
+  int status;
+  char *errMsg;
+  VALUE errexp;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  status = sqlite3_load_extension(ctx-&gt;db, RSTRING_PTR(file), 0, &amp;errMsg);
+  if (status != SQLITE_OK)
+  {
+    errexp = rb_exc_new2(rb_eRuntimeError, errMsg);
+    sqlite3_free(errMsg);
+    rb_exc_raise(errexp);
+  }
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepare" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare</span><span
+            class="method-args">(sql) { |stmt| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a <a href="Statement.html"><code>Statement</code></a> object representing the given SQL. This does not execute the statement; it merely prepares the statement for execution.</p>
+
+<p>The <a href="Statement.html"><code>Statement</code></a> can then be executed using <a href="Statement.html#method-i-execute"><code>Statement#execute</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prepare-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prepare</span> <span class="ruby-identifier">sql</span>
+  <span class="ruby-identifier">stmt</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Statement</span>.<span class="ruby-identifier">new</span>( <span class="ruby-keyword">self</span>, <span class="ruby-identifier">sql</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">stmt</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">stmt</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">stmt</span>.<span class="ruby-identifier">closed?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">query</span><span
+            class="method-args">( sql, bind_vars = [], *args ) { |result| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This is a convenience method for creating a statement, binding paramters to it, and calling execute:</p>
+
+<pre class="ruby"><span class="ruby-identifier">result</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">query</span>( <span class="ruby-string">&quot;select * from foo where a=?&quot;</span>, [<span class="ruby-value">5</span>])
+<span class="ruby-comment"># is the same as</span>
+<span class="ruby-identifier">result</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">prepare</span>( <span class="ruby-string">&quot;select * from foo where a=?&quot;</span> ).<span class="ruby-identifier">execute</span>( <span class="ruby-value">5</span> )
+</pre>
+
+<p>You must be sure to call <code>close</code> on the <a href="ResultSet.html"><code>ResultSet</code></a> instance that is returned, or you could have problems with locks on the table. If called with a block, <code>close</code> will be invoked implicitly when the block terminates.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="query-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 320</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">query</span>( <span class="ruby-identifier">sql</span>, <span class="ruby-identifier">bind_vars</span> = [], <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">bind_vars</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">bind_vars</span> = []
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">bind_vars</span> = [<span class="ruby-identifier">bind_vars</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">&lt;&lt;-eowarn</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+<span class="ruby-value">#{caller[0]} is calling SQLite3::Database#query with nil or multiple bind params
+without using an array.  Please switch to passing bind parameters as an array.
+Support for this will be removed in version 2.0.0.
+</span><span class="ruby-identifier">        eowarn</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">prepare</span>( <span class="ruby-identifier">sql</span> ).<span class="ruby-identifier">execute</span>( <span class="ruby-identifier">bind_vars</span> )
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-keyword">yield</span> <span class="ruby-identifier">result</span>
+        <span class="ruby-keyword">ensure</span>
+          <span class="ruby-identifier">result</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-readonly-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readonly?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the database has been open in readonly mode A helper to check before performing any operation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="readonly-3F-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 665</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readonly?</span>
+  <span class="ruby-ivar">@readonly</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rollback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rollback</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rolls the current transaction back. If there is no current transaction, this will cause an error to be raised. This returns <code>true</code>, in order to allow it to be used in idioms like <code>abort? and rollback or commit</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rollback-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 658</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rollback</span>
+  <span class="ruby-identifier">execute</span> <span class="ruby-string">&quot;rollback transaction&quot;</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-step" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">step</span><span
+            class="method-args">( *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="step-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">step</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-identifier">step_with_ctx</span>(<span class="ruby-ivar">@ctx</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-total_changes" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            total_changes
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the total number of changes made to this database instance since it was opened.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="total_changes-source">
+            <pre>static VALUE total_changes(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  return INT2NUM((long)sqlite3_total_changes(ctx-&gt;db));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-trace" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            trace { |sql| ... }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            trace(Class.new { def call sql; end }.new)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Installs (or removes) a block that will be invoked for every SQL statement executed. The block receives one parameter: the SQL statement executed. If the block is <code>nil</code>, any existing tracer will be uninstalled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="trace-source">
+            <pre>static VALUE trace(int argc, VALUE *argv, VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  VALUE block;
+
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  rb_scan_args(argc, argv, &quot;01&quot;, &amp;block);
+
+  if(NIL_P(block) &amp;&amp; rb_block_given_p()) block = rb_block_proc();
+
+  rb_iv_set(self, &quot;@tracefunc&quot;, block);
+
+  sqlite3_trace(ctx-&gt;db, NIL_P(block) ? NULL : tracefunc, (void *)self);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transaction" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transaction</span><span
+            class="method-args">( mode = :deferred ) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Begins a new transaction. Note that nested transactions are not allowed by SQLite, so attempting to nest a transaction will result in a runtime exception.</p>
+
+<p>The <code>mode</code> parameter may be either <code>:deferred</code> (the default), <code>:immediate</code>, or <code>:exclusive</code>.</p>
+
+<p>If a block is given, the database instance is yielded to it, and the transaction is committed when the block terminates. If the block raises an exception, a rollback will be performed instead. Note that if a block is given, <a href="Database.html#method-i-commit"><code>commit</code></a> and <a href="Database.html#method-i-rollback"><code>rollback</code></a> should never be called explicitly or you&#39;ll get an error when the block terminates.</p>
+
+<p>If a block is not given, it is the caller&#39;s responsibility to end the transaction explicitly, either by calling <a href="Database.html#method-i-commit"><code>commit</code></a>, or by calling <a href="Database.html#method-i-rollback"><code>rollback</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transaction-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 627</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">transaction</span>( <span class="ruby-identifier">mode</span> = <span class="ruby-value">:deferred</span> )
+  <span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;begin #{mode.to_s} transaction&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">abort</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-identifier">abort</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">raise</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">abort</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">rollback</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">commit</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transaction_active-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            transaction_active?
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if there is a transaction active, and <code>false</code> otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transaction_active-3F-source">
+            <pre>static VALUE transaction_active_p(VALUE self)
+{
+  sqlite3RubyPtr ctx;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  return sqlite3_get_autocommit(ctx-&gt;db) ? Qfalse : Qtrue;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-translate_from_db" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">translate_from_db</span><span
+            class="method-args">(types, row)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Translates a <code>row</code> of data from the database with the given <code>types</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="translate_from_db-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 716</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">translate_from_db</span> <span class="ruby-identifier">types</span>, <span class="ruby-identifier">row</span>
+  <span class="ruby-ivar">@type_translator</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">types</span>, <span class="ruby-identifier">row</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-translator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">translator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the type translator employed by this database instance. Each database instance has its own type translator; this allows for different type handlers to be installed in each instance without affecting other instances. Furthermore, the translators are instantiated lazily, so that if a database does not use type translation, it will not be burdened by the overhead of a useless type translator. (See the <a href="Translator.html"><code>Translator</code></a> class.)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="translator-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">translator</span>
+  <span class="ruby-ivar">@translator</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Translator</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-db_filename" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            db_filename(database_name)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the file associated with <code>database_name</code>.  Can return nil or an empty string if the database is temporary, or in-memory.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="db_filename-source">
+            <pre>static VALUE db_filename(VALUE self, VALUE db_name)
+{
+  sqlite3RubyPtr ctx;
+  const char * fname;
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  fname = sqlite3_db_filename(ctx-&gt;db, StringValueCStr(db_name));
+
+  if(fname) return SQLITE3_UTF8_STR_NEW2(fname);
+  return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exec_batch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exec_batch</span><span
+            class="method-args">(p1, p2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is invoked by calling db.execute_batch2(sql, &amp;block)</p>
+
+<p>Executes all statments in a given string separated by semicolons. If a query is made, all values returned are strings (except for &#39;NULL&#39; values which return nil), so the user may parse values with a block. If no query is made, an empty array will be returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exec_batch-source">
+            <pre>static VALUE exec_batch(VALUE self, VALUE sql, VALUE results_as_hash)
+{
+  sqlite3RubyPtr ctx;
+  int status;
+  VALUE callback_ary = rb_ary_new();
+  char *errMsg;
+  VALUE errexp;
+
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+  REQUIRE_OPEN_DB(ctx);
+
+  if(results_as_hash == Qtrue) {
+    status = sqlite3_exec(ctx-&gt;db, StringValuePtr(sql), hash_callback_function, callback_ary, &amp;errMsg);
+  } else {
+    status = sqlite3_exec(ctx-&gt;db, StringValuePtr(sql), regular_callback_function, callback_ary, &amp;errMsg);
+  }
+
+  if (status != SQLITE_OK)
+  {
+    errexp = rb_exc_new2(rb_eRuntimeError, errMsg);
+    sqlite3_free(errMsg);
+    rb_exc_raise(errexp);
+  }
+
+  return callback_ary;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-make_type_translator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_type_translator</span><span
+            class="method-args">(should_translate)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="make_type_translator-source">
+            <pre><span class="ruby-comment"># File lib/sqlite3/database.rb, line 724</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">make_type_translator</span> <span class="ruby-identifier">should_translate</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">should_translate</span>
+    <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">types</span>, <span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">types</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">row</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">translator</span>.<span class="ruby-identifier">translate</span>( <span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span> )
+      <span class="ruby-keyword">end</span>
+    }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">NULL_TRANSLATOR</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open16" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open16</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open16-source">
+            <pre>static VALUE rb_sqlite3_open16(VALUE self, VALUE file)
+{
+  int status;
+  sqlite3RubyPtr ctx;
+
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+
+#if defined TAINTING_SUPPORT
+#if defined StringValueCStr
+  StringValuePtr(file);
+  rb_check_safe_obj(file);
+#else
+  Check_SafeStr(file);
+#endif
+#endif
+
+  status = sqlite3_open16(utf16_string_value_ptr(file), &amp;ctx-&gt;db);
+
+  CHECK(ctx-&gt;db, status)
+
+  return INT2NUM(status);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open_v2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_v2</span><span
+            class="method-args">(p1, p2, p3)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open_v2-source">
+            <pre>static VALUE rb_sqlite3_open_v2(VALUE self, VALUE file, VALUE mode, VALUE zvfs)
+{
+  sqlite3RubyPtr ctx;
+  VALUE flags;
+  int status;
+
+  Data_Get_Struct(self, sqlite3Ruby, ctx);
+
+#if defined TAINTING_SUPPORT
+#if defined StringValueCStr
+  StringValuePtr(file);
+  rb_check_safe_obj(file);
+#else
+  Check_SafeStr(file);
+#endif
+#endif
+
+      status = sqlite3_open_v2(
+          StringValuePtr(file),
+          &amp;ctx-&gt;db,
+          NUM2INT(mode),
+          NIL_P(zvfs) ? NULL : StringValuePtr(zvfs)
+      );
+
+  CHECK(ctx-&gt;db, status)
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

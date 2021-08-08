@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class PowerAssert::Parser - power_assert-1.1.7 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-call_paths">#call_paths</a>
+    
+    <li ><a href="#method-i-collect_paths">#collect_paths</a>
+    
+    <li ><a href="#method-i-extract_idents">#extract_idents</a>
+    
+    <li ><a href="#method-i-handle_columnless_ident">#handle_columnless_ident</a>
+    
+    <li ><a href="#method-i-idents">#idents</a>
+    
+    <li ><a href="#method-i-method_id_set">#method_id_set</a>
+    
+    <li ><a href="#method-i-slice_expression">#slice_expression</a>
+    
+    <li ><a href="#method-i-str_indices">#str_indices</a>
+    
+    <li ><a href="#method-i-valid_syntax-3F">#valid_syntax?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-PowerAssert::Parser">
+  <h1 id="class-PowerAssert::Parser" class="class">
+    class PowerAssert::Parser
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="AND_OR_OPS">AND_OR_OPS
+        
+        <dd>
+        
+      
+        <dt id="DUMMY">DUMMY
+        
+        <dd>
+        
+      
+        <dt id="Ident">Ident
+        
+        <dd>
+        
+      
+        <dt id="MID2SRCTXT">MID2SRCTXT
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-binding" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">binding</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-line" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">line</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-lineno" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">lineno</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">path</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(line, path, lineno, binding, assertion_method_name = nil, assertion_proc = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">line</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">lineno</span>, <span class="ruby-identifier">binding</span>, <span class="ruby-identifier">assertion_method_name</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">assertion_proc</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@line</span> = <span class="ruby-identifier">line</span>
+  <span class="ruby-ivar">@line_for_parsing</span> = (<span class="ruby-identifier">valid_syntax?</span>(<span class="ruby-identifier">line</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">slice_expression</span>(<span class="ruby-identifier">line</span>)).<span class="ruby-identifier">b</span>
+  <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
+  <span class="ruby-ivar">@lineno</span> = <span class="ruby-identifier">lineno</span>
+  <span class="ruby-ivar">@binding</span> = <span class="ruby-identifier">binding</span>
+  <span class="ruby-ivar">@proc_local_variables</span> = <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&#39;local_variables&#39;</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
+  <span class="ruby-ivar">@assertion_method_name</span> = <span class="ruby-identifier">assertion_method_name</span>
+  <span class="ruby-ivar">@assertion_proc</span> = <span class="ruby-identifier">assertion_proc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call_paths" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call_paths</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call_paths-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call_paths</span>
+  <span class="ruby-identifier">collect_paths</span>(<span class="ruby-identifier">idents</span>).<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-idents" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">idents</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="idents-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">idents</span>
+  <span class="ruby-ivar">@idents</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-constant">Ripper</span>.<span class="ruby-identifier">sexp</span>(<span class="ruby-ivar">@line_for_parsing</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_id_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_id_set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="method_id_set-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_id_set</span>
+  <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">idents</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">find_all</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:method</span> }
+  <span class="ruby-ivar">@method_id_set</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:name</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_sym</span>).<span class="ruby-identifier">each_with_object</span>({}) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span>, <span class="ruby-identifier">h</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-keyword">true</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-collect_paths" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_paths</span><span
+            class="method-args">(idents, prefixes = [[]], index = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collect_paths-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">collect_paths</span>(<span class="ruby-identifier">idents</span>, <span class="ruby-identifier">prefixes</span> = [[]], <span class="ruby-identifier">index</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">idents</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">node</span> = <span class="ruby-identifier">idents</span>[<span class="ruby-identifier">index</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Branch</span>)
+      <span class="ruby-identifier">prefixes</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">collect_paths</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">prefixes</span>, <span class="ruby-value">0</span>) }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">prefixes</span> = <span class="ruby-identifier">prefixes</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">prefix</span><span class="ruby-operator">|</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">node</span>] }
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">collect_paths</span>(<span class="ruby-identifier">idents</span>, <span class="ruby-identifier">prefixes</span>, <span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">prefixes</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extract_idents" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extract_idents</span><span
+            class="method-args">(sexp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns idents as graph structure.</p>
+
+<pre>                                                +--c--b--+
+extract_idents(Ripper.sexp(&#39;a&amp;.b(c).d&#39;)) #=&gt; a--+        +--d
+                                                +--------+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="extract_idents-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_idents</span>(<span class="ruby-identifier">sexp</span>)
+  <span class="ruby-identifier">tag</span>, <span class="ruby-operator">*</span> = <span class="ruby-identifier">sexp</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">tag</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:arg_paren</span>, <span class="ruby-value">:assoc_splat</span>, <span class="ruby-value">:fcall</span>, <span class="ruby-value">:hash</span>, <span class="ruby-value">:method_add_block</span>, <span class="ruby-value">:string_literal</span>, <span class="ruby-value">:return</span>
+    <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>])
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:assign</span>, <span class="ruby-value">:massign</span>
+    <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">2</span>])
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:opassign</span>
+    <span class="ruby-identifier">_</span>, <span class="ruby-identifier">_</span>, (<span class="ruby-identifier">_</span>, <span class="ruby-identifier">op_name</span>, (<span class="ruby-identifier">_</span>, <span class="ruby-identifier">op_column</span>)), <span class="ruby-identifier">s0</span> = <span class="ruby-identifier">sexp</span>
+    <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s0</span>) <span class="ruby-operator">+</span> [<span class="ruby-constant">Ident</span>[<span class="ruby-value">:method</span>, <span class="ruby-identifier">op_name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/=\z/</span>, <span class="ruby-string">&#39;&#39;</span>), <span class="ruby-identifier">op_column</span>]]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:dyna_symbol</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Symbol</span>)
+      <span class="ruby-comment"># sexp[1] can be [:string_content, [..]] while parsing { &quot;a&quot;: 1 }</span>
+      <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:assoclist_from_args</span>, <span class="ruby-value">:bare_assoc_hash</span>, <span class="ruby-value">:paren</span>, <span class="ruby-value">:string_embexpr</span>,
+    <span class="ruby-value">:regexp_literal</span>, <span class="ruby-value">:xstring_literal</span>
+    <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:command</span>
+    [<span class="ruby-identifier">sexp</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>]].<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:assoc_new</span>, <span class="ruby-value">:dot2</span>, <span class="ruby-value">:dot3</span>, <span class="ruby-value">:string_content</span>
+    <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:unary</span>
+    <span class="ruby-identifier">handle_columnless_ident</span>([], <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">2</span>]))
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:binary</span>
+    <span class="ruby-identifier">op</span> = <span class="ruby-identifier">sexp</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">AND_OR_OPS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">op</span>)
+      <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>]) <span class="ruby-operator">+</span> [<span class="ruby-constant">Branch</span>[<span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">3</span>]), []]]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">handle_columnless_ident</span>(<span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>]), <span class="ruby-identifier">op</span>, <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">3</span>]))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:call</span>
+    <span class="ruby-identifier">_</span>, <span class="ruby-identifier">recv</span>, (<span class="ruby-identifier">op_sym</span>, <span class="ruby-identifier">op_name</span>, <span class="ruby-identifier">_</span>), <span class="ruby-identifier">method</span> = <span class="ruby-identifier">sexp</span>
+    <span class="ruby-identifier">with_safe_op</span> = ((<span class="ruby-identifier">op_sym</span> <span class="ruby-operator">==</span> <span class="ruby-value">:@op</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">op_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&amp;.&#39;</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">op_sym</span> <span class="ruby-operator">==</span> <span class="ruby-value">:&quot;&amp;.&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> <span class="ruby-value">:call</span>
+      <span class="ruby-identifier">handle_columnless_ident</span>(<span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">recv</span>), <span class="ruby-value">:call</span>, [], <span class="ruby-identifier">with_safe_op</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">recv</span>) <span class="ruby-operator">+</span> (<span class="ruby-identifier">with_safe_op</span> <span class="ruby-operator">?</span> [<span class="ruby-constant">Branch</span>[<span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">method</span>), []]] <span class="ruby-operator">:</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">method</span>))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:array</span>
+    <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) } <span class="ruby-operator">:</span> []
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:command_call</span>
+    [<span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">sexp</span>[<span class="ruby-value">4</span>], <span class="ruby-identifier">sexp</span>[<span class="ruby-value">3</span>]].<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:aref</span>
+    <span class="ruby-identifier">handle_columnless_ident</span>(<span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>]), <span class="ruby-value">:[]</span>, <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">2</span>]))
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:method_add_arg</span>
+    <span class="ruby-identifier">idents</span> = <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">idents</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-comment"># idents may be empty(e.g. -&gt;{}.())</span>
+      <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">2</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">idents</span>[<span class="ruby-value">-1</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Branch</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">idents</span>[<span class="ruby-value">-1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">empty?</span>
+        <span class="ruby-comment"># Safe navigation operator is used. See :call clause also.</span>
+        <span class="ruby-identifier">idents</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-operator">+</span> [<span class="ruby-constant">Branch</span>[<span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">2</span>]) <span class="ruby-operator">+</span> <span class="ruby-identifier">idents</span>[<span class="ruby-value">-1</span>][<span class="ruby-value">0</span>], []]]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">idents</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">sexp</span>[<span class="ruby-value">2</span>]) <span class="ruby-operator">+</span> [<span class="ruby-identifier">idents</span>[<span class="ruby-value">-1</span>]]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:args_add_block</span>
+    <span class="ruby-identifier">_</span>, (<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">ss0</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">ss1</span>), <span class="ruby-identifier">_</span> = <span class="ruby-identifier">sexp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span> <span class="ruby-operator">==</span> <span class="ruby-value">:args_add_star</span>
+      (<span class="ruby-identifier">ss0</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ss1</span>).<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">sexp</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:vcall</span>
+    <span class="ruby-identifier">_</span>, (<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">name</span>, (<span class="ruby-identifier">_</span>, <span class="ruby-identifier">column</span>)) = <span class="ruby-identifier">sexp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span> <span class="ruby-operator">==</span> <span class="ruby-value">:@ident</span>
+      [<span class="ruby-constant">Ident</span>[<span class="ruby-ivar">@proc_local_variables</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-value">:ref</span> <span class="ruby-operator">:</span> <span class="ruby-value">:method</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">column</span>]]
+    <span class="ruby-keyword">else</span>
+      []
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:program</span>
+    <span class="ruby-identifier">_</span>, ((<span class="ruby-identifier">tag0</span>, (<span class="ruby-identifier">tag1</span>, (<span class="ruby-identifier">tag2</span>, (<span class="ruby-identifier">tag3</span>, <span class="ruby-identifier">mname</span>, <span class="ruby-identifier">_</span>)), <span class="ruby-identifier">_</span>), (<span class="ruby-identifier">tag4</span>, <span class="ruby-identifier">_</span>, <span class="ruby-identifier">ss</span>))) = <span class="ruby-identifier">sexp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag0</span> <span class="ruby-operator">==</span> <span class="ruby-value">:method_add_block</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">tag1</span> <span class="ruby-operator">==</span> <span class="ruby-value">:method_add_arg</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">tag2</span> <span class="ruby-operator">==</span> <span class="ruby-value">:fcall</span> <span class="ruby-keyword">and</span>
+        (<span class="ruby-identifier">tag3</span> <span class="ruby-operator">==</span> <span class="ruby-value">:@ident</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">tag3</span> <span class="ruby-operator">==</span> <span class="ruby-value">:@const</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">mname</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@assertion_method_name</span> <span class="ruby-keyword">and</span> (<span class="ruby-identifier">tag4</span> <span class="ruby-operator">==</span> <span class="ruby-value">:brace_block</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">tag4</span> <span class="ruby-operator">==</span> <span class="ruby-value">:do_block</span>)
+      <span class="ruby-identifier">ss</span>.<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">_</span>, (<span class="ruby-identifier">s0</span>, <span class="ruby-operator">*</span>) = <span class="ruby-identifier">sexp</span>
+      <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s0</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:ifop</span>
+    <span class="ruby-identifier">_</span>, <span class="ruby-identifier">s0</span>, <span class="ruby-identifier">s1</span>, <span class="ruby-identifier">s2</span> = <span class="ruby-identifier">sexp</span>
+    [<span class="ruby-operator">*</span><span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s0</span>), <span class="ruby-constant">Branch</span>[<span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s1</span>), <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s2</span>)]]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:if</span>, <span class="ruby-value">:unless</span>
+    <span class="ruby-identifier">_</span>, <span class="ruby-identifier">s0</span>, <span class="ruby-identifier">ss0</span>, (<span class="ruby-identifier">_</span>, <span class="ruby-identifier">ss1</span>) = <span class="ruby-identifier">sexp</span>
+    [<span class="ruby-operator">*</span><span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s0</span>), <span class="ruby-constant">Branch</span>[<span class="ruby-identifier">ss0</span>.<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) }, <span class="ruby-identifier">ss1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ss1</span>.<span class="ruby-identifier">flat_map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s</span>) } <span class="ruby-operator">:</span> []]]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:if_mod</span>, <span class="ruby-value">:unless_mod</span>
+    <span class="ruby-identifier">_</span>, <span class="ruby-identifier">s0</span>, <span class="ruby-identifier">s1</span> = <span class="ruby-identifier">sexp</span>
+    [<span class="ruby-operator">*</span><span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s0</span>), <span class="ruby-constant">Branch</span>[<span class="ruby-identifier">extract_idents</span>(<span class="ruby-identifier">s1</span>), []]]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:var_ref</span>, <span class="ruby-value">:var_field</span>
+    <span class="ruby-identifier">_</span>, (<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">ref_name</span>, (<span class="ruby-identifier">_</span>, <span class="ruby-identifier">column</span>)) = <span class="ruby-identifier">sexp</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">tag</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:@kw</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">ref_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;self&#39;</span>
+        [<span class="ruby-constant">Ident</span>[<span class="ruby-value">:ref</span>, <span class="ruby-string">&#39;self&#39;</span>, <span class="ruby-identifier">column</span>]]
+      <span class="ruby-keyword">else</span>
+        []
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:@ident</span>, <span class="ruby-value">:@const</span>, <span class="ruby-value">:@cvar</span>, <span class="ruby-value">:@ivar</span>, <span class="ruby-value">:@gvar</span>
+      [<span class="ruby-constant">Ident</span>[<span class="ruby-value">:ref</span>, <span class="ruby-identifier">ref_name</span>, <span class="ruby-identifier">column</span>]]
+    <span class="ruby-keyword">else</span>
+      []
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:@ident</span>, <span class="ruby-value">:@const</span>, <span class="ruby-value">:@op</span>
+    <span class="ruby-identifier">_</span>, <span class="ruby-identifier">method_name</span>, (<span class="ruby-identifier">_</span>, <span class="ruby-identifier">column</span>) = <span class="ruby-identifier">sexp</span>
+    [<span class="ruby-constant">Ident</span>[<span class="ruby-value">:method</span>, <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">column</span>]]
+  <span class="ruby-keyword">else</span>
+    []
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_columnless_ident" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_columnless_ident</span><span
+            class="method-args">(left_idents, mid, right_idents, with_safe_op = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_columnless_ident-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_columnless_ident</span>(<span class="ruby-identifier">left_idents</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">right_idents</span>, <span class="ruby-identifier">with_safe_op</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">left_max</span> = <span class="ruby-identifier">left_idents</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">max_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:column</span>)
+  <span class="ruby-identifier">right_min</span> = <span class="ruby-identifier">right_idents</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">min_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:column</span>)
+  <span class="ruby-identifier">bg</span> = <span class="ruby-identifier">left_max</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">left_max</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">left_max</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">ed</span> = <span class="ruby-identifier">right_min</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">right_min</span>.<span class="ruby-identifier">column</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@line_for_parsing</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">mname</span> = <span class="ruby-identifier">mid</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">srctxt</span> = <span class="ruby-constant">MID2SRCTXT</span>[<span class="ruby-identifier">mid</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">mname</span>
+  <span class="ruby-identifier">re</span> = <span class="ruby-regexp">/
+    #{&#39;\b&#39; if /\A\w/ =~ srctxt}
+    #{Regexp.escape(srctxt)}
+    #{&#39;\b&#39; if /\w\z/ =~ srctxt}
+  /x</span>
+  <span class="ruby-identifier">indices</span> = <span class="ruby-identifier">str_indices</span>(<span class="ruby-ivar">@line_for_parsing</span>, <span class="ruby-identifier">re</span>, <span class="ruby-identifier">bg</span>, <span class="ruby-identifier">ed</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">indices</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword">or</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">right_idents</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">left_idents</span>.<span class="ruby-identifier">empty?</span>)
+    <span class="ruby-identifier">ident</span> = <span class="ruby-constant">Ident</span>[<span class="ruby-value">:method</span>, <span class="ruby-identifier">mname</span>, <span class="ruby-identifier">right_idents</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">indices</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">indices</span>.<span class="ruby-identifier">last</span>]
+    <span class="ruby-identifier">left_idents</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">right_idents</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">with_safe_op</span> <span class="ruby-operator">?</span> [<span class="ruby-constant">Branch</span>[[<span class="ruby-identifier">ident</span>], []]] <span class="ruby-operator">:</span> [<span class="ruby-identifier">ident</span>])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">left_idents</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">right_idents</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-slice_expression" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">slice_expression</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="slice_expression-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slice_expression</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">chomp</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\A\s*(?:if|unless|elsif|case|while|until) /</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">length</span> }
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\A\s*(?:\}|\]|end)?\./</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">length</span> }
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/[\{\.\\]\z/</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/(?:&amp;&amp;|\|\|)\z/</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/ (?:do|and|or)\z/</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-str_indices" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">str_indices</span><span
+            class="method-args">(str, re, offset, limit)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="str_indices-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">str_indices</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">re</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">limit</span>)
+  <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">re</span>, <span class="ruby-identifier">offset</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">idx</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">idx</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">limit</span>
+    [<span class="ruby-identifier">idx</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">str_indices</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">re</span>, <span class="ruby-identifier">idx</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">limit</span>)]
+  <span class="ruby-keyword">else</span>
+    []
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_syntax-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_syntax?</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_syntax-3F-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/parser.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_syntax?</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">RubyVM</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">verbose</span>, <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">$VERBOSE</span>, <span class="ruby-keyword">nil</span>
+    <span class="ruby-constant">RubyVM</span><span class="ruby-operator">::</span><span class="ruby-constant">InstructionSequence</span>.<span class="ruby-identifier">compile</span>(<span class="ruby-identifier">str</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">SyntaxError</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">verbose</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

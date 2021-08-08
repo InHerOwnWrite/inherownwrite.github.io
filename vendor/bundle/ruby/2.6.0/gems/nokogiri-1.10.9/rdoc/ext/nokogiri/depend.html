@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>depend - nokogiri-1.10.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../LICENSE-DEPENDENCIES_md.html">LICENSE-DEPENDENCIES</a>
+  
+    <li><a href="../../LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../ext/nokogiri/Makefile.html">Makefile</a>
+  
+    <li><a href="../../ext/nokogiri/depend.html">depend</a>
+  
+    <li><a href="../../lib/nokogiri/css/tokenizer_rex.html">tokenizer.rex</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page ext/nokogiri/depend">
+
+<p>html_document.o: html_document.c html_document.h nokogiri.h xml_io.h    \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>html_element_description.o: html_element_description.c                  \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                    \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span>         \
+<span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>html_entity_lookup.o: html_entity_lookup.c html_entity_lookup.h         \</p>
+
+<pre class="ruby"><span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span>         \
+<span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>html_sax_parser_context.o: html_sax_parser_context.c                    \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                    \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span>         \
+<span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>nokogiri.o: nokogiri.c nokogiri.h xml_io.h xml_document.h               \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_attr.o: xml_attr.c xml_attr.h nokogiri.h xml_io.h xml_document.h    \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_attribute_decl.o: xml_attribute_decl.c xml_attribute_decl.h         \</p>
+
+<pre class="ruby"><span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_cdata.o: xml_cdata.c xml_cdata.h nokogiri.h xml_io.h                \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                    \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_comment.o: xml_comment.c xml_comment.h nokogiri.h xml_io.h          \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span>         \
+<span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>   \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_document.o: xml_document.c xml_document.h nokogiri.h xml_io.h       \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_document_fragment.o: xml_document_fragment.c                        \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>         \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_dtd.o: xml_dtd.c xml_dtd.h nokogiri.h xml_io.h xml_document.h       \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_element_content.o: xml_element_content.c xml_element_content.h      \</p>
+
+<pre class="ruby"><span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span>         \
+<span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_element_decl.o: xml_element_decl.c xml_element_decl.h nokogiri.h    \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>                          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_encoding_handler.o: xml_encoding_handler.c xml_encoding_handler.h   \</p>
+
+<pre class="ruby"><span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_entity_decl.o: xml_entity_decl.c xml_entity_decl.h nokogiri.h       \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>                          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_entity_reference.o: xml_entity_reference.c xml_entity_reference.h   \</p>
+
+<pre class="ruby"><span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_io.o: xml_io.c xml_io.h nokogiri.h xml_document.h                   \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_namespace.o: xml_namespace.c xml_namespace.h nokogiri.h xml_io.h    \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>                        \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_node.o: xml_node.c xml_node.h nokogiri.h xml_io.h xml_document.h    \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_node_set.o: xml_node_set.c xml_node_set.h nokogiri.h xml_io.h       \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>   \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_processing_instruction.o: xml_processing_instruction.c              \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span>  \
+<span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_reader.o: xml_reader.c xml_reader.h nokogiri.h xml_io.h             \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_relax_ng.o: xml_relax_ng.c xml_relax_ng.h nokogiri.h xml_io.h       \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_sax_parser.o: xml_sax_parser.c xml_sax_parser.h nokogiri.h          \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>                          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_sax_parser_context.o: xml_sax_parser_context.c                      \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>                    \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>            \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                    \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>         \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                 \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_sax_push_parser.o: xml_sax_push_parser.c xml_sax_push_parser.h      \</p>
+
+<pre class="ruby"><span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_schema.o: xml_schema.c xml_schema.h nokogiri.h xml_io.h             \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_syntax_error.o: xml_syntax_error.c xml_syntax_error.h nokogiri.h    \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>                          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span>              \
+<span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_text.o: xml_text.c xml_text.h nokogiri.h xml_io.h xml_document.h    \</p>
+
+<pre class="ruby"><span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span>           \
+<span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span>                \
+<span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xml_xpath_context.o: xml_xpath_context.c xml_xpath_context.h            \</p>
+
+<pre class="ruby"><span class="ruby-identifier">nokogiri</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span>               \
+<span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span>       \
+<span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xslt_stylesheet</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span>      \
+<span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+<p>xslt_stylesheet.o: xslt_stylesheet.c xslt_stylesheet.h nokogiri.h       \</p>
+
+<pre class="ruby"><span class="ruby-identifier">xml_io</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_document</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_entity_lookup</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_document</span>.<span class="ruby-identifier">h</span>          \
+<span class="ruby-identifier">xml_node</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_text</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_cdata</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_attr</span>.<span class="ruby-identifier">h</span>                          \
+<span class="ruby-identifier">xml_processing_instruction</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_reference</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">xml_document_fragment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_comment</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_node_set</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_dtd</span>.<span class="ruby-identifier">h</span>        \
+<span class="ruby-identifier">xml_attribute_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_decl</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_entity_decl</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_xpath_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_element_content</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_parser_context</span>.<span class="ruby-identifier">h</span>    \
+<span class="ruby-identifier">xml_sax_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_sax_push_parser</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_reader</span>.<span class="ruby-identifier">h</span>                   \
+<span class="ruby-identifier">html_sax_parser_context</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_syntax_error</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_schema</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_relax_ng</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">html_element_description</span>.<span class="ruby-identifier">h</span> <span class="ruby-identifier">xml_namespace</span>.<span class="ruby-identifier">h</span>             \
+<span class="ruby-identifier">xml_encoding_handler</span>.<span class="ruby-identifier">h</span>
+</pre>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Nokogiri::XML::Schema - nokogiri-1.10.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-from_document">::from_document</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-read_memory">::read_memory</a>
+    
+    <li ><a href="#method-i-valid-3F">#valid?</a>
+    
+    <li ><a href="#method-i-validate">#validate</a>
+    
+    <li ><a href="#method-i-validate_document">#validate_document</a>
+    
+    <li ><a href="#method-i-validate_file">#validate_file</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Nokogiri::XML::Schema">
+  <h1 id="class-Nokogiri::XML::Schema" class="class">
+    class Nokogiri::XML::Schema
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Schema.html"><code>Nokogiri::XML::Schema</code></a> is used for validating <a href="../XML.html"><code>XML</code></a> against a schema (usually from an xsd file).</p>
+
+<h2 id="class-Nokogiri::XML::Schema-label-Synopsis">Synopsis<span><a href="#class-Nokogiri::XML::Schema-label-Synopsis">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Validate an <a href="../XML.html"><code>XML</code></a> document against a <a href="Schema.html"><code>Schema</code></a>.  Loop over the errors that are returned and print them out:</p>
+
+<pre class="ruby"><span class="ruby-identifier">xsd</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Schema</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">PO_SCHEMA_FILE</span>))
+<span class="ruby-identifier">doc</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">PO_XML_FILE</span>))
+
+<span class="ruby-identifier">xsd</span>.<span class="ruby-identifier">validate</span>(<span class="ruby-identifier">doc</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The list of errors are <a href="SyntaxError.html"><code>Nokogiri::XML::SyntaxError</code></a> objects.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-errors" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">errors</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Errors while parsing the schema file</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-from_document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            from_document(doc)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Schema.html"><code>Schema</code></a> from the <a href="Document.html"><code>Nokogiri::XML::Document</code></a> <code>doc</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_document-source">
+            <pre>static VALUE from_document(VALUE klass, VALUE document)
+{
+  xmlDocPtr doc;
+  xmlSchemaParserCtxtPtr ctx;
+  xmlSchemaPtr schema;
+  VALUE errors;
+  VALUE rb_schema;
+
+  Data_Get_Struct(document, xmlDoc, doc);
+
+  /* In case someone passes us a node. ugh. */
+  doc = doc-&gt;doc;
+
+  if (has_blank_nodes_p(DOC_NODE_CACHE(doc))) {
+    rb_raise(rb_eArgError, &quot;Creating a schema from a document that has blank nodes exposed to Ruby is dangerous&quot;);
+  }
+
+  ctx = xmlSchemaNewDocParserCtxt(doc);
+
+  errors = rb_ary_new();
+  xmlSetStructuredErrorFunc((void *)errors, Nokogiri_error_array_pusher);
+
+#ifdef HAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS
+  xmlSchemaSetParserStructuredErrors(
+    ctx,
+    Nokogiri_error_array_pusher,
+    (void *)errors
+  );
+#endif
+
+  schema = xmlSchemaParse(ctx);
+
+  xmlSetStructuredErrorFunc(NULL, NULL);
+  xmlSchemaFreeParserCtxt(ctx);
+
+  if(NULL == schema) {
+    xmlErrorPtr error = xmlGetLastError();
+    if(error)
+      Nokogiri_error_raise(NULL, error);
+    else
+      rb_raise(rb_eRuntimeError, &quot;Could not parse document&quot;);
+
+    return Qnil;
+  }
+
+  rb_schema = Data_Wrap_Struct(klass, 0, dealloc, schema);
+  rb_iv_set(rb_schema, &quot;@errors&quot;, errors);
+
+  return rb_schema;
+
+  return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(string_or_io)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Schema.html"><code>Nokogiri::XML::Schema</code></a> object using a <code>string_or_io</code> object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/schema.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">new</span> <span class="ruby-identifier">string_or_io</span>
+  <span class="ruby-identifier">from_document</span> <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-identifier">string_or_io</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-read_memory" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            read_memory(string)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Schema.html"><code>Schema</code></a> from the contents of <code>string</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_memory-source">
+            <pre>static VALUE read_memory(VALUE klass, VALUE content)
+{
+  xmlSchemaPtr schema;
+  xmlSchemaParserCtxtPtr ctx = xmlSchemaNewMemParserCtxt(
+      (const char *)StringValuePtr(content),
+      (int)RSTRING_LEN(content)
+  );
+  VALUE rb_schema;
+  VALUE errors = rb_ary_new();
+  xmlSetStructuredErrorFunc((void *)errors, Nokogiri_error_array_pusher);
+
+#ifdef HAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS
+  xmlSchemaSetParserStructuredErrors(
+    ctx,
+    Nokogiri_error_array_pusher,
+    (void *)errors
+  );
+#endif
+
+   schema = xmlSchemaParse(ctx);
+
+  xmlSetStructuredErrorFunc(NULL, NULL);
+  xmlSchemaFreeParserCtxt(ctx);
+
+  if(NULL == schema) {
+    xmlErrorPtr error = xmlGetLastError();
+    if(error)
+      Nokogiri_error_raise(NULL, error);
+    else
+      rb_raise(rb_eRuntimeError, &quot;Could not parse document&quot;);
+
+    return Qnil;
+  }
+
+  rb_schema = Data_Wrap_Struct(klass, 0, dealloc, schema);
+  rb_iv_set(rb_schema, &quot;@errors&quot;, errors);
+
+  return rb_schema;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-valid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid?</span><span
+            class="method-args">(thing)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if <code>thing</code> is a valid <a href="Document.html"><code>Nokogiri::XML::Document</code></a> or file.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="valid-3F-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/schema.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid?</span> <span class="ruby-identifier">thing</span>
+  <span class="ruby-identifier">validate</span>(<span class="ruby-identifier">thing</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">validate</span><span
+            class="method-args">(thing)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Validate <code>thing</code> against this schema.  <code>thing</code> can be a <a href="Document.html"><code>Nokogiri::XML::Document</code></a> object, or a filename.  An Array of <a href="SyntaxError.html"><code>Nokogiri::XML::SyntaxError</code></a> objects found while validating the <code>thing</code> is returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/schema.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validate</span> <span class="ruby-identifier">thing</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">thing</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>) 
+    <span class="ruby-identifier">validate_document</span>(<span class="ruby-identifier">thing</span>) 
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">thing</span>)
+    <span class="ruby-identifier">validate_file</span>(<span class="ruby-identifier">thing</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Must provide Nokogiri::Xml::Document or the name of an existing file&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-validate_document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            validate_document(document)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Validate a <a href="Document.html"><code>Nokogiri::XML::Document</code></a> against this <a href="Schema.html"><code>Schema</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate_document-source">
+            <pre>static VALUE validate_document(VALUE self, VALUE document)
+{
+  xmlDocPtr doc;
+  xmlSchemaPtr schema;
+  xmlSchemaValidCtxtPtr valid_ctxt;
+  VALUE errors;
+
+  Data_Get_Struct(self, xmlSchema, schema);
+  Data_Get_Struct(document, xmlDoc, doc);
+
+  errors = rb_ary_new();
+
+  valid_ctxt = xmlSchemaNewValidCtxt(schema);
+
+  if(NULL == valid_ctxt) {
+    /* we have a problem */
+    rb_raise(rb_eRuntimeError, &quot;Could not create a validation context&quot;);
+  }
+
+#ifdef HAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS
+  xmlSchemaSetValidStructuredErrors(
+    valid_ctxt,
+    Nokogiri_error_array_pusher,
+    (void *)errors
+  );
+#endif
+
+  xmlSchemaValidateDoc(valid_ctxt, doc);
+
+  xmlSchemaFreeValidCtxt(valid_ctxt);
+
+  return errors;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validate_file" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            validate_file(filename)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Validate a file against this <a href="Schema.html"><code>Schema</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate_file-source">
+            <pre>static VALUE validate_file(VALUE self, VALUE rb_filename)
+{
+  xmlSchemaPtr schema;
+  xmlSchemaValidCtxtPtr valid_ctxt;
+  const char *filename ;
+  VALUE errors;
+
+  Data_Get_Struct(self, xmlSchema, schema);
+  filename = (const char*)StringValueCStr(rb_filename) ;
+
+  errors = rb_ary_new();
+
+  valid_ctxt = xmlSchemaNewValidCtxt(schema);
+
+  if(NULL == valid_ctxt) {
+    /* we have a problem */
+    rb_raise(rb_eRuntimeError, &quot;Could not create a validation context&quot;);
+  }
+
+#ifdef HAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS
+  xmlSchemaSetValidStructuredErrors(
+    valid_ctxt,
+    Nokogiri_error_array_pusher,
+    (void *)errors
+  );
+#endif
+
+  xmlSchemaValidateFile(valid_ctxt, filename, 0);
+
+  xmlSchemaFreeValidCtxt(valid_ctxt);
+
+  return errors;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

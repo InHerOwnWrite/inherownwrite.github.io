@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Nokogiri::XML::SAX::Document - nokogiri-1.10.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-cdata_block">#cdata_block</a>
+    
+    <li ><a href="#method-i-characters">#characters</a>
+    
+    <li ><a href="#method-i-comment">#comment</a>
+    
+    <li ><a href="#method-i-end_document">#end_document</a>
+    
+    <li ><a href="#method-i-end_element">#end_element</a>
+    
+    <li ><a href="#method-i-end_element_namespace">#end_element_namespace</a>
+    
+    <li ><a href="#method-i-error">#error</a>
+    
+    <li ><a href="#method-i-processing_instruction">#processing_instruction</a>
+    
+    <li ><a href="#method-i-start_document">#start_document</a>
+    
+    <li ><a href="#method-i-start_element">#start_element</a>
+    
+    <li ><a href="#method-i-start_element_namespace">#start_element_namespace</a>
+    
+    <li ><a href="#method-i-warning">#warning</a>
+    
+    <li ><a href="#method-i-xmldecl">#xmldecl</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Nokogiri::XML::SAX::Document">
+  <h1 id="class-Nokogiri::XML::SAX::Document" class="class">
+    class Nokogiri::XML::SAX::Document
+  </h1>
+
+  <section class="description">
+    
+<p>This class is used for registering types of events you are interested in handling.  All of the methods on this class are available as possible events while parsing an <a href="../../XML.html"><code>XML</code></a> document.  To register for any particular event, just subclass this class and implement the methods you are interested in knowing about.</p>
+
+<p>To only be notified about start and end element events, write a class like this:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyDocument</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SAX</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_element</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">attrs</span> = []
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{name} started!&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_element</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{name} ended&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>You can use this event handler for any <a href="../SAX.html"><code>SAX</code></a> style parser included with <a href="../../../Nokogiri.html"><code>Nokogiri</code></a>.  See <a href="../SAX.html"><code>Nokogiri::XML::SAX</code></a>, and <a href="../../HTML/SAX.html"><code>Nokogiri::HTML::SAX</code></a>.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-cdata_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cdata_block</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called when cdata blocks are found <code>string</code> contains the cdata content</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cdata_block-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cdata_block</span> <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-characters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">characters</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Characters read between a tag.  This method might be called multiple times given one contiguous string of characters.</p>
+
+<p><code>string</code> contains the character data</p>
+          
+          
+
+          
+          <div class="method-source-code" id="characters-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">characters</span> <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">comment</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called when comments are encountered <code>string</code> contains the comment data</p>
+          
+          
+
+          
+          <div class="method-source-code" id="comment-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">comment</span> <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_document" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_document</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called when document ends parsing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_document-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_document</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_element</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called at the end of an element <code>name</code> is the tag name</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_element-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_element</span> <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_element_namespace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_element_namespace</span><span
+            class="method-args">(name, prefix = nil, uri = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called at the end of an element <code>name</code> is the element&#39;s name <code>prefix</code> is the namespace prefix associated with the element <code>uri</code> is the associated namespace URI</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_element_namespace-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_element_namespace</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">prefix</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">uri</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-comment">###</span>
+  <span class="ruby-comment"># Deal with SAX v1 interface</span>
+  <span class="ruby-identifier">end_element</span> [<span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">name</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;:&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called on document errors <code>string</code> contains the error</p>
+          
+          
+
+          
+          <div class="method-source-code" id="error-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">error</span> <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-processing_instruction" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">processing_instruction</span><span
+            class="method-args">(name, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called when processing instructions are found <code>name</code> is the target of the instruction <code>content</code> is the value of the instruction</p>
+          
+          
+
+          
+          <div class="method-source-code" id="processing_instruction-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">processing_instruction</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">content</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_document" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_document</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called when document starts parsing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_document-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_document</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_element</span><span
+            class="method-args">(name, attrs = [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called at the beginning of an element</p>
+<ul><li>
+<p><code>name</code> is the name of the tag</p>
+</li><li>
+<p><code>attrs</code> are an assoc list of namespaces and attributes, e.g.:</p>
+
+<pre class="ruby">[ [<span class="ruby-string">&quot;xmlns:foo&quot;</span>, <span class="ruby-string">&quot;http://sample.net&quot;</span>], [<span class="ruby-string">&quot;size&quot;</span>, <span class="ruby-string">&quot;large&quot;</span>] ]
+</pre>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="start_element-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_element</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">attrs</span> = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_element_namespace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_element_namespace</span><span
+            class="method-args">(name, attrs = [], prefix = nil, uri = nil, ns = [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called at the beginning of an element <code>name</code> is the element name <code>attrs</code> is a list of attributes <code>prefix</code> is the namespace prefix for the element <code>uri</code> is the associated namespace URI <code>ns</code> is a hash of namespace prefix:urls associated with the element</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_element_namespace-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_element_namespace</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">attrs</span> = [], <span class="ruby-identifier">prefix</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">uri</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">ns</span> = []
+  <span class="ruby-comment">###</span>
+  <span class="ruby-comment"># Deal with SAX v1 interface</span>
+  <span class="ruby-identifier">name</span> = [<span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">name</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;:&#39;</span>)
+  <span class="ruby-identifier">attributes</span> = <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">ns_prefix</span>,<span class="ruby-identifier">ns_uri</span><span class="ruby-operator">|</span>
+    [[<span class="ruby-string">&#39;xmlns&#39;</span>, <span class="ruby-identifier">ns_prefix</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;:&#39;</span>), <span class="ruby-identifier">ns_uri</span>]
+  } <span class="ruby-operator">+</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+    [[<span class="ruby-identifier">attr</span>.<span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">localname</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;:&#39;</span>), <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">value</span>]
+  }
+  <span class="ruby-identifier">start_element</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">attributes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-warning" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warning</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called on document warnings <code>string</code> contains the warning</p>
+          
+          
+
+          
+          <div class="method-source-code" id="warning-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">warning</span> <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xmldecl" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xmldecl</span><span
+            class="method-args">(version, encoding, standalone)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called when an <a href="../../XML.html"><code>XML</code></a> declaration is parsed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xmldecl-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/document.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">xmldecl</span> <span class="ruby-identifier">version</span>, <span class="ruby-identifier">encoding</span>, <span class="ruby-identifier">standalone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

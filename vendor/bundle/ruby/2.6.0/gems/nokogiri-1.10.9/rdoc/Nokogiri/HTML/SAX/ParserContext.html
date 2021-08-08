@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Nokogiri::HTML::SAX::ParserContext - nokogiri-1.10.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../XML/SAX/ParserContext.html">Nokogiri::XML::SAX::ParserContext</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-file">::file</a>
+    
+    <li ><a href="#method-c-memory">::memory</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-parse_with">#parse_with</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Nokogiri::HTML::SAX::ParserContext">
+  <h1 id="class-Nokogiri::HTML::SAX::ParserContext" class="class">
+    class Nokogiri::HTML::SAX::ParserContext
+  </h1>
+
+  <section class="description">
+    
+<p>Context for <a href="../../HTML.html"><code>HTML</code></a> <a href="../SAX.html"><code>SAX</code></a> parsers.  This class is usually not instantiated by the user.  Instead, you should be looking at <a href="Parser.html"><code>Nokogiri::HTML::SAX::Parser</code></a></p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file</span><span
+            class="method-args">(p1, p2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="file-source">
+            <pre>static VALUE parse_file(VALUE klass, VALUE filename, VALUE encoding)
+{
+  htmlParserCtxtPtr ctxt = htmlCreateFileParserCtxt(
+      StringValueCStr(filename),
+      StringValueCStr(encoding)
+  );
+  return Data_Wrap_Struct(klass, NULL, deallocate, ctxt);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">memory</span><span
+            class="method-args">(p1, p2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="memory-source">
+            <pre>static VALUE
+parse_memory(VALUE klass, VALUE data, VALUE encoding)
+{
+    htmlParserCtxtPtr ctxt;
+
+    if (NIL_P(data))
+        rb_raise(rb_eArgError, &quot;data cannot be nil&quot;);
+    if (!(int)RSTRING_LEN(data))
+        rb_raise(rb_eRuntimeError, &quot;data cannot be empty&quot;);
+
+    ctxt = htmlCreateMemoryParserCtxt(StringValuePtr(data),
+                                      (int)RSTRING_LEN(data));
+    if (ctxt-&gt;sax) {
+        xmlFree(ctxt-&gt;sax);
+        ctxt-&gt;sax = NULL;
+    }
+
+    if (RTEST(encoding)) {
+        xmlCharEncodingHandlerPtr enc = xmlFindCharEncodingHandler(StringValueCStr(encoding));
+        if (enc != NULL) {
+            xmlSwitchToEncoding(ctxt, enc);
+            if (ctxt-&gt;errNo == XML_ERR_UNSUPPORTED_ENCODING) {
+                rb_raise(rb_eRuntimeError, &quot;Unsupported encoding %s&quot;,
+                         StringValueCStr(encoding));
+            }
+        }
+    }
+
+    return Data_Wrap_Struct(klass, NULL, deallocate, ctxt);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(thing, encoding = &#39;UTF-8&#39;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../../XML/SAX/ParserContext.html#method-c-new"><code>Nokogiri::XML::SAX::ParserContext::new</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/sax/parser_context.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">new</span> <span class="ruby-identifier">thing</span>, <span class="ruby-identifier">encoding</span> = <span class="ruby-string">&#39;UTF-8&#39;</span>
+  [<span class="ruby-value">:read</span>, <span class="ruby-value">:close</span>].<span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">thing</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">x</span>) } <span class="ruby-operator">?</span>  <span class="ruby-keyword">super</span> <span class="ruby-operator">:</span>
+    <span class="ruby-identifier">memory</span>(<span class="ruby-identifier">thing</span>, <span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-parse_with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_with</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_with-source">
+            <pre>static VALUE
+parse_with(VALUE self, VALUE sax_handler)
+{
+    htmlParserCtxtPtr ctxt;
+    htmlSAXHandlerPtr sax;
+
+    if (!rb_obj_is_kind_of(sax_handler, cNokogiriXmlSaxParser))
+        rb_raise(rb_eArgError, &quot;argument must be a Nokogiri::XML::SAX::Parser&quot;);
+
+    Data_Get_Struct(self, htmlParserCtxt, ctxt);
+    Data_Get_Struct(sax_handler, htmlSAXHandler, sax);
+
+    /* Free the sax handler since we&#39;ll assign our own */
+    if (ctxt-&gt;sax &amp;&amp; ctxt-&gt;sax != (xmlSAXHandlerPtr)&amp;xmlDefaultSAXHandler)
+        xmlFree(ctxt-&gt;sax);
+
+    ctxt-&gt;sax = sax;
+    ctxt-&gt;userData = (void *)NOKOGIRI_SAX_TUPLE_NEW(ctxt, sax_handler);
+
+    rb_ensure(parse_doc, (VALUE)ctxt, parse_doc_finalize, (VALUE)ctxt);
+
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

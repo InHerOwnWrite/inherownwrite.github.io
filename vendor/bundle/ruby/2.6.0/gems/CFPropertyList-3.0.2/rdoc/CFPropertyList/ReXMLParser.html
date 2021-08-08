@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CFPropertyList::ReXMLParser - CFPropertyList-3.0.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ParserInterface.html">CFPropertyList::ParserInterface</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-append_node">#append_node</a>
+    
+    <li ><a href="#method-i-get_value">#get_value</a>
+    
+    <li ><a href="#method-i-import_xml">#import_xml</a>
+    
+    <li ><a href="#method-i-load">#load</a>
+    
+    <li ><a href="#method-i-new_node">#new_node</a>
+    
+    <li ><a href="#method-i-new_text">#new_text</a>
+    
+    <li ><a href="#method-i-to_str">#to_str</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CFPropertyList::ReXMLParser">
+  <h1 id="class-CFPropertyList::ReXMLParser" class="class">
+    class CFPropertyList::ReXMLParser
+  </h1>
+
+  <section class="description">
+    
+<p>XML parser</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-append_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_node</span><span
+            class="method-args">(parent, child)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append_node-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbREXMLParser.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">append_node</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">child</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">add_text</span> <span class="ruby-identifier">child</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">elements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">child</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parent</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>read a XML file</p>
+<dl class="rdoc-list note-list"><dt>opts
+<dd></dd></dl>
+<ul><li>
+<p>:file - The filename of the file to load</p>
+</li><li>
+<p>:data - The data to parse</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbREXMLParser.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load</span>(<span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-identifier">doc</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:file</span>)) <span class="ruby-keyword">then</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:file</span>], <span class="ruby-string">&quot;rb&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">fd</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">fd</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">doc</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:data</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">doc</span>
+    <span class="ruby-identifier">root</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">import_xml</span>(<span class="ruby-identifier">root</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;invalid XML: &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_node</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new_node-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbREXMLParser.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new_node</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_text</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new_text-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbREXMLParser.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new_text</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_str" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_str</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>serialize <a href="../CFPropertyList.html"><code>CFPropertyList</code></a> object to XML</p>
+<dl class="rdoc-list note-list"><dt>opts = {}
+<dd>
+<p>Specify options: :formatted - Use indention and line breaks</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="to_str-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbREXMLParser.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_str</span>(<span class="ruby-identifier">opts</span>={})
+  <span class="ruby-identifier">doc</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@doc</span> = <span class="ruby-identifier">doc</span>
+
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">context</span>[<span class="ruby-value">:attribute_quote</span>] = <span class="ruby-value">:quote</span>
+
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">add_element</span> <span class="ruby-string">&#39;plist&#39;</span>, {<span class="ruby-string">&#39;version&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;1.0&#39;</span>}
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:root</span>].<span class="ruby-identifier">to_xml</span>(<span class="ruby-keyword">self</span>)
+
+  <span class="ruby-identifier">formatter</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:formatted</span>] <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">f</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Formatters</span><span class="ruby-operator">::</span><span class="ruby-constant">Pretty</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>)
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">compact</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">width</span> = <span class="ruby-constant">Float</span><span class="ruby-operator">::</span><span class="ruby-constant">INFINITY</span>
+    <span class="ruby-identifier">f</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Formatters</span><span class="ruby-operator">::</span><span class="ruby-constant">Default</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>, <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">str1</span> = <span class="ruby-string">&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;!DOCTYPE plist PUBLIC \&quot;-//Apple//DTD PLIST 1.0//EN\&quot; \&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd\&quot;&gt;\n&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">str1</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&#39;UTF-8&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">str1</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:force_encoding</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_value</span><span
+            class="method-args">(n)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get the value of a DOM node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_value-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbREXMLParser.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_value</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">content</span> = <span class="ruby-identifier">n</span>.<span class="ruby-identifier">text</span>
+
+  <span class="ruby-identifier">content</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&#39;UTF-8&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:force_encoding</span>)
+  <span class="ruby-identifier">content</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-import_xml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">import_xml</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>import the XML values</p>
+          
+          
+
+          
+          <div class="method-source-code" id="import_xml-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbREXMLParser.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">import_xml</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">ret</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;dict&#39;</span>
+    <span class="ruby-identifier">hsh</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">has_elements?</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;#text&#39;</span> <span class="ruby-comment"># avoid a bug of libxml</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;#comment&#39;</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;key&quot;</span> <span class="ruby-keyword">then</span>
+          <span class="ruby-identifier">key</span> = <span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">n</span>)
+          <span class="ruby-identifier">key</span> = <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment"># REXML returns nil if key is empty</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Format error!&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">import_xml</span>(<span class="ruby-identifier">n</span>)
+          <span class="ruby-identifier">key</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">hsh</span>[<span class="ruby-string">&#39;CF$UID&#39;</span>] <span class="ruby-keyword">and</span> <span class="ruby-identifier">hsh</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFUid</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">hsh</span>[<span class="ruby-string">&#39;CF$UID&#39;</span>].<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFDictionary</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">hsh</span>)
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;array&#39;</span>
+    <span class="ruby-identifier">ary</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">has_elements?</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;#text&#39;</span> <span class="ruby-comment"># avoid a bug of libxml</span>
+        <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">import_xml</span>(<span class="ruby-identifier">n</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ary</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;true&#39;</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFBoolean</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;false&#39;</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFBoolean</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;real&#39;</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFReal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">node</span>).<span class="ruby-identifier">to_f</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;integer&#39;</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFInteger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">node</span>).<span class="ruby-identifier">to_i</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;string&#39;</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">node</span>))
+    <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">value</span> = <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment"># REXML returns nil for empty elements&#39; .text attribute</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;data&#39;</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">node</span>))
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;date&#39;</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-constant">CFDate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">CFDate</span>.<span class="ruby-identifier">parse_date</span>(<span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">node</span>)))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

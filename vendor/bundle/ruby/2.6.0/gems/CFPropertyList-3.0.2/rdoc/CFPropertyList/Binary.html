@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CFPropertyList::Binary - CFPropertyList-3.0.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-ascii_string-3F">::ascii_string?</a>
+    
+    <li ><a href="#method-c-bytes_needed">::bytes_needed</a>
+    
+    <li ><a href="#method-c-charset_convert">::charset_convert</a>
+    
+    <li ><a href="#method-c-charset_strlen">::charset_strlen</a>
+    
+    <li ><a href="#method-c-pack_int_array_with_size">::pack_int_array_with_size</a>
+    
+    <li ><a href="#method-c-pack_it_with_size">::pack_it_with_size</a>
+    
+    <li ><a href="#method-c-type_bytes">::type_bytes</a>
+    
+    <li ><a href="#method-i-array_to_binary">#array_to_binary</a>
+    
+    <li ><a href="#method-i-bool_to_binary">#bool_to_binary</a>
+    
+    <li ><a href="#method-i-count_object_refs">#count_object_refs</a>
+    
+    <li ><a href="#method-i-data_to_binary">#data_to_binary</a>
+    
+    <li ><a href="#method-i-date_to_binary">#date_to_binary</a>
+    
+    <li ><a href="#method-i-dict_to_binary">#dict_to_binary</a>
+    
+    <li ><a href="#method-i-int_to_binary">#int_to_binary</a>
+    
+    <li ><a href="#method-i-load">#load</a>
+    
+    <li ><a href="#method-i-num_to_binary">#num_to_binary</a>
+    
+    <li ><a href="#method-i-object_ref_size">#object_ref_size</a>
+    
+    <li ><a href="#method-i-read_binary_array">#read_binary_array</a>
+    
+    <li ><a href="#method-i-read_binary_data">#read_binary_data</a>
+    
+    <li ><a href="#method-i-read_binary_date">#read_binary_date</a>
+    
+    <li ><a href="#method-i-read_binary_dict">#read_binary_dict</a>
+    
+    <li ><a href="#method-i-read_binary_int">#read_binary_int</a>
+    
+    <li ><a href="#method-i-read_binary_null_type">#read_binary_null_type</a>
+    
+    <li ><a href="#method-i-read_binary_object">#read_binary_object</a>
+    
+    <li ><a href="#method-i-read_binary_object_at">#read_binary_object_at</a>
+    
+    <li ><a href="#method-i-read_binary_real">#read_binary_real</a>
+    
+    <li ><a href="#method-i-read_binary_string">#read_binary_string</a>
+    
+    <li ><a href="#method-i-read_binary_unicode_string">#read_binary_unicode_string</a>
+    
+    <li ><a href="#method-i-read_fd">#read_fd</a>
+    
+    <li ><a href="#method-i-real_to_binary">#real_to_binary</a>
+    
+    <li ><a href="#method-i-string_to_binary">#string_to_binary</a>
+    
+    <li ><a href="#method-i-to_str">#to_str</a>
+    
+    <li ><a href="#method-i-uid_to_binary">#uid_to_binary</a>
+    
+    <li ><a href="#method-i-unpack_with_size">#unpack_with_size</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CFPropertyList::Binary">
+  <h1 id="class-CFPropertyList::Binary" class="class">
+    class CFPropertyList::Binary
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Binary.html"><code>Binary</code></a> PList parser class</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-ascii_string-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ascii_string?</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ascii_string-3F-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 440</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Binary</span>.<span class="ruby-identifier ruby-title">ascii_string?</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:ascii_only?</span>)
+    <span class="ruby-identifier">str</span>.<span class="ruby-identifier">ascii_only?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/[\x80-\xFF]/mn</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bytes_needed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bytes_needed</span><span
+            class="method-args">(count)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>calculate how many bytes are needed to save <code>count</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bytes_needed-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Binary</span>.<span class="ruby-identifier ruby-title">bytes_needed</span>(<span class="ruby-identifier">count</span>)
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">8</span>  <span class="ruby-keyword">then</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">16</span> <span class="ruby-keyword">then</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">32</span> <span class="ruby-keyword">then</span> <span class="ruby-value">4</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">64</span> <span class="ruby-keyword">then</span> <span class="ruby-value">8</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Data size too large: #{count}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-charset_convert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">charset_convert</span><span
+            class="method-args">(str,from,to=&quot;UTF-8&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert the given string from one charset to another</p>
+          
+          
+
+          
+          <div class="method-source-code" id="charset_convert-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Binary</span>.<span class="ruby-identifier ruby-title">charset_convert</span>(<span class="ruby-identifier">str</span>,<span class="ruby-identifier">from</span>,<span class="ruby-identifier">to</span>=<span class="ruby-string">&quot;UTF-8&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">from</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">to</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-string">&quot;encode&quot;</span>)
+  <span class="ruby-constant">Iconv</span>.<span class="ruby-identifier">conv</span>(<span class="ruby-identifier">to</span>,<span class="ruby-identifier">from</span>,<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-charset_strlen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">charset_strlen</span><span
+            class="method-args">(str,charset=&quot;UTF-8&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Count characters considering character set</p>
+          
+          
+
+          
+          <div class="method-source-code" id="charset_strlen-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Binary</span>.<span class="ruby-identifier ruby-title">charset_strlen</span>(<span class="ruby-identifier">str</span>,<span class="ruby-identifier">charset</span>=<span class="ruby-string">&quot;UTF-8&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:encode</span>)
+    <span class="ruby-identifier">size</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">utf8_str</span> = <span class="ruby-constant">Iconv</span>.<span class="ruby-identifier">conv</span>(<span class="ruby-string">&quot;UTF-8&quot;</span>,<span class="ruby-identifier">charset</span>,<span class="ruby-identifier">str</span>)
+    <span class="ruby-identifier">size</span> = <span class="ruby-identifier">utf8_str</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/./mu</span>).<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># UTF-16 code units in the range D800-DBFF are the beginning of</span>
+  <span class="ruby-comment"># a surrogate pair, and count as one additional character for</span>
+  <span class="ruby-comment"># length calculation.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">charset</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^UTF-16/</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:encode</span>)
+      <span class="ruby-identifier">str</span>.<span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> (<span class="ruby-value">0xd8</span><span class="ruby-operator">..</span><span class="ruby-value">0xdb</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">pair</span>[<span class="ruby-value">0</span>]) }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">str</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> (<span class="ruby-string">&quot;\xd8&quot;</span><span class="ruby-operator">..</span><span class="ruby-string">&quot;\xdb&quot;</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">pair</span>[<span class="ruby-value">0</span>]) }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pack_int_array_with_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pack_int_array_with_size</span><span
+            class="method-args">(nbytes, array)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pack_int_array_with_size-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 373</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Binary</span>.<span class="ruby-identifier ruby-title">pack_int_array_with_size</span>(<span class="ruby-identifier">nbytes</span>, <span class="ruby-identifier">array</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">nbytes</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">array</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C*&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">array</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;n*&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">4</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">array</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;N*&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">8</span>
+    <span class="ruby-identifier">array</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">int</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">int</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>, <span class="ruby-identifier">int</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xFFFFFFFF</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;NN&#39;</span>) }.<span class="ruby-identifier">join</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Don&#39;t know how to pack #{nbytes} byte integer&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pack_it_with_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pack_it_with_size</span><span
+            class="method-args">(nbytes,int)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>pack an <code>int</code> of <code>nbytes</code> with size</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pack_it_with_size-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 361</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Binary</span>.<span class="ruby-identifier ruby-title">pack_it_with_size</span>(<span class="ruby-identifier">nbytes</span>,<span class="ruby-identifier">int</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">nbytes</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> [<span class="ruby-identifier">int</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;c&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span> [<span class="ruby-identifier">int</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;n&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">4</span> <span class="ruby-keyword">then</span> [<span class="ruby-identifier">int</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;N&#39;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">8</span>
+    [<span class="ruby-identifier">int</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>, <span class="ruby-identifier">int</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xFFFFFFFF</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;NN&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Don&#39;t know how to pack #{nbytes} byte integer&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-type_bytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type_bytes</span><span
+            class="method-args">(type, length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a type byte for binary format as defined by apple</p>
+          
+          
+
+          
+          <div class="method-source-code" id="type_bytes-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Binary</span>.<span class="ruby-identifier ruby-title">type_bytes</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">length</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">15</span>
+    [(<span class="ruby-identifier">type</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">4</span>) <span class="ruby-operator">|</span> <span class="ruby-identifier">length</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">bytes</span> = [(<span class="ruby-identifier">type</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">4</span>) <span class="ruby-operator">|</span> <span class="ruby-value">0xF</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0xFF</span>
+      <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-value">0x10</span>, <span class="ruby-identifier">length</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;CCC&#39;</span>)                              <span class="ruby-comment"># 1 byte length</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0xFFFF</span>
+      <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-value">0x11</span>, <span class="ruby-identifier">length</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;CCn&#39;</span>)                              <span class="ruby-comment"># 2 byte length</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0xFFFFFFFF</span>
+      <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-value">0x12</span>, <span class="ruby-identifier">length</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;CCN&#39;</span>)                              <span class="ruby-comment"># 4 byte length</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0x7FFFFFFFFFFFFFFF</span>
+      <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-value">0x13</span>, <span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>, <span class="ruby-identifier">length</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xFFFFFFFF</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;CCNN&#39;</span>)  <span class="ruby-comment"># 8 byte length</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Integer too large: #{int}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-array_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">array_to_binary</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert array to binary format and add it to the object table</p>
+          
+          
+
+          
+          <div class="method-source-code" id="array_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 560</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">array_to_binary</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">saved_object_count</span> = <span class="ruby-ivar">@written_object_count</span>
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-comment">#@object_refs += val.value.size</span>
+
+  <span class="ruby-identifier">values</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_binary</span>(<span class="ruby-keyword">self</span>) }
+  <span class="ruby-identifier">bdata</span> = <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b1010</span>, <span class="ruby-identifier">val</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">size</span>) <span class="ruby-operator">&lt;&lt;</span>
+    <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">pack_int_array_with_size</span>(<span class="ruby-identifier">object_ref_size</span>(<span class="ruby-ivar">@object_refs</span>),
+                                    <span class="ruby-identifier">values</span>)
+
+  <span class="ruby-ivar">@object_table</span>[<span class="ruby-identifier">saved_object_count</span>] = <span class="ruby-identifier">bdata</span>
+  <span class="ruby-identifier">saved_object_count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bool_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bool_to_binary</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert a bool value to binary and add it to the object table</p>
+          
+          
+
+          
+          <div class="method-source-code" id="bool_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 543</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bool_to_binary</span>(<span class="ruby-identifier">val</span>)
+
+  <span class="ruby-ivar">@object_table</span>[<span class="ruby-ivar">@written_object_count</span>] = <span class="ruby-identifier">val</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;\x9&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;\x8&quot;</span> <span class="ruby-comment"># 0x9 is 1001, type indicator for true; 0x8 is 1000, type indicator for false</span>
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-count_object_refs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">count_object_refs</span><span
+            class="method-args">(object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="count_object_refs-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">count_object_refs</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">CFArray</span>
+    <span class="ruby-identifier">contained_refs</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">CFArray</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">||</span> <span class="ruby-constant">CFDictionary</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">element</span>
+        <span class="ruby-identifier">contained_refs</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">count_object_refs</span>(<span class="ruby-identifier">element</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">contained_refs</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">CFDictionary</span>
+    <span class="ruby-identifier">contained_refs</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">CFArray</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">||</span> <span class="ruby-constant">CFDictionary</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">value</span>
+        <span class="ruby-identifier">contained_refs</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">count_object_refs</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">contained_refs</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-data_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data_to_binary</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert data value to binary format and add it to the object table</p>
+          
+          
+
+          
+          <div class="method-source-code" id="data_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 551</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">data_to_binary</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-ivar">@object_table</span>[<span class="ruby-ivar">@written_object_count</span>] =
+    (<span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b0100</span>, <span class="ruby-identifier">val</span>.<span class="ruby-identifier">bytesize</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">val</span>)
+
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-date_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">date_to_binary</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert date value (apple format) to binary and adds it to the object table</p>
+          
+          
+
+          
+          <div class="method-source-code" id="date_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 532</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">date_to_binary</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">getutc</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">DATE_DIFF_APPLE_UNIX</span> <span class="ruby-comment"># CFDate is a real, number of seconds since 01/01/2001 00:00:00 GMT</span>
+
+  <span class="ruby-ivar">@object_table</span>[<span class="ruby-ivar">@written_object_count</span>] =
+    (<span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b0011</span>, <span class="ruby-value">3</span>) <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">val</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;E&quot;</span>).<span class="ruby-identifier">reverse</span>)
+
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dict_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dict_to_binary</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert dictionary to binary format and add it to the object table</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dict_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 575</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dict_to_binary</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">saved_object_count</span> = <span class="ruby-ivar">@written_object_count</span>
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-comment">#@object_refs += val.value.keys.size * 2</span>
+
+  <span class="ruby-identifier">keys_and_values</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-constant">CFString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">k</span>).<span class="ruby-identifier">to_binary</span>(<span class="ruby-keyword">self</span>) }
+  <span class="ruby-identifier">keys_and_values</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">val</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_binary</span>(<span class="ruby-keyword">self</span>) })
+
+  <span class="ruby-identifier">bdata</span> = <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b1101</span>,<span class="ruby-identifier">val</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">size</span>) <span class="ruby-operator">&lt;&lt;</span>
+    <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">pack_int_array_with_size</span>(<span class="ruby-identifier">object_ref_size</span>(<span class="ruby-ivar">@object_refs</span>), <span class="ruby-identifier">keys_and_values</span>)
+
+  <span class="ruby-ivar">@object_table</span>[<span class="ruby-identifier">saved_object_count</span>] = <span class="ruby-identifier">bdata</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">saved_object_count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-int_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">int_to_binary</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Codes an integer to binary format</p>
+          
+          
+
+          
+          <div class="method-source-code" id="int_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 470</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">int_to_binary</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-comment"># Note: nbytes is actually an exponent.  number of bytes = 2**nbytes.</span>
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">1</span>  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0xFF</span> <span class="ruby-comment"># 1 byte unsigned integer</span>
+  <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0xFFFF</span> <span class="ruby-comment"># 4 byte unsigned integer</span>
+  <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0xFFFFFFFF</span> <span class="ruby-comment"># 8 byte unsigned integer</span>
+  <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0x7FFFFFFFFFFFFFFF</span> <span class="ruby-comment"># 8 byte unsigned integer, stored in lower half of 16 bytes</span>
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">3</span>  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-comment"># signed integers always stored in 8 bytes</span>
+
+  <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b0001</span>, <span class="ruby-identifier">nbytes</span>) <span class="ruby-operator">&lt;&lt;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">4</span>
+      [<span class="ruby-identifier">value</span>].<span class="ruby-identifier">pack</span>([<span class="ruby-string">&quot;C&quot;</span>, <span class="ruby-string">&quot;n&quot;</span>, <span class="ruby-string">&quot;N&quot;</span>, <span class="ruby-string">&quot;q&gt;&quot;</span>][<span class="ruby-identifier">nbytes</span>])
+    <span class="ruby-keyword">else</span> <span class="ruby-comment"># nbytes == 4</span>
+      [<span class="ruby-value">0</span>,<span class="ruby-identifier">value</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;Q&gt;Q&gt;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a binary plist file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-ivar">@unique_table</span> = {}
+  <span class="ruby-ivar">@count_objects</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@object_refs</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@written_object_count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@object_table</span> = []
+  <span class="ruby-ivar">@object_ref_size</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@offsets</span> = []
+
+  <span class="ruby-identifier">fd</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:file</span>))
+    <span class="ruby-identifier">fd</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:file</span>],<span class="ruby-string">&quot;rb&quot;</span>)
+    <span class="ruby-identifier">file</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:file</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fd</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:data</span>],<span class="ruby-string">&quot;rb&quot;</span>)
+    <span class="ruby-identifier">file</span> = <span class="ruby-string">&quot;&lt;string&gt;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># first, we read the trailer: 32 byte from the end</span>
+  <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-value">-32</span>,<span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_END</span>)
+  <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">32</span>)
+
+  <span class="ruby-identifier">offset_size</span>, <span class="ruby-identifier">object_ref_size</span>, <span class="ruby-identifier">number_of_objects</span>, <span class="ruby-identifier">top_object</span>, <span class="ruby-identifier">table_offset</span> = <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span> <span class="ruby-string">&quot;x6CCx4Nx4Nx4N&quot;</span>
+
+  <span class="ruby-comment"># after that, get the offset table</span>
+  <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-identifier">table_offset</span>, <span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_SET</span>)
+  <span class="ruby-identifier">coded_offset_table</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">number_of_objects</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">offset_size</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{file}: Format error!&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">coded_offset_table</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">number_of_objects</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">offset_size</span>
+
+  <span class="ruby-ivar">@count_objects</span> = <span class="ruby-identifier">number_of_objects</span>
+
+  <span class="ruby-comment"># decode offset table</span>
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">offset_size</span> <span class="ruby-operator">!=</span> <span class="ruby-value">3</span>)
+    <span class="ruby-identifier">formats</span> = [<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-string">&quot;C*&quot;</span>,<span class="ruby-string">&quot;n*&quot;</span>,<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-string">&quot;N*&quot;</span>]
+    <span class="ruby-ivar">@offsets</span> = <span class="ruby-identifier">coded_offset_table</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-identifier">formats</span>[<span class="ruby-identifier">offset_size</span>])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@offsets</span> = <span class="ruby-identifier">coded_offset_table</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;C*&quot;</span>).<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">3</span>).<span class="ruby-identifier">map</span> {
+      <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>,<span class="ruby-identifier">y</span>,<span class="ruby-identifier">z</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span>) <span class="ruby-operator">|</span> (<span class="ruby-identifier">y</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">8</span>) <span class="ruby-operator">|</span> <span class="ruby-identifier">z</span>
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@object_ref_size</span> = <span class="ruby-identifier">object_ref_size</span>
+  <span class="ruby-identifier">val</span> = <span class="ruby-identifier">read_binary_object_at</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">top_object</span>)
+
+  <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-num_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">num_to_binary</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts a numeric value to binary and adds it to the object table</p>
+          
+          
+
+          
+          <div class="method-source-code" id="num_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 493</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">num_to_binary</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@object_table</span>[<span class="ruby-ivar">@written_object_count</span>] =
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">CFInteger</span>)
+      <span class="ruby-identifier">int_to_binary</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">real_to_binary</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-object_ref_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">object_ref_size</span><span
+            class="method-args">(object_refs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="object_ref_size-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">object_ref_size</span> <span class="ruby-identifier">object_refs</span>
+  <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">bytes_needed</span>(<span class="ruby-identifier">object_refs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_fd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_fd</span><span
+            class="method-args">(fd, length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="read_fd-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_fd</span> <span class="ruby-identifier">fd</span>, <span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">length</span>) <span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-real_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">real_to_binary</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Codes a real value to binary format</p>
+          
+          
+
+          
+          <div class="method-source-code" id="real_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 488</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">real_to_binary</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b0010</span>,<span class="ruby-value">3</span>) <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">val</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;E&quot;</span>).<span class="ruby-identifier">reverse</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">string_to_binary</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Uniques and transforms a string value to binary format and adds it to the object table</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 449</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">string_to_binary</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span> = <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-ivar">@unique_table</span>[<span class="ruby-identifier">val</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Binary</span>.<span class="ruby-identifier">ascii_string?</span>(<span class="ruby-identifier">val</span>)
+      <span class="ruby-identifier">val</span> = <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">charset_convert</span>(<span class="ruby-identifier">val</span>,<span class="ruby-string">&quot;UTF-8&quot;</span>,<span class="ruby-string">&quot;UTF-16BE&quot;</span>)
+      <span class="ruby-identifier">bdata</span> = <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b0110</span>, <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">charset_strlen</span>(<span class="ruby-identifier">val</span>,<span class="ruby-string">&quot;UTF-16BE&quot;</span>))
+
+      <span class="ruby-identifier">val</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;ASCII-8BIT&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-string">&quot;encode&quot;</span>)
+      <span class="ruby-ivar">@object_table</span>[<span class="ruby-ivar">@written_object_count</span>] = <span class="ruby-identifier">bdata</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">bdata</span> = <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b0101</span>,<span class="ruby-identifier">val</span>.<span class="ruby-identifier">bytesize</span>)
+      <span class="ruby-ivar">@object_table</span>[<span class="ruby-ivar">@written_object_count</span>] = <span class="ruby-identifier">bdata</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_str" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_str</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert <a href="../CFPropertyList.html"><code>CFPropertyList</code></a> to binary format; since we have to count our objects we simply unique <a href="CFDictionary.html"><code>CFDictionary</code></a> and <a href="CFArray.html"><code>CFArray</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_str-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_str</span>(<span class="ruby-identifier">opts</span>={})
+  <span class="ruby-ivar">@unique_table</span> = {}
+  <span class="ruby-ivar">@count_objects</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@object_refs</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@written_object_count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@object_table</span> = []
+
+  <span class="ruby-ivar">@offsets</span> = []
+
+  <span class="ruby-identifier">binary_str</span> = <span class="ruby-string">&quot;bplist00&quot;</span>
+
+  <span class="ruby-ivar">@object_refs</span> = <span class="ruby-identifier">count_object_refs</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:root</span>])
+
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:root</span>].<span class="ruby-identifier">to_binary</span>(<span class="ruby-keyword">self</span>)
+
+  <span class="ruby-identifier">next_offset</span> = <span class="ruby-value">8</span>
+  <span class="ruby-identifier">offsets</span> = <span class="ruby-ivar">@object_table</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">object</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">next_offset</span>
+    <span class="ruby-identifier">next_offset</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">bytesize</span>
+    <span class="ruby-identifier">offset</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">binary_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@object_table</span>.<span class="ruby-identifier">join</span>
+
+  <span class="ruby-identifier">table_offset</span> = <span class="ruby-identifier">next_offset</span>
+  <span class="ruby-identifier">offset_size</span> = <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">bytes_needed</span>(<span class="ruby-identifier">table_offset</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset_size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">8</span>
+    <span class="ruby-comment"># Fast path: encode the entire offset array at once.</span>
+    <span class="ruby-identifier">binary_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">pack</span>((<span class="ruby-node">%w(C n N N)</span>[<span class="ruby-identifier">offset_size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]) <span class="ruby-operator">+</span> <span class="ruby-string">&#39;*&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Slow path: host may be little or big endian, must pack each offset</span>
+    <span class="ruby-comment"># separately.</span>
+    <span class="ruby-identifier">offsets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">offset</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">binary_str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{Binary.pack_it_with_size(offset_size,offset)}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">binary_str</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">offset_size</span>, <span class="ruby-identifier">object_ref_size</span>(<span class="ruby-ivar">@object_refs</span>)].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;x6CC&quot;</span>)
+  <span class="ruby-identifier">binary_str</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-ivar">@object_table</span>.<span class="ruby-identifier">size</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;x4N&quot;</span>)
+  <span class="ruby-identifier">binary_str</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-value">0</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;x4N&quot;</span>)
+  <span class="ruby-identifier">binary_str</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">table_offset</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;x4N&quot;</span>)
+
+  <span class="ruby-identifier">binary_str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-uid_to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uid_to_binary</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uid_to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 505</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">uid_to_binary</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">1</span>  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0xFF</span> <span class="ruby-comment"># 1 byte integer</span>
+  <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0xFFFF</span> <span class="ruby-comment"># 4 byte integer</span>
+  <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0xFFFFFFFF</span> <span class="ruby-comment"># 8 byte integer</span>
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">3</span>  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-comment"># 8 byte integer, since signed</span>
+
+  <span class="ruby-ivar">@object_table</span>[<span class="ruby-ivar">@written_object_count</span>] = <span class="ruby-constant">Binary</span>.<span class="ruby-identifier">type_bytes</span>(<span class="ruby-value">0b1000</span>, <span class="ruby-identifier">nbytes</span>) <span class="ruby-operator">&lt;&lt;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span>
+      [<span class="ruby-identifier">value</span>].<span class="ruby-identifier">pack</span>(
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>    <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;C&quot;</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;n&quot;</span>
+        <span class="ruby-keyword">else</span> <span class="ruby-string">&quot;N&quot;</span>
+        <span class="ruby-keyword">end</span>
+      )
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># 64 bit signed integer; we need the higher and the lower 32 bit of the value</span>
+      <span class="ruby-identifier">high_word</span> = <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">32</span>
+      <span class="ruby-identifier">low_word</span> = <span class="ruby-identifier">value</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xFFFFFFFF</span>
+      [<span class="ruby-identifier">high_word</span>,<span class="ruby-identifier">low_word</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;NN&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@written_object_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unpack_with_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unpack_with_size</span><span
+            class="method-args">(nbytes, buff)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unpack_with_size-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unpack_with_size</span>(<span class="ruby-identifier">nbytes</span>, <span class="ruby-identifier">buff</span>)
+  <span class="ruby-identifier">format</span> = [<span class="ruby-string">&quot;C*&quot;</span>, <span class="ruby-string">&quot;n*&quot;</span>, <span class="ruby-string">&quot;N*&quot;</span>, <span class="ruby-string">&quot;N*&quot;</span>][<span class="ruby-identifier">nbytes</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>];
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">nbytes</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
+    <span class="ruby-identifier">buff</span> = <span class="ruby-string">&quot;\0&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/.{1,3}/</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\0&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-identifier">format</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-read_binary_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_array</span><span
+            class="method-args">(fname,fd,length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read an binary array value, including contained objects</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_array-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_array</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">length</span>)
+  <span class="ruby-identifier">ary</span> = []
+
+  <span class="ruby-comment"># first: read object refs</span>
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+    <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">length</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@object_ref_size</span>)
+    <span class="ruby-identifier">objects</span> = <span class="ruby-identifier">unpack_with_size</span>(<span class="ruby-ivar">@object_ref_size</span>, <span class="ruby-identifier">buff</span>) <span class="ruby-comment">#buff.unpack(@object_ref_size == 1 ? &quot;C*&quot; : &quot;n*&quot;)</span>
+
+    <span class="ruby-comment"># now: read objects</span>
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">length</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">object</span> = <span class="ruby-identifier">read_binary_object_at</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">objects</span>[<span class="ruby-identifier">i</span>])
+      <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">object</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">CFArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ary</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_data</span><span
+            class="method-args">(fname,fd,length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a binary data value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_data-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_data</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">length</span>)
+  <span class="ruby-constant">CFData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">read_fd</span>(<span class="ruby-identifier">fd</span>, <span class="ruby-identifier">length</span>), <span class="ruby-constant">CFData</span><span class="ruby-operator">::</span><span class="ruby-constant">DATA_RAW</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_date</span><span
+            class="method-args">(fname,fd,length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>read a binary date value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_date-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_date</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">length</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Date greater than 8 bytes: #{length}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>
+
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">nbytes</span>)
+
+  <span class="ruby-constant">CFDate</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">0</span> <span class="ruby-keyword">then</span> <span class="ruby-comment"># 1 byte CFDate is an error</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{length+1} byte CFDate, error&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> <span class="ruby-comment"># 2 byte CFDate is an error</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{length+1} byte CFDate, error&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;e&quot;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">3</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;E&quot;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">end</span>,
+    <span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">TIMESTAMP_APPLE</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_dict" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_dict</span><span
+            class="method-args">(fname,fd,length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a dictionary value, including contained objects</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_dict-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 286</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_dict</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">length</span>)
+  <span class="ruby-identifier">dict</span> = {}
+
+  <span class="ruby-comment"># first: read keys</span>
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">length</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@object_ref_size</span>)
+    <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">unpack_with_size</span>(<span class="ruby-ivar">@object_ref_size</span>, <span class="ruby-identifier">buff</span>)
+
+    <span class="ruby-comment"># second: read object refs</span>
+    <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">length</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@object_ref_size</span>)
+    <span class="ruby-identifier">objects</span> = <span class="ruby-identifier">unpack_with_size</span>(<span class="ruby-ivar">@object_ref_size</span>, <span class="ruby-identifier">buff</span>)
+
+    <span class="ruby-comment"># read real keys and objects</span>
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">length</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">read_binary_object_at</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">keys</span>[<span class="ruby-identifier">i</span>])
+      <span class="ruby-identifier">object</span> = <span class="ruby-identifier">read_binary_object_at</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">objects</span>[<span class="ruby-identifier">i</span>])
+      <span class="ruby-identifier">dict</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">value</span>] = <span class="ruby-identifier">object</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">CFDictionary</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dict</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_int" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_int</span><span
+            class="method-args">(fname,fd,length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>read a binary int value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_int-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_int</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">length</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Integer greater than 16 bytes: #{length}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">length</span>
+
+  <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">nbytes</span>)
+
+  <span class="ruby-constant">CFInteger</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">0</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;C&quot;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;n&quot;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;N&quot;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-comment"># 8 byte integers are always signed</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">3</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;q&gt;&quot;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-comment"># 16 byte integers are used to represent unsigned 8 byte integers</span>
+    <span class="ruby-comment"># where the unsigned value is stored in the lower 8 bytes and the</span>
+    <span class="ruby-comment"># upper 8 bytes are unused.</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">4</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;Q&gt;Q&gt;&quot;</span>)[<span class="ruby-value">1</span>]
+    <span class="ruby-keyword">end</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_null_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_null_type</span><span
+            class="method-args">(length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>read a „null” type (i.e. null byte, marker byte, bool value)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_null_type-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_null_type</span>(<span class="ruby-identifier">length</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>  <span class="ruby-keyword">then</span> <span class="ruby-value">0</span> <span class="ruby-comment"># null byte</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">8</span>  <span class="ruby-keyword">then</span> <span class="ruby-constant">CFBoolean</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">9</span>  <span class="ruby-keyword">then</span> <span class="ruby-constant">CFBoolean</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">15</span> <span class="ruby-keyword">then</span> <span class="ruby-value">15</span> <span class="ruby-comment"># fill type</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;unknown null type: #{length}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_object</span><span
+            class="method-args">(fname,fd)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read an object type byte, decode it and delegate to the correct reader function</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_object-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_object</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>)
+  <span class="ruby-comment"># first: read the marker byte</span>
+  <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">1</span>)
+
+  <span class="ruby-identifier">object_length</span> = <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;C*&quot;</span>)
+  <span class="ruby-identifier">object_length</span> = <span class="ruby-identifier">object_length</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&amp;</span> <span class="ruby-value">0xF</span>
+
+  <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;H*&quot;</span>)
+  <span class="ruby-identifier">object_type</span> = <span class="ruby-identifier">buff</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">chr</span>
+
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">object_type</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;0&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">object_length</span> <span class="ruby-operator">==</span> <span class="ruby-value">15</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">object_length</span> = <span class="ruby-identifier">read_binary_object</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>)
+    <span class="ruby-identifier">object_length</span> = <span class="ruby-identifier">object_length</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">object_type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-comment"># null, false, true, fillbyte</span>
+    <span class="ruby-identifier">read_binary_null_type</span>(<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;1&#39;</span> <span class="ruby-comment"># integer</span>
+    <span class="ruby-identifier">read_binary_int</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;2&#39;</span> <span class="ruby-comment"># real</span>
+    <span class="ruby-identifier">read_binary_real</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;3&#39;</span> <span class="ruby-comment"># date</span>
+    <span class="ruby-identifier">read_binary_date</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;4&#39;</span> <span class="ruby-comment"># data</span>
+    <span class="ruby-identifier">read_binary_data</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;5&#39;</span> <span class="ruby-comment"># byte string, usually utf8 encoded</span>
+    <span class="ruby-identifier">read_binary_string</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;6&#39;</span> <span class="ruby-comment"># unicode string (utf16be)</span>
+    <span class="ruby-identifier">read_binary_unicode_string</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;8&#39;</span>
+    <span class="ruby-constant">CFUid</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">read_binary_int</span>(<span class="ruby-identifier">fname</span>, <span class="ruby-identifier">fd</span>, <span class="ruby-identifier">object_length</span>).<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;a&#39;</span> <span class="ruby-comment"># array</span>
+    <span class="ruby-identifier">read_binary_array</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;d&#39;</span> <span class="ruby-comment"># dictionary</span>
+    <span class="ruby-identifier">read_binary_dict</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">object_length</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_object_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_object_at</span><span
+            class="method-args">(fname,fd,pos)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read an object type byte at position $pos, decode it and delegate to the correct reader function</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_object_at-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_object_at</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">pos</span>)
+  <span class="ruby-identifier">position</span> = <span class="ruby-ivar">@offsets</span>[<span class="ruby-identifier">pos</span>]
+  <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-identifier">position</span>,<span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_SET</span>)
+  <span class="ruby-identifier">read_binary_object</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_real" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_real</span><span
+            class="method-args">(fname,fd,length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>read a binary real value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_real-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_real</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">length</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Real greater than 8 bytes: #{length}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>
+
+  <span class="ruby-identifier">nbytes</span> = <span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">nbytes</span>)
+
+  <span class="ruby-constant">CFReal</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">0</span> <span class="ruby-comment"># 1 byte float? must be an error</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;got #{length+1} byte float, must be an error!&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-comment"># 2 byte float? must be an error</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CFFormatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;got #{length+1} byte float, must be an error!&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;e&quot;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">3</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">buff</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;E&quot;</span>)[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">fail</span> <span class="ruby-node">&quot;unexpected length: #{length}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_string</span><span
+            class="method-args">(fname,fd,length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a binary string value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_string-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_string</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">length</span>)
+  <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">read_fd</span> <span class="ruby-identifier">fd</span>, <span class="ruby-identifier">length</span>
+  <span class="ruby-ivar">@unique_table</span>[<span class="ruby-identifier">buff</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@unique_table</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">buff</span>)
+  <span class="ruby-constant">CFString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">buff</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_binary_unicode_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_binary_unicode_string</span><span
+            class="method-args">(fname,fd,length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a unicode string value, coded as UTF-16BE</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_binary_unicode_string-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbBinaryCFPropertyList.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_binary_unicode_string</span>(<span class="ruby-identifier">fname</span>,<span class="ruby-identifier">fd</span>,<span class="ruby-identifier">length</span>)
+  <span class="ruby-comment"># The problem is: we get the length of the string IN CHARACTERS;</span>
+  <span class="ruby-comment"># since a char in UTF-16 can be 16 or 32 bit long, we don&#39;t really know</span>
+  <span class="ruby-comment"># how long the string is in bytes</span>
+  <span class="ruby-identifier">buff</span> = <span class="ruby-identifier">fd</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">2</span><span class="ruby-operator">*</span><span class="ruby-identifier">length</span>)
+
+  <span class="ruby-ivar">@unique_table</span>[<span class="ruby-identifier">buff</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@unique_table</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">buff</span>)
+  <span class="ruby-constant">CFString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Binary</span>.<span class="ruby-identifier">charset_convert</span>(<span class="ruby-identifier">buff</span>,<span class="ruby-string">&quot;UTF-16BE&quot;</span>,<span class="ruby-string">&quot;UTF-8&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

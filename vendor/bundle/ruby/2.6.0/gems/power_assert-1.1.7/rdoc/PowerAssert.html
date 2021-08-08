@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module PowerAssert - power_assert-1.1.7 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-app_caller_locations">::app_caller_locations</a>
+    
+    <li ><a href="#method-c-app_context-3F">::app_context?</a>
+    
+    <li ><a href="#method-c-clear_global_method_cache">::clear_global_method_cache</a>
+    
+    <li ><a href="#method-c-configuration">::configuration</a>
+    
+    <li ><a href="#method-c-configure">::configure</a>
+    
+    <li ><a href="#method-c-internal_file-3F">::internal_file?</a>
+    
+    <li ><a href="#method-c-lib_dir">::lib_dir</a>
+    
+    <li ><a href="#method-c-setup_internal_lib_dir">::setup_internal_lib_dir</a>
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-c-trace">::trace</a>
+    
+    <li ><a href="#method-i-21">#!</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-_fixed-3F">#_fixed?</a>
+    
+    <li ><a href="#method-i-fixed-3F">#fixed?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-PowerAssert">
+  <h1 id="module-PowerAssert" class="module">
+    module PowerAssert
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CLEAR_CACHE_ISEQ">CLEAR_CACHE_ISEQ
+        
+        <dd>
+        
+      
+        <dt id="IGNORED_LIB_DIRS">IGNORED_LIB_DIRS
+        
+        <dd><p>For backward compatibility</p>
+        
+      
+        <dt id="INTERNAL_LIB_DIRS">INTERNAL_LIB_DIRS
+        
+        <dd>
+        
+      
+        <dt id="POWER_ASSERT_LIB_DIR">POWER_ASSERT_LIB_DIR
+        
+        <dd>
+        
+      
+        <dt id="SUPPORT_ALIAS_METHOD">SUPPORT_ALIAS_METHOD
+        
+        <dd>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-app_caller_locations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_caller_locations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="app_caller_locations-source">
+            <pre><span class="ruby-comment"># File lib/power_assert.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">app_caller_locations</span>
+  <span class="ruby-identifier">caller_locations</span>.<span class="ruby-identifier">drop_while</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">internal_file?</span>(<span class="ruby-identifier">i</span>.<span class="ruby-identifier">path</span>) }.<span class="ruby-identifier">take_while</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">internal_file?</span>(<span class="ruby-identifier">i</span>.<span class="ruby-identifier">path</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-app_context-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_context?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="app_context-3F-source">
+            <pre><span class="ruby-comment"># File lib/power_assert.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">app_context?</span>
+  <span class="ruby-identifier">top_frame</span> = <span class="ruby-identifier">caller_locations</span>.<span class="ruby-identifier">drop_while</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-constant">POWER_ASSERT_LIB_DIR</span>) }.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">top_frame</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">internal_file?</span>(<span class="ruby-identifier">top_frame</span>.<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-configuration" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configuration</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="configuration-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/configuration.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">configuration</span>
+  <span class="ruby-ivar">@configuration</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Configuration</span>[<span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">true</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-configure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure</span><span
+            class="method-args">() { |configuration| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/configuration.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">configure</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">configuration</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">(assertion_proc_or_source, assertion_method: nil, source_binding: TOPLEVEL_BINDING) { |block_context| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File lib/power_assert.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start</span>(<span class="ruby-identifier">assertion_proc_or_source</span>, <span class="ruby-value">assertion_method:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">source_binding:</span> <span class="ruby-constant">TOPLEVEL_BINDING</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:clear_global_method_cache</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">clear_global_method_cache</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-constant">BlockContext</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">assertion_proc_or_source</span>, <span class="ruby-identifier">assertion_method</span>, <span class="ruby-identifier">source_binding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-trace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">trace</span><span
+            class="method-args">(frame)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="trace-source">
+            <pre><span class="ruby-comment"># File lib/power_assert.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">trace</span>(<span class="ruby-identifier">frame</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Byebug is not started yet&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Byebug</span>.<span class="ruby-identifier">started?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;PowerAssert.#{__method__} requires Byebug&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">ctx</span> = <span class="ruby-constant">TraceContext</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">frame</span>.<span class="ruby-identifier">_binding</span>)
+  <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">enable</span>
+  <span class="ruby-identifier">ctx</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-clear_global_method_cache" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_global_method_cache</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clear_global_method_cache-source">
+            <pre><span class="ruby-comment"># File lib/power_assert.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear_global_method_cache</span>
+  <span class="ruby-constant">CLEAR_CACHE_ISEQ</span>.<span class="ruby-identifier">eval</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-internal_file-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_file?</span><span
+            class="method-args">(file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_file-3F-source">
+            <pre><span class="ruby-comment"># File lib/power_assert.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_file?</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">setup_internal_lib_dir</span>(<span class="ruby-constant">Byebug</span>, <span class="ruby-value">:attach</span>, <span class="ruby-value">2</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Byebug</span>)
+  <span class="ruby-identifier">setup_internal_lib_dir</span>(<span class="ruby-constant">PryByebug</span>, <span class="ruby-value">:start_with_pry_byebug</span>, <span class="ruby-value">2</span>, <span class="ruby-constant">Pry</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">PryByebug</span>)
+  <span class="ruby-constant">INTERNAL_LIB_DIRS</span>.<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-lib_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lib_dir</span><span
+            class="method-args">(obj, mid, depth)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lib_dir-source">
+            <pre><span class="ruby-comment"># File lib/power_assert.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lib_dir</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">depth</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;../&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">depth</span>, <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">method</span>(<span class="ruby-identifier">mid</span>).<span class="ruby-identifier">source_location</span>[<span class="ruby-value">0</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-setup_internal_lib_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_internal_lib_dir</span><span
+            class="method-args">(lib, mid, depth, lib_obj = lib)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_internal_lib_dir-source">
+            <pre><span class="ruby-comment"># File lib/power_assert.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup_internal_lib_dir</span>(<span class="ruby-identifier">lib</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">depth</span>, <span class="ruby-identifier">lib_obj</span> = <span class="ruby-identifier">lib</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">INTERNAL_LIB_DIRS</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">lib</span>)
+    <span class="ruby-constant">INTERNAL_LIB_DIRS</span>[<span class="ruby-identifier">lib</span>] = <span class="ruby-identifier">lib_dir</span>(<span class="ruby-identifier">lib_obj</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">depth</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="21-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/enable_tracepoint_events.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/enable_tracepoint_events.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_fixed-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">_fixed?</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="PowerAssert.html#method-i-fixed-3F">fixed?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-fixed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fixed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fixed-3F-source">
+            <pre><span class="ruby-comment"># File lib/power_assert/enable_tracepoint_events.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fixed?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="PowerAssert.html#method-i-_fixed-3F">_fixed?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

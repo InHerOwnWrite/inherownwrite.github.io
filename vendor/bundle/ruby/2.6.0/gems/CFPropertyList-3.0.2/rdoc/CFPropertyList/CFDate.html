@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CFPropertyList::CFDate - CFPropertyList-3.0.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="CFType.html">CFPropertyList::CFType</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-date_string">::date_string</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-parse_date">::parse_date</a>
+    
+    <li ><a href="#method-i-get_value">#get_value</a>
+    
+    <li ><a href="#method-i-set_value">#set_value</a>
+    
+    <li ><a href="#method-i-to_binary">#to_binary</a>
+    
+    <li ><a href="#method-i-to_plain">#to_plain</a>
+    
+    <li ><a href="#method-i-to_xml">#to_xml</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CFPropertyList::CFDate">
+  <h1 id="class-CFPropertyList::CFDate" class="class">
+    class CFPropertyList::CFDate
+  </h1>
+
+  <section class="description">
+    
+<p>This class holds Time values. While Apple uses seconds since 2001, the rest of the world uses seconds since 1970. So if you access value directly, you get the Time class. If you access via <a href="CFDate.html#method-i-get_value"><code>get_value</code></a> you either geht the timestamp or the Apple timestamp</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DATE_DIFF_APPLE_UNIX">DATE_DIFF_APPLE_UNIX
+        
+        <dd>
+        
+      
+        <dt id="TIMESTAMP_APPLE">TIMESTAMP_APPLE
+        
+        <dd>
+        
+      
+        <dt id="TIMESTAMP_UNIX">TIMESTAMP_UNIX
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-date_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">date_string</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>create a XML date strimg from a time object</p>
+          
+          
+
+          
+          <div class="method-source-code" id="date_string-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFTypes.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">CFDate</span>.<span class="ruby-identifier ruby-title">date_string</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-comment"># 2009-05-13T20:23:43Z</span>
+  <span class="ruby-identifier">val</span>.<span class="ruby-identifier">getutc</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%Y-%m-%dT%H:%M:%SZ&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(value = nil,format=CFDate::TIMESTAMP_UNIX)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>set value to defined state</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFTypes.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">value</span> = <span class="ruby-keyword">nil</span>,<span class="ruby-identifier">format</span>=<span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">TIMESTAMP_UNIX</span>)
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Time</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">instance_of?</span> <span class="ruby-constant">Date</span>
+    <span class="ruby-ivar">@value</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">year</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">month</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">day</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">instance_of?</span> <span class="ruby-constant">DateTime</span>
+    <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_time</span>.<span class="ruby-identifier">utc</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">set_value</span>(<span class="ruby-identifier">value</span>,<span class="ruby-identifier">format</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_date</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>parse a XML date string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_date-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFTypes.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">CFDate</span>.<span class="ruby-identifier ruby-title">parse_date</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-comment"># 2009-05-13T20:23:43Z</span>
+  <span class="ruby-identifier">val</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z$}</span>
+  <span class="ruby-identifier">year</span>,<span class="ruby-identifier">month</span>,<span class="ruby-identifier">day</span>,<span class="ruby-identifier">hour</span>,<span class="ruby-identifier">min</span>,<span class="ruby-identifier">sec</span> = <span class="ruby-node">$1</span>, <span class="ruby-node">$2</span>, <span class="ruby-node">$3</span>, <span class="ruby-node">$4</span>, <span class="ruby-node">$5</span>, <span class="ruby-node">$6</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-identifier">year</span>,<span class="ruby-identifier">month</span>,<span class="ruby-identifier">day</span>,<span class="ruby-identifier">hour</span>,<span class="ruby-identifier">min</span>,<span class="ruby-identifier">sec</span>).<span class="ruby-identifier">getlocal</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_value</span><span
+            class="method-args">(format=CFDate::TIMESTAMP_UNIX)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get timestamp, either UNIX or Apple timestamp</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_value-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFTypes.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_value</span>(<span class="ruby-identifier">format</span>=<span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">TIMESTAMP_UNIX</span>)
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">TIMESTAMP_UNIX</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">DATE_DIFF_APPLE_UNIX</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_value</span><span
+            class="method-args">(value,format=CFDate::TIMESTAMP_UNIX)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>set value with timestamp, either Apple or UNIX</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_value-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFTypes.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_value</span>(<span class="ruby-identifier">value</span>,<span class="ruby-identifier">format</span>=<span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">TIMESTAMP_UNIX</span>)
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">TIMESTAMP_UNIX</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@value</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@value</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">value</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-constant">DATE_DIFF_APPLE_UNIX</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_binary</span><span
+            class="method-args">(bplist)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>convert to binary</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_binary-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFTypes.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_binary</span>(<span class="ruby-identifier">bplist</span>)
+  <span class="ruby-identifier">bplist</span>.<span class="ruby-identifier">date_to_binary</span>(<span class="ruby-ivar">@value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_plain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_plain</span><span
+            class="method-args">(plist)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_plain-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFTypes.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_plain</span>(<span class="ruby-identifier">plist</span>)
+  <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%Y-%m-%d %H:%M:%S %z&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_xml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_xml</span><span
+            class="method-args">(parser)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>convert to XML</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_xml-source">
+            <pre><span class="ruby-comment"># File lib/cfpropertylist/rbCFTypes.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_xml</span>(<span class="ruby-identifier">parser</span>)
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">new_node</span>(<span class="ruby-string">&#39;date&#39;</span>)
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">append_node</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">new_text</span>(<span class="ruby-constant">CFDate</span><span class="ruby-operator">::</span><span class="ruby-identifier">date_string</span>(<span class="ruby-ivar">@value</span>)))
+  <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

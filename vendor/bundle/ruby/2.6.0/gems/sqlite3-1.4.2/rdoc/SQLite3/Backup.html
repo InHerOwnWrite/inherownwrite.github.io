@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class SQLite3::Backup - sqlite3-1.4.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-finish">#finish</a>
+    
+    <li ><a href="#method-i-pagecount">#pagecount</a>
+    
+    <li ><a href="#method-i-remaining">#remaining</a>
+    
+    <li ><a href="#method-i-step">#step</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-SQLite3::Backup">
+  <h1 id="class-SQLite3::Backup" class="class">
+    class SQLite3::Backup
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            SQLite3::Backup.new(dstdb, dstname, srcdb, srcname)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Initialize backup the backup.</p>
+
+<p>dstdb:</p>
+
+<pre>the destination SQLite3::Database object.</pre>
+
+<p>dstname:</p>
+
+<pre>the destination&#39;s database name.</pre>
+
+<p>srcdb:</p>
+
+<pre>the source SQLite3::Database object.</pre>
+
+<p>srcname:</p>
+
+<pre>the source&#39;s database name.</pre>
+
+<p>The database name is “main”, “temp”, or the name specified in an ATTACH statement.</p>
+
+<p>This feature requires SQLite 3.6.11 or later.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;sqlite3&#39;</span>
+<span class="ruby-identifier">sdb</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;src.sqlite3&#39;</span>)
+
+<span class="ruby-identifier">ddb</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;:memory:&#39;</span>)
+<span class="ruby-identifier">b</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Backup</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ddb</span>, <span class="ruby-string">&#39;main&#39;</span>, <span class="ruby-identifier">sdb</span>, <span class="ruby-string">&#39;main&#39;</span>)
+<span class="ruby-identifier">p</span> [<span class="ruby-identifier">b</span>.<span class="ruby-identifier">remaining</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">pagecount</span>] <span class="ruby-comment"># invalid value; for example [0, 0]</span>
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">1</span>) <span class="ruby-comment">#=&gt; OK or DONE</span>
+  <span class="ruby-identifier">p</span> [<span class="ruby-identifier">b</span>.<span class="ruby-identifier">remaining</span>, <span class="ruby-identifier">b</span>.<span class="ruby-identifier">pagecount</span>]
+<span class="ruby-keyword">end</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">remaining</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-identifier">b</span>.<span class="ruby-identifier">finish</span>
+
+<span class="ruby-identifier">ddb</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;:memory:&#39;</span>)
+<span class="ruby-identifier">b</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Backup</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ddb</span>, <span class="ruby-string">&#39;main&#39;</span>, <span class="ruby-identifier">sdb</span>, <span class="ruby-string">&#39;main&#39;</span>)
+<span class="ruby-identifier">b</span>.<span class="ruby-identifier">step</span>(<span class="ruby-value">-1</span>) <span class="ruby-comment">#=&gt; DONE</span>
+<span class="ruby-identifier">b</span>.<span class="ruby-identifier">finish</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE initialize(VALUE self, VALUE dstdb, VALUE dstname, VALUE srcdb, VALUE srcname)
+{
+  sqlite3BackupRubyPtr ctx;
+  sqlite3RubyPtr ddb_ctx, sdb_ctx;
+  sqlite3_backup *pBackup;
+
+  Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+  Data_Get_Struct(dstdb, sqlite3Ruby, ddb_ctx);
+  Data_Get_Struct(srcdb, sqlite3Ruby, sdb_ctx);
+
+  if(!sdb_ctx-&gt;db)
+    rb_raise(rb_eArgError, &quot;cannot backup from a closed database&quot;);
+  if(!ddb_ctx-&gt;db)
+    rb_raise(rb_eArgError, &quot;cannot backup to a closed database&quot;);
+
+  pBackup = sqlite3_backup_init(ddb_ctx-&gt;db, StringValuePtr(dstname),
+    sdb_ctx-&gt;db, StringValuePtr(srcname));
+  if( pBackup ){
+    ctx-&gt;p = pBackup;
+  }
+  else {
+    CHECK(ddb_ctx-&gt;db, sqlite3_errcode(ddb_ctx-&gt;db));
+  }
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-finish" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            SQLite3::Backup#finish
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Destroy the backup object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="finish-source">
+            <pre>static VALUE finish(VALUE self)
+{
+  sqlite3BackupRubyPtr ctx;
+
+  Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+  REQUIRE_OPEN_BACKUP(ctx);
+  (void)sqlite3_backup_finish(ctx-&gt;p);
+  ctx-&gt;p = NULL;
+  return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pagecount" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            SQLite3::Backup#pagecount
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the total number of pages in the source database file.</p>
+
+<p>Note that the value is only updated after step() is called, so before calling step() returned value is invalid.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pagecount-source">
+            <pre>static VALUE pagecount(VALUE self)
+{
+  sqlite3BackupRubyPtr ctx;
+
+  Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+  REQUIRE_OPEN_BACKUP(ctx);
+  return INT2NUM(sqlite3_backup_pagecount(ctx-&gt;p));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remaining" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            SQLite3::Backup#remaining
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of pages still to be backed up.</p>
+
+<p>Note that the value is only updated after step() is called, so before calling step() returned value is invalid.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remaining-source">
+            <pre>static VALUE remaining(VALUE self)
+{
+  sqlite3BackupRubyPtr ctx;
+
+  Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+  REQUIRE_OPEN_BACKUP(ctx);
+  return INT2NUM(sqlite3_backup_remaining(ctx-&gt;p));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-step" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            SQLite3::Backup#step(nPage)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Copy database pages up to <code>nPage</code>. If negative, copy all remaining source pages.</p>
+
+<p>If all pages are copied, it returns SQLite3::Constants::ErrorCode::DONE. When coping is not done, it returns SQLite3::Constants::ErrorCode::OK. When some errors occur, it returns the error code.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="step-source">
+            <pre>static VALUE step(VALUE self, VALUE nPage)
+{
+  sqlite3BackupRubyPtr ctx;
+  int status;
+
+  Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+  REQUIRE_OPEN_BACKUP(ctx);
+  status = sqlite3_backup_step(ctx-&gt;p, NUM2INT(nPage));
+  return INT2NUM(status);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

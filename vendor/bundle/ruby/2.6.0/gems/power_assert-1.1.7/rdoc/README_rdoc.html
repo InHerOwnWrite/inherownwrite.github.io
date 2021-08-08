@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - power_assert-1.1.7 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-power_assert">power_assert</a>
+    <li><a href="#label-About">About</a>
+    <li><a href="#label-Related+Projects">Related Projects</a>
+    <li><a href="#label-Requirement">Requirement</a>
+    <li><a href="#label-Reference">Reference</a>
+    <li><a href="#label-Known+Limitations">Known Limitations</a>
+    <li><a href="#label-Travis+Build+Status+-3Cimg+src-3D-22https-3A-2F-2Fsecure.travis-ci.org-2Fk-tsj-2Fpower_assert.png-3Fbranch-3Dmaster-22-2F-3E">Travis Build Status <a href="http://travis-ci.org/k-tsj/power_assert"><img src="https://secure.travis-ci.org/k-tsj/power_assert.png?branch=master"/></a></a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<h1 id="label-power_assert">power_assert<span><a href="#label-power_assert">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-About">About<span><a href="#label-About">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Power Assert for Ruby.</p>
+
+<p>Power Assert shows each value of variables and method calls in the expression. It is useful for testing, providing which value wasn&#39;t correct when the condition is not satisfied.</p>
+
+<pre>Failure:
+   assert { 3.times.to_a.include?(3) }
+              |     |    |
+              |     |    false
+              |     [0, 1, 2]
+              #&lt;Enumerator: 3:times&gt;</pre>
+
+<h2 id="label-Related+Projects">Related Projects<span><a href="#label-Related+Projects">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>In general, you don&#39;t need to use this library directly. Use following test frameworks or extensions instead.</p>
+<ul><li>
+<p><a href="https://github.com/test-unit/test-unit">test-unit</a>(&gt;= 3.0.0)</p>
+<ul><li>
+<p><a href="http://test-unit.github.io/test-unit/en/Test/Unit/Assertions.html#assert-instance_method">Document</a></p>
+</li></ul>
+</li><li>
+<p><a href="https://github.com/hsbt/minitest-power_assert">minitest-power_assert</a></p>
+</li><li>
+<p><a href="https://github.com/joker1007/rspec-power_assert">rspec-power_assert</a></p>
+</li><li>
+<p><a href="https://github.com/yui-knk/pry-power_assert">pry-power_assert</a></p>
+</li><li>
+<p><a href="https://github.com/k-tsj/pry-byebug-power_assert">pry-byebug-power_assert</a></p>
+</li><li>
+<p><a href="https://github.com/k-tsj/power_p">power_p</a></p>
+</li></ul>
+
+<h2 id="label-Requirement">Requirement<span><a href="#label-Requirement">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>CRuby 2.0.0 or later</p>
+</li></ul>
+
+<h2 id="label-Reference">Reference<span><a href="#label-Reference">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="https://speakerdeck.com/k_tsj/power-assert-in-ruby">Power Assert in Ruby (at RubyKaigi 2014) // Speaker Deck</a></p>
+</li></ul>
+
+<h2 id="label-Known+Limitations">Known Limitations<span><a href="#label-Known+Limitations">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Expressions must be put in one line. Expressions with folded long lines produce nothing report, e.g.:</p>
+
+<pre>assert do
+  # reported
+  func(foo: 0123456789, bar: &quot;abcdefg&quot;)
+end
+
+assert do
+  # won&#39;t be reported
+  func(foo: 0123456789,
+       bar: &quot;abcdefg&quot;)
+end</pre>
+</li><li>
+<p>Expressions must have one or more method call. Expressions with no method call produce nothing report, e.g.:</p>
+
+<pre class="ruby"><span class="ruby-identifier">val</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-identifier">assert</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># reported</span>
+  <span class="ruby-identifier">val</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">assert</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># won&#39;t be reported</span>
+  <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li><li>
+<p>Returned values from accessor methods, method missing, or “super” produce nothing report, e.g:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Foo</span>
+  <span class="ruby-identifier">attr_accessor</span> <span class="ruby-value">:val</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">foo</span> = <span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">foo</span>.<span class="ruby-identifier">val</span> = <span class="ruby-keyword">false</span>
+
+<span class="ruby-identifier">assert</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># reported (only the value of &quot;foo&quot; and the literal &quot;true&quot;)</span>
+  <span class="ruby-identifier">foo</span>.<span class="ruby-identifier">val</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">assert</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># won&#39;t be reported</span>
+  <span class="ruby-identifier">foo</span>.<span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li><li>
+<p>Expressions should not have conditional branches. Expressions with such conditional codes may produce nothing report, e.g.:</p>
+
+<pre class="ruby"><span class="ruby-identifier">condition</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">expected</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-identifier">actual</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">assert</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># this will fail but nothing reported</span>
+  <span class="ruby-identifier">condition</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">expected</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">actual</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">expected</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">actual</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li></ul>
+
+<h2 id="label-Travis+Build+Status+-3Cimg+src-3D-22https-3A-2F-2Fsecure.travis-ci.org-2Fk-tsj-2Fpower_assert.png-3Fbranch-3Dmaster-22-2F-3E">Travis Build Status <a href="http://travis-ci.org/k-tsj/power_assert"><img src="https://secure.travis-ci.org/k-tsj/power_assert.png?branch=master"/></a><span><a href="#label-Travis+Build+Status+-3Cimg+src-3D-22https-3A-2F-2Fsecure.travis-ci.org-2Fk-tsj-2Fpower_assert.png-3Fbranch-3Dmaster-22-2F-3E">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

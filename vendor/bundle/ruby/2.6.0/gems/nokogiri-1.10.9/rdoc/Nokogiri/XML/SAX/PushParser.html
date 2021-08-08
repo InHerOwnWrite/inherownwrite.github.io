@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Nokogiri::XML::SAX::PushParser - nokogiri-1.10.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-finish">#finish</a>
+    
+    <li ><a href="#method-i-initialize_native">#initialize_native</a>
+    
+    <li ><a href="#method-i-native_write">#native_write</a>
+    
+    <li ><a href="#method-i-options">#options</a>
+    
+    <li ><a href="#method-i-options-3D">#options=</a>
+    
+    <li ><a href="#method-i-replace_entities">#replace_entities</a>
+    
+    <li ><a href="#method-i-replace_entities-3D">#replace_entities=</a>
+    
+    <li ><a href="#method-i-write">#write</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Nokogiri::XML::SAX::PushParser">
+  <h1 id="class-Nokogiri::XML::SAX::PushParser" class="class">
+    class Nokogiri::XML::SAX::PushParser
+  </h1>
+
+  <section class="description">
+    
+<p><a href="PushParser.html"><code>PushParser</code></a> can parse a document that is fed to it manually.  It must be given a <a href="Document.html"><code>SAX::Document</code></a> object which will be called with <a href="../SAX.html"><code>SAX</code></a> events as the document is being parsed.</p>
+
+<p>Calling <a href="PushParser.html#method-i-3C-3C"><code>PushParser#<<</code></a> writes <a href="../../XML.html"><code>XML</code></a> to the parser, calling any <a href="../SAX.html"><code>SAX</code></a> callbacks it can.</p>
+
+<p><a href="PushParser.html#method-i-finish"><code>PushParser#finish</code></a> tells the parser that the document is finished and calls the end_document <a href="../SAX.html"><code>SAX</code></a> method.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">parser</span> = <span class="ruby-constant">PushParser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SAX</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>) {
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_document</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;start document called&quot;</span>
+  <span class="ruby-keyword">end</span>
+}.<span class="ruby-identifier">new</span>)
+<span class="ruby-identifier">parser</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;div&gt;hello&lt;&quot;</span>
+<span class="ruby-identifier">parser</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;/div&gt;&quot;</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">finish</span>
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-document" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">document</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="Document.html"><code>Nokogiri::XML::SAX::Document</code></a> on which the <a href="PushParser.html"><code>PushParser</code></a> will be operating</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(doc = XML::SAX::Document.new, file_name = nil, encoding = &#39;UTF-8&#39;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="PushParser.html"><code>PushParser</code></a> with <code>doc</code> as the <a href="../SAX.html"><code>SAX</code></a> <a href="Document.html"><code>Document</code></a>, providing an optional <code>file_name</code> and <code>encoding</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/push_parser.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SAX</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">file_name</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">encoding</span> = <span class="ruby-string">&#39;UTF-8&#39;</span>)
+  <span class="ruby-ivar">@document</span> = <span class="ruby-identifier">doc</span>
+  <span class="ruby-ivar">@encoding</span> = <span class="ruby-identifier">encoding</span>
+  <span class="ruby-ivar">@sax_parser</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SAX</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">doc</span>)
+
+  <span class="ruby-comment">## Create our push parser context</span>
+  <span class="ruby-identifier">initialize_native</span>(<span class="ruby-ivar">@sax_parser</span>, <span class="ruby-identifier">file_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(chunk, last_chunk = false)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="PushParser.html#method-i-write">write</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-finish" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finish</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Finish the parsing.  This method is only necessary for <a href="Document.html#method-i-end_document"><code>Nokogiri::XML::SAX::Document#end_document</code></a> to be called.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="finish-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/push_parser.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finish</span>
+  <span class="ruby-identifier">write</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre>static VALUE get_options(VALUE self)
+{
+  xmlParserCtxtPtr ctx;
+  Data_Get_Struct(self, xmlParserCtxt, ctx);
+
+  return INT2NUM(ctx-&gt;options);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options=</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options-3D-source">
+            <pre>static VALUE set_options(VALUE self, VALUE options)
+{
+  xmlParserCtxtPtr ctx;
+  Data_Get_Struct(self, xmlParserCtxt, ctx);
+
+  if (xmlCtxtUseOptions(ctx, (int)NUM2INT(options)) != 0) {
+    rb_raise(rb_eRuntimeError, &quot;Cannot set XML parser context options&quot;);
+  }
+
+  return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace_entities" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            replace_entities
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Should this parser replace entities?  &amp;amp; will get converted to &#39;&amp;&#39; if set to true</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replace_entities-source">
+            <pre>static VALUE get_replace_entities(VALUE self)
+{
+  xmlParserCtxtPtr ctx;
+  Data_Get_Struct(self, xmlParserCtxt, ctx);
+
+  if (0 == ctx-&gt;replaceEntities) {
+    return Qfalse;
+  } else {
+    return Qtrue;
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace_entities-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            replace_entities=(boolean)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Should this parser replace entities?  &amp;amp; will get converted to &#39;&amp;&#39; if set to true</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replace_entities-3D-source">
+            <pre>static VALUE set_replace_entities(VALUE self, VALUE value)
+{
+  xmlParserCtxtPtr ctx;
+  Data_Get_Struct(self, xmlParserCtxt, ctx);
+
+  if (Qfalse == value) {
+    ctx-&gt;replaceEntities = 0;
+  } else {
+    ctx-&gt;replaceEntities = 1;
+  }
+
+  return value;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write</span><span
+            class="method-args">(chunk, last_chunk = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Write a <code>chunk</code> of <a href="../../XML.html"><code>XML</code></a> to the <a href="PushParser.html"><code>PushParser</code></a>.  Any callback methods that can be called will be called immediately.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/xml/sax/push_parser.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write</span> <span class="ruby-identifier">chunk</span>, <span class="ruby-identifier">last_chunk</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">native_write</span>(<span class="ruby-identifier">chunk</span>, <span class="ruby-identifier">last_chunk</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="PushParser.html#method-i-3C-3C">&lt;&lt;</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-initialize_native" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            initialize_native(xml_sax, filename)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Initialize the push parser with <code>xml_sax</code> using <code>filename</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="initialize_native-source">
+            <pre>static VALUE initialize_native(VALUE self, VALUE _xml_sax, VALUE _filename)
+{
+  xmlSAXHandlerPtr sax;
+  const char * filename = NULL;
+  xmlParserCtxtPtr ctx;
+
+  Data_Get_Struct(_xml_sax, xmlSAXHandler, sax);
+
+  if (_filename != Qnil) { filename = StringValueCStr(_filename); }
+
+  ctx = xmlCreatePushParserCtxt(
+          sax,
+          NULL,
+          NULL,
+          0,
+          filename
+        );
+  if (ctx == NULL) {
+    rb_raise(rb_eRuntimeError, &quot;Could not create a parser context&quot;);
+  }
+
+  ctx-&gt;userData = NOKOGIRI_SAX_TUPLE_NEW(ctx, self);
+
+  ctx-&gt;sax2 = 1;
+  DATA_PTR(self) = ctx;
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-native_write" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            native_write(chunk, last_chunk)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Write <code>chunk</code> to <a href="PushParser.html"><code>PushParser</code></a>. <code>last_chunk</code> triggers the end_document handle</p>
+          
+          
+
+          
+          <div class="method-source-code" id="native_write-source">
+            <pre>static VALUE native_write(VALUE self, VALUE _chunk, VALUE _last_chunk)
+{
+  xmlParserCtxtPtr ctx;
+  const char * chunk  = NULL;
+  int size            = 0;
+
+
+  Data_Get_Struct(self, xmlParserCtxt, ctx);
+
+  if (Qnil != _chunk) {
+    chunk = StringValuePtr(_chunk);
+    size = (int)RSTRING_LEN(_chunk);
+  }
+
+  if (xmlParseChunk(ctx, chunk, size, Qtrue == _last_chunk ? 1 : 0)) {
+    if (!(ctx-&gt;options &amp; XML_PARSE_RECOVER)) {
+      xmlErrorPtr e = xmlCtxtGetLastError(ctx);
+      Nokogiri_error_raise(NULL, e);
+    }
+  }
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Nokogiri::XML::RelaxNG - nokogiri-1.10.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">cNokogiriXmlSchema
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-from_document">::from_document</a>
+    
+    <li ><a href="#method-c-read_memory">::read_memory</a>
+    
+    <li ><a href="#method-i-validate_document">#validate_document</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Nokogiri::XML::RelaxNG">
+  <h1 id="class-Nokogiri::XML::RelaxNG" class="class">
+    class Nokogiri::XML::RelaxNG
+  </h1>
+
+  <section class="description">
+    
+<p><a href="RelaxNG.html"><code>Nokogiri::XML::RelaxNG</code></a> is used for validating <a href="../XML.html"><code>XML</code></a> against a <a href="RelaxNG.html"><code>RelaxNG</code></a> schema.</p>
+
+<h2 id="class-Nokogiri::XML::RelaxNG-label-Synopsis">Synopsis<span><a href="#class-Nokogiri::XML::RelaxNG-label-Synopsis">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Validate an <a href="../XML.html"><code>XML</code></a> document against a <a href="RelaxNG.html"><code>RelaxNG</code></a> schema.  Loop over the errors that are returned and print them out:</p>
+
+<pre class="ruby"><span class="ruby-identifier">schema</span>  = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">RelaxNG</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">ADDRESS_SCHEMA_FILE</span>))
+<span class="ruby-identifier">doc</span>     = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">ADDRESS_XML_FILE</span>))
+
+<span class="ruby-identifier">schema</span>.<span class="ruby-identifier">validate</span>(<span class="ruby-identifier">doc</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The list of errors are <a href="SyntaxError.html"><code>Nokogiri::XML::SyntaxError</code></a> objects.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-from_document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            from_document(doc)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="RelaxNG.html"><code>RelaxNG</code></a> schema from the <a href="Document.html"><code>Nokogiri::XML::Document</code></a> <code>doc</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_document-source">
+            <pre>static VALUE from_document(VALUE klass, VALUE document)
+{
+  xmlDocPtr doc;
+  xmlRelaxNGParserCtxtPtr ctx;
+  xmlRelaxNGPtr schema;
+  VALUE errors;
+  VALUE rb_schema;
+
+  Data_Get_Struct(document, xmlDoc, doc);
+
+  /* In case someone passes us a node. ugh. */
+  doc = doc-&gt;doc;
+
+  ctx = xmlRelaxNGNewDocParserCtxt(doc);
+
+  errors = rb_ary_new();
+  xmlSetStructuredErrorFunc((void *)errors, Nokogiri_error_array_pusher);
+
+#ifdef HAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS
+  xmlRelaxNGSetParserStructuredErrors(
+    ctx,
+    Nokogiri_error_array_pusher,
+    (void *)errors
+  );
+#endif
+
+  schema = xmlRelaxNGParse(ctx);
+
+  xmlSetStructuredErrorFunc(NULL, NULL);
+
+  if(NULL == schema) {
+    xmlErrorPtr error = xmlGetLastError();
+    if(error)
+      Nokogiri_error_raise(NULL, error);
+    else
+      rb_raise(rb_eRuntimeError, &quot;Could not parse document&quot;);
+
+    return Qnil;
+  }
+
+  rb_schema = Data_Wrap_Struct(klass, 0, dealloc, schema);
+  rb_iv_set(rb_schema, &quot;@errors&quot;, errors);
+
+  return rb_schema;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-read_memory" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            read_memory(string)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="RelaxNG.html"><code>RelaxNG</code></a> from the contents of <code>string</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_memory-source">
+            <pre>static VALUE read_memory(VALUE klass, VALUE content)
+{
+  xmlRelaxNGParserCtxtPtr ctx = xmlRelaxNGNewMemParserCtxt(
+      (const char *)StringValuePtr(content),
+      (int)RSTRING_LEN(content)
+  );
+  xmlRelaxNGPtr schema;
+  VALUE errors = rb_ary_new();
+  VALUE rb_schema;
+
+  xmlSetStructuredErrorFunc((void *)errors, Nokogiri_error_array_pusher);
+
+#ifdef HAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS
+  xmlRelaxNGSetParserStructuredErrors(
+    ctx,
+    Nokogiri_error_array_pusher,
+    (void *)errors
+  );
+#endif
+
+  schema = xmlRelaxNGParse(ctx);
+
+  xmlSetStructuredErrorFunc(NULL, NULL);
+  xmlRelaxNGFreeParserCtxt(ctx);
+
+  if(NULL == schema) {
+    xmlErrorPtr error = xmlGetLastError();
+    if(error)
+      Nokogiri_error_raise(NULL, error);
+    else
+      rb_raise(rb_eRuntimeError, &quot;Could not parse document&quot;);
+
+    return Qnil;
+  }
+
+  rb_schema = Data_Wrap_Struct(klass, 0, dealloc, schema);
+  rb_iv_set(rb_schema, &quot;@errors&quot;, errors);
+
+  return rb_schema;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-validate_document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            validate_document(document)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Validate a <a href="Document.html"><code>Nokogiri::XML::Document</code></a> against this <a href="RelaxNG.html"><code>RelaxNG</code></a> schema.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate_document-source">
+            <pre>static VALUE validate_document(VALUE self, VALUE document)
+{
+  xmlDocPtr doc;
+  xmlRelaxNGPtr schema;
+  VALUE errors;
+  xmlRelaxNGValidCtxtPtr valid_ctxt;
+
+  Data_Get_Struct(self, xmlRelaxNG, schema);
+  Data_Get_Struct(document, xmlDoc, doc);
+
+  errors = rb_ary_new();
+
+  valid_ctxt = xmlRelaxNGNewValidCtxt(schema);
+
+  if(NULL == valid_ctxt) {
+    /* we have a problem */
+    rb_raise(rb_eRuntimeError, &quot;Could not create a validation context&quot;);
+  }
+
+#ifdef HAVE_XMLRELAXNGSETVALIDSTRUCTUREDERRORS
+  xmlRelaxNGSetValidStructuredErrors(
+    valid_ctxt,
+    Nokogiri_error_array_pusher,
+    (void *)errors
+  );
+#endif
+
+  xmlRelaxNGValidateDoc(valid_ctxt, doc);
+
+  xmlRelaxNGFreeValidCtxt(valid_ctxt);
+
+  return errors;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

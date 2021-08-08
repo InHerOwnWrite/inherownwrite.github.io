@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Nokogiri::HTML::Document - nokogiri-1.10.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../XML/Document.html">Nokogiri::XML::Document</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+    <li ><a href="#method-c-read_io">::read_io</a>
+    
+    <li ><a href="#method-c-read_memory">::read_memory</a>
+    
+    <li ><a href="#method-i-fragment">#fragment</a>
+    
+    <li ><a href="#method-i-meta_content_type">#meta_content_type</a>
+    
+    <li ><a href="#method-i-meta_encoding">#meta_encoding</a>
+    
+    <li ><a href="#method-i-meta_encoding-3D">#meta_encoding=</a>
+    
+    <li class="calls-super" ><a href="#method-i-serialize">#serialize</a>
+    
+    <li ><a href="#method-i-set_metadata_element">#set_metadata_element</a>
+    
+    <li ><a href="#method-i-title">#title</a>
+    
+    <li ><a href="#method-i-title-3D">#title=</a>
+    
+    <li ><a href="#method-i-type">#type</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Nokogiri::HTML::Document">
+  <h1 id="class-Nokogiri::HTML::Document" class="class">
+    class Nokogiri::HTML::Document
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new document</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE new(int argc, VALUE *argv, VALUE klass)
+{
+  VALUE uri, external_id, rest, rb_doc;
+  htmlDocPtr doc;
+
+  rb_scan_args(argc, argv, &quot;0*&quot;, &amp;rest);
+  uri         = rb_ary_entry(rest, (long)0);
+  external_id = rb_ary_entry(rest, (long)1);
+
+  doc = htmlNewDoc(
+      RTEST(uri) ? (const xmlChar *)StringValueCStr(uri) : NULL,
+      RTEST(external_id) ? (const xmlChar *)StringValueCStr(external_id) : NULL
+  );
+  rb_doc = Nokogiri_wrap_xml_document(klass, doc);
+  rb_obj_call_init(rb_doc, argc, argv);
+  return rb_doc ;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(string_or_io, url = nil, encoding = nil, options = XML::ParseOptions::DEFAULT_HTML) { |options| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parse <a href="../HTML.html"><code>HTML</code></a>.  <code>string_or_io</code> may be a String, or any object that responds to <em>read</em> and <em>close</em> such as an IO, or StringIO. <code>url</code> is resource where this document is located.  <code>encoding</code> is the encoding that should be used when processing the document. <code>options</code> is a number that sets options in the parser, such as Nokogiri::XML::ParseOptions::RECOVER.  See the constants in <a href="../XML/ParseOptions.html"><code>Nokogiri::XML::ParseOptions</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse</span> <span class="ruby-identifier">string_or_io</span>, <span class="ruby-identifier">url</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">encoding</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseOptions</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_HTML</span>
+
+  <span class="ruby-identifier">options</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseOptions</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">Integer</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-comment"># Give the options to the user</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">options</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:encoding</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">encoding</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;ASCII-8BIT&quot;</span>
+      <span class="ruby-identifier">encoding</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">encoding</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:read</span>)
+    <span class="ruby-identifier">url</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:path</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">encoding</span>
+      <span class="ruby-comment"># Libxml2&#39;s parser has poor support for encoding</span>
+      <span class="ruby-comment"># detection.  First, it does not recognize the HTML5</span>
+      <span class="ruby-comment"># style meta charset declaration.  Secondly, even if it</span>
+      <span class="ruby-comment"># successfully detects an encoding hint, it does not</span>
+      <span class="ruby-comment"># re-decode or re-parse the preceding part which may be</span>
+      <span class="ruby-comment"># garbled.</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment"># EncodingReader aims to perform advanced encoding</span>
+      <span class="ruby-comment"># detection beyond what Libxml2 does, and to emulate</span>
+      <span class="ruby-comment"># rewinding of a stream and make Libxml2 redo parsing</span>
+      <span class="ruby-comment"># from the start when an encoding hint is found.</span>
+      <span class="ruby-identifier">string_or_io</span> = <span class="ruby-constant">EncodingReader</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">string_or_io</span>)
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">read_io</span>(<span class="ruby-identifier">string_or_io</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">encoding</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">to_i</span>)
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">EncodingFound</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">found_encoding</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">read_io</span>(<span class="ruby-identifier">string_or_io</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">encoding</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">to_i</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># read_memory pukes on empty docs</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">string_or_io</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">encoding</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">new</span>.<span class="ruby-identifier">tap</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">encoding</span> } <span class="ruby-operator">:</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">encoding</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">EncodingReader</span>.<span class="ruby-identifier">detect_encoding</span>(<span class="ruby-identifier">string_or_io</span>)
+
+  <span class="ruby-identifier">read_memory</span>(<span class="ruby-identifier">string_or_io</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">encoding</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">to_i</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-read_io" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            read_io(io, url, encoding, options)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Read the <a href="../HTML.html"><code>HTML</code></a> document from <code>io</code> with given <code>url</code>, <code>encoding</code>, and <code>options</code>.  See <a href="../HTML.html#method-c-parse"><code>Nokogiri::HTML.parse</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_io-source">
+            <pre>static VALUE read_io( VALUE klass,
+                      VALUE io,
+                      VALUE url,
+                      VALUE encoding,
+                      VALUE options )
+{
+  const char * c_url    = NIL_P(url)      ? NULL : StringValueCStr(url);
+  const char * c_enc    = NIL_P(encoding) ? NULL : StringValueCStr(encoding);
+  VALUE error_list      = rb_ary_new();
+  VALUE document;
+  htmlDocPtr doc;
+
+  xmlResetLastError();
+  xmlSetStructuredErrorFunc((void *)error_list, Nokogiri_error_array_pusher);
+
+  doc = htmlReadIO(
+      io_read_callback,
+      io_close_callback,
+      (void *)io,
+      c_url,
+      c_enc,
+      (int)NUM2INT(options)
+  );
+  xmlSetStructuredErrorFunc(NULL, NULL);
+
+  /*
+   * If EncodingFound has occurred in EncodingReader, make sure to do
+   * a cleanup and propagate the error.
+   */
+  if (rb_respond_to(io, id_encoding_found)) {
+    VALUE encoding_found = rb_funcall(io, id_encoding_found, 0);
+    if (!NIL_P(encoding_found)) {
+      xmlFreeDoc(doc);
+      rb_exc_raise(encoding_found);
+    }
+  }
+
+  if(doc == NULL) {
+    xmlErrorPtr error;
+
+    xmlFreeDoc(doc);
+
+    error = xmlGetLastError();
+    if(error)
+      rb_exc_raise(Nokogiri_wrap_xml_syntax_error(error));
+    else
+      rb_raise(rb_eRuntimeError, &quot;Could not parse document&quot;);
+
+    return Qnil;
+  }
+
+  document = Nokogiri_wrap_xml_document(klass, doc);
+  rb_iv_set(document, &quot;@errors&quot;, error_list);
+  return document;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-read_memory" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            read_memory(string, url, encoding, options)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Read the <a href="../HTML.html"><code>HTML</code></a> document contained in <code>string</code> with given <code>url</code>, <code>encoding</code>, and <code>options</code>.  See <a href="../HTML.html#method-c-parse"><code>Nokogiri::HTML.parse</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_memory-source">
+            <pre>static VALUE read_memory( VALUE klass,
+                          VALUE string,
+                          VALUE url,
+                          VALUE encoding,
+                          VALUE options )
+{
+  const char * c_buffer = StringValuePtr(string);
+  const char * c_url    = NIL_P(url)      ? NULL : StringValueCStr(url);
+  const char * c_enc    = NIL_P(encoding) ? NULL : StringValueCStr(encoding);
+  int len               = (int)RSTRING_LEN(string);
+  VALUE error_list      = rb_ary_new();
+  VALUE document;
+  htmlDocPtr doc;
+
+  xmlResetLastError();
+  xmlSetStructuredErrorFunc((void *)error_list, Nokogiri_error_array_pusher);
+
+  doc = htmlReadMemory(c_buffer, len, c_url, c_enc, (int)NUM2INT(options));
+  xmlSetStructuredErrorFunc(NULL, NULL);
+
+  if(doc == NULL) {
+    xmlErrorPtr error;
+
+    xmlFreeDoc(doc);
+
+    error = xmlGetLastError();
+    if(error)
+      rb_exc_raise(Nokogiri_wrap_xml_syntax_error(error));
+    else
+      rb_raise(rb_eRuntimeError, &quot;Could not parse document&quot;);
+
+    return Qnil;
+  }
+
+  document = Nokogiri_wrap_xml_document(klass, doc);
+  rb_iv_set(document, &quot;@errors&quot;, error_list);
+  return document;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-fragment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fragment</span><span
+            class="method-args">(tags = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a <a href="../XML/DocumentFragment.html"><code>Nokogiri::XML::DocumentFragment</code></a> from <code>tags</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="fragment-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fragment</span> <span class="ruby-identifier">tags</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-constant">DocumentFragment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">tags</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">root</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-meta_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">meta_encoding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the meta tag encoding for this document.  If there is no meta tag, then nil is returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="meta_encoding-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">meta_encoding</span>
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">meta</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//meta[@charset]&#39;</span>)
+    <span class="ruby-identifier">meta</span>[<span class="ruby-value">:charset</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">meta</span> = <span class="ruby-identifier">meta_content_type</span>
+    <span class="ruby-identifier">meta</span>[<span class="ruby-string">&#39;content&#39;</span>][<span class="ruby-regexp">/charset\s*=\s*([\w-]+)/i</span>, <span class="ruby-value">1</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-meta_encoding-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">meta_encoding=</span><span
+            class="method-args">(encoding)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the meta tag encoding for this document.</p>
+
+<p>If an meta encoding tag is already present, its content is replaced with the given text.</p>
+
+<p>Otherwise, this method tries to create one at an appropriate place supplying head and/or html elements as necessary, which is inside a head element if any, and before any text node or content element (typically &lt;body&gt;) if any.</p>
+
+<p>The result when trying to set an encoding that is different from the document encoding is undefined.</p>
+
+<p>Beware in CRuby, that libxml2 automatically inserts a meta tag into a head element.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="meta_encoding-3D-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">meta_encoding=</span> <span class="ruby-identifier">encoding</span>
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">meta</span> = <span class="ruby-identifier">meta_content_type</span>
+    <span class="ruby-identifier">meta</span>[<span class="ruby-string">&#39;content&#39;</span>] = <span class="ruby-string">&#39;text/html; charset=%s&#39;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">encoding</span>
+    <span class="ruby-identifier">encoding</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">meta</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//meta[@charset]&#39;</span>)
+    <span class="ruby-identifier">meta</span>[<span class="ruby-string">&#39;charset&#39;</span>] = <span class="ruby-identifier">encoding</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">meta</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;meta&#39;</span>, <span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">dtd</span> = <span class="ruby-identifier">internal_subset</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">dtd</span>.<span class="ruby-identifier">html5_dtd?</span>
+      <span class="ruby-identifier">meta</span>[<span class="ruby-string">&#39;charset&#39;</span>] = <span class="ruby-identifier">encoding</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">meta</span>[<span class="ruby-string">&#39;http-equiv&#39;</span>] = <span class="ruby-string">&#39;Content-Type&#39;</span>
+      <span class="ruby-identifier">meta</span>[<span class="ruby-string">&#39;content&#39;</span>] = <span class="ruby-string">&#39;text/html; charset=%s&#39;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">encoding</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">case</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">head</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//head&#39;</span>)
+      <span class="ruby-identifier">head</span>.<span class="ruby-identifier">prepend_child</span>(<span class="ruby-identifier">meta</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">set_metadata_element</span>(<span class="ruby-identifier">meta</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">encoding</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-serialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">serialize</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Serialize Node using <code>options</code>.  Save options can also be set using a block. See SaveOptions.</p>
+
+<p>These two statements are equivalent:</p>
+
+<pre class="ruby"><span class="ruby-identifier">node</span>.<span class="ruby-identifier">serialize</span>(<span class="ruby-value">:encoding</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;UTF-8&#39;</span>, <span class="ruby-value">:save_with</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">FORMAT</span> <span class="ruby-operator">|</span> <span class="ruby-constant">AS_XML</span>)
+</pre>
+
+<p>or</p>
+
+<pre class="ruby"><span class="ruby-identifier">node</span>.<span class="ruby-identifier">serialize</span>(<span class="ruby-value">:encoding</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;UTF-8&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">format</span>.<span class="ruby-identifier">as_xml</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../XML/Node.html#method-i-serialize"><code>Nokogiri::XML::Node#serialize</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="serialize-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">serialize</span> <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:save_with</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">SaveOptions</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_HTML</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-title" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">title</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the title string of this document.  Return nil if there is no title tag.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="title-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">title</span>
+  <span class="ruby-identifier">title</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//title&#39;</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">inner_text</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-title-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">title=</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the title string of this document.</p>
+
+<p>If a title element is already present, its content is replaced with the given text.</p>
+
+<p>Otherwise, this method tries to create one at an appropriate place supplying head and/or html elements as necessary, which is inside a head element if any, right after a meta encoding/charset tag if any, and before any text node or content element (typically &lt;body&gt;) if any.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="title-3D-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">title=</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">tnode</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">text</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">title</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//title&#39;</span>)
+    <span class="ruby-identifier">title</span>.<span class="ruby-identifier">children</span> = <span class="ruby-identifier">tnode</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">title</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;title&#39;</span>, <span class="ruby-keyword">self</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tnode</span>
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">head</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//head&#39;</span>)
+    <span class="ruby-identifier">head</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">title</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">meta</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//meta[@charset]&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">meta_content_type</span>
+    <span class="ruby-comment"># better put after charset declaration</span>
+    <span class="ruby-identifier">meta</span>.<span class="ruby-identifier">add_next_sibling</span>(<span class="ruby-identifier">title</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">set_metadata_element</span>(<span class="ruby-identifier">title</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">text</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-type" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            type
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>The type for this document</p>
+          
+          
+
+          
+          <div class="method-source-code" id="type-source">
+            <pre>static VALUE type(VALUE self)
+{
+  htmlDocPtr doc;
+  Data_Get_Struct(self, xmlDoc, doc);
+  return INT2NUM((long)doc-&gt;type);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-meta_content_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">meta_content_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="meta_content_type-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">meta_content_type</span>
+  <span class="ruby-identifier">xpath</span>(<span class="ruby-string">&#39;//meta[@http-equiv and boolean(@content)]&#39;</span>).<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">node</span>[<span class="ruby-string">&#39;http-equiv&#39;</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\AContent-Type\z/i</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_metadata_element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_metadata_element</span><span
+            class="method-args">(element)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_metadata_element-source">
+            <pre><span class="ruby-comment"># File lib/nokogiri/html/document.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_metadata_element</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">head</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//head&#39;</span>)
+    <span class="ruby-identifier">head</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">html</span> = <span class="ruby-identifier">at</span>(<span class="ruby-string">&#39;//html&#39;</span>)
+    <span class="ruby-identifier">head</span> = <span class="ruby-identifier">html</span>.<span class="ruby-identifier">prepend_child</span>(<span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;head&#39;</span>, <span class="ruby-keyword">self</span>))
+    <span class="ruby-identifier">head</span>.<span class="ruby-identifier">prepend_child</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">first</span> = <span class="ruby-identifier">children</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">node</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>, <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>
+        <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    }
+    <span class="ruby-comment"># We reach here only if the underlying document model</span>
+    <span class="ruby-comment"># allows &lt;html&gt;/&lt;head&gt; elements to be omitted and does not</span>
+    <span class="ruby-comment"># automatically supply them.</span>
+    <span class="ruby-identifier">first</span>.<span class="ruby-identifier">add_previous_sibling</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">html</span> = <span class="ruby-identifier">add_child</span>(<span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;html&#39;</span>, <span class="ruby-keyword">self</span>))
+    <span class="ruby-identifier">head</span> = <span class="ruby-identifier">html</span>.<span class="ruby-identifier">add_child</span>(<span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;head&#39;</span>, <span class="ruby-keyword">self</span>))
+    <span class="ruby-identifier">head</span>.<span class="ruby-identifier">prepend_child</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
