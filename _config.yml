@@ -4,7 +4,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   This is the place where I talk about stuff that's too meta for Insta.
 author: Veronica Cheung
 baseurl:            ""
-url:                "inherownwrite.github.io"
+url:                "inherownwrite.com"
 
 # Social Profiles
 twitter_username: yycheung
