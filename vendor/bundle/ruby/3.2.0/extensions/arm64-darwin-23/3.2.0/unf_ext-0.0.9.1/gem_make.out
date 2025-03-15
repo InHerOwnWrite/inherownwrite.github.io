@@ -1,0 +1,20 @@
+current directory: /Users/veronicacheung/Desktop/inherownwrite.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.9.1/ext/unf_ext
+/Users/veronicacheung/.rvm/rubies/ruby-3.2.5/bin/ruby extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /Users/veronicacheung/Desktop/inherownwrite.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.9.1/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20250314-51033-77hovo sitelibdir\=./.gem.20250314-51033-77hovo clean
+
+current directory: /Users/veronicacheung/Desktop/inherownwrite.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.9.1/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20250314-51033-77hovo sitelibdir\=./.gem.20250314-51033-77hovo
+compiling unf.cc
+linking shared-object unf_ext.bundle
+ld: warning: ignoring duplicate libraries: '-lc++', '-lruby.3.2'
+
+current directory: /Users/veronicacheung/Desktop/inherownwrite.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.9.1/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20250314-51033-77hovo sitelibdir\=./.gem.20250314-51033-77hovo install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 unf_ext.bundle ./.gem.20250314-51033-77hovo
+
+current directory: /Users/veronicacheung/Desktop/inherownwrite.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.9.1/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20250314-51033-77hovo sitelibdir\=./.gem.20250314-51033-77hovo clean
