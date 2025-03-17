@@ -4,8 +4,7 @@ title: Poetry
 background: '/img/004.jpeg'
 ---
 
-{% for post in paginator.posts %}
-  {% if post.categories contains 'poetry' %}
+{% for post in site.categories.poetry %}
     <article class="post-preview">
       <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
         <h2 class="post-title">{{ post.title }}</h2>
@@ -25,7 +24,6 @@ background: '/img/004.jpeg'
       </p>
     </article>
     <hr>
-  {% endif %}
 {% endfor %}
 
 <!-- Pager -->

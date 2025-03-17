@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://inherownwrite.com/blog/2020/04/02/first-things-first.html</loc>
+<loc>https://inherownwrite.com/personal/2020/04/02/first-things-first.html</loc>
 <lastmod>2020-04-02T21:58:09-07:00</lastmod>
 </url>
 <url>
@@ -81,7 +81,7 @@
 <lastmod>2020-08-10T06:01:00-07:00</lastmod>
 </url>
 <url>
-<loc>https://inherownwrite.com/jekyll/update/2020/08/14/the-half-truth.html</loc>
+<loc>https://inherownwrite.com/fiction/2020/08/14/the-half-truth.html</loc>
 <lastmod>2020-08-14T06:01:00-07:00</lastmod>
 </url>
 <url>
@@ -113,7 +113,7 @@
 <lastmod>2021-01-10T08:23:15-08:00</lastmod>
 </url>
 <url>
-<loc>https://inherownwrite.com/jekyll/update/2021/01/23/gatsbydiary.html</loc>
+<loc>https://inherownwrite.com/fiction/2021/01/23/gatsbydiary.html</loc>
 <lastmod>2021-01-23T08:23:15-08:00</lastmod>
 </url>
 <url>
@@ -213,7 +213,7 @@
 <lastmod>2024-02-14T23:14:45-08:00</lastmod>
 </url>
 <url>
-<loc>https://inherownwrite.com/jekyll/update/2024/02/20/be-water.html</loc>
+<loc>https://inherownwrite.com/fiction/2024/02/20/be-water.html</loc>
 <lastmod>2024-02-20T23:14:45-08:00</lastmod>
 </url>
 <url>
@@ -245,7 +245,7 @@
 <lastmod>2025-02-14T23:15:35-08:00</lastmod>
 </url>
 <url>
-<loc>https://inherownwrite.com/chinese/fiction/2025/02/16/neva.html</loc>
+<loc>https://inherownwrite.com/fiction/2025/02/16/neva.html</loc>
 <lastmod>2025-02-16T23:14:45-08:00</lastmod>
 </url>
 <url>
@@ -261,6 +261,10 @@
 <lastmod>2025-03-14T00:14:45-07:00</lastmod>
 </url>
 <url>
+<loc>https://inherownwrite.com/poetry/2025/03/15/all-love-is-never-lost.html</loc>
+<lastmod>2025-03-15T12:45:00-07:00</lastmod>
+</url>
+<url>
 <loc>https://inherownwrite.com/2020-04-03-welcome-to-jekyll%20copy.html</loc>
 </url>
 <url>
@@ -270,10 +274,13 @@
 <loc>https://inherownwrite.com/about.html</loc>
 </url>
 <url>
+<loc>https://inherownwrite.com/</loc>
+</url>
+<url>
 <loc>https://inherownwrite.com/posts/</loc>
 </url>
 <url>
-<loc>https://inherownwrite.com/</loc>
+<loc>https://inherownwrite.com/poetry/</loc>
 </url>
 <url>
 <loc>https://inherownwrite.com/subscribe.html</loc>
