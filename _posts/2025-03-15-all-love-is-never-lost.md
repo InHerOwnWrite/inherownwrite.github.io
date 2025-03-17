@@ -11,13 +11,13 @@ molecules clutching each other \
 like hands unwilling to let go.\
 It waits in the frost, untouched,\
 preserved but distant,\
-a memory encased in ice.\
+a memory encased in ice.
 
 Some love melts—\
 it runs, reshapes, bends,\
 a river without a destination.\
 It kisses the earth, fills empty spaces,\
-becomes something new with every twist and turn.\
+becomes something new with every twist and turn.
 
 Some love burns—\
 it flares too bright, too fierce,\
@@ -26,7 +26,7 @@ It cracks open, shatters,\
 then vanishes into the air, unseen.\
 But even then, it lingers—\
 a whisper in the wind, a shimmer in the heat,\
-weightless but waiting.\
+weightless but waiting.
 
 But love never disappears.\
 It rises, condenses, falls again,\
@@ -36,7 +36,7 @@ waiting to be seen—\
 Even in atomic moments, \
 what once seems lost returns, softened, purified,\
 is always ready to flow back into your heart,\
-never far from eternity.\
+never far from eternity.
 
 And when we leave this Earth, \
 our love transforms to plasma.\
@@ -47,7 +47,7 @@ Boundless, free of sorrow,\
 it dances on the edge of eternity.\
 And those that remain\
 will feel your love’s tender caress, \
-like moonlight on their skin.\
+like moonlight on their skin.
 
 
 > ***Love is never lost***. If not reciprocated, it will flow back and soften and purify the heart.
