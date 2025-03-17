@@ -5,6 +5,15 @@ date:   2025-03-15 12:45:00 -0700
 categories: poetry
 ---
 
+> ***Love is never lost***. If not reciprocated, it will flow back and soften and purify the heart./
+_-Washington Irving_
+
+> And in the end
+> the love you take
+> is equal to the love
+> you make” /
+_-The Beatles, The End_
+
 All love is never lost.\
 Some love is frozen—\
 locked in winter’s grasp,\
@@ -39,23 +48,10 @@ what once seems lost returns, softened, purified,\
 is always ready to flow back into your heart,\
 never far from eternity.
 
-And when we leave this Earth, \
-our love transforms to plasma.\
-Shifting into aurora australis,\
-or the distant stars lightyears away,\
-immortalized.\
+And when we eventually leave this Earth,\
+our love metamorphoses into plasma—\
+the aurora australis, or distant stars light-years away, immortalized.\
 Boundless, free of sorrow,\
 it dances on the edge of eternity.\
-And those that remain\
-will feel your love’s tender caress, \
-like moonlight on their skin.
-
-
-> ***Love is never lost***. If not reciprocated, it will flow back and soften and purify the heart.
-_-Washington Irving_
-
-> “and in the end
-> the love you take
-> is equal to the love
-> you make”
-_-The Beatles, The End_
+And those who remain will feel your love’s tender caress,\
+like moonlight on their skin."
