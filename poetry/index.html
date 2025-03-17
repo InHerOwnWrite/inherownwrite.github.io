@@ -5,7 +5,7 @@ background: '/img/poetry-background.jpeg'
 ---
 
 {% for post in paginator.posts %}
-  {% if post.category contains 'poetry' %}
+  {% if post.categories contains 'poetry' %}
     <article class="post-preview">
       <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
         <h2 class="post-title">{{ post.title }}</h2>
