@@ -2,7 +2,7 @@
 layout: post
 title: All Love Is Never Lost
 date:   2025-03-15 12:45:00 -0700
-category: poetry
+categories: poetry
 ---
 
 All love is never lost.\
