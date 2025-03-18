@@ -5,13 +5,13 @@ date:   2025-03-15 12:45:00 -0700
 categories: poetry
 ---
 
-> ***Love is never lost***. If not reciprocated, it will flow back and soften and purify the heart./
+> ***Love is never lost***. If not reciprocated, it will flow back and soften and purify the heart.
 _-Washington Irving_
 
-> And in the end
+> "And in the end
 > the love you take
 > is equal to the love
-> you make” /
+> you make"
 _-The Beatles, The End_
 
 All love is never lost.\
