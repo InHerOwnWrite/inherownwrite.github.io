@@ -54,4 +54,4 @@ the aurora australis, or distant stars light-years away, immortalized.\
 Boundless, free of sorrow,\
 it dances on the edge of eternity.\
 And those who remain will feel your love’s tender caress,\
-like moonlight on their skin."
+like moonlight on their skin.
