@@ -3,7 +3,7 @@ layout: post
 title: "SCET Certificate Ceremony Graduate Speaker Speech"
 description: "Inspired by Anatomie d'une chute (2023)." # Add password here
 date: 2025-03-18 00:18:57 -0700
-background: '/img/000.png'
+background: '/img/034.jpg'
 categories: speech
 tags: []  # Add tags if necessary
 ---
