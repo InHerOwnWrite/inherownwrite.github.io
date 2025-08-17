@@ -1,15 +1,14 @@
 ---
 layout: post
 title: "SCET Certificate Ceremony Graduate Speaker Speech"
-description: "Inspired by Anatomie d'une chute (2023)." # Add password here
-date: 2025-03-18 00:18:57 -0700
+description: "" # Add password here
+date: 2025-08-17 00:18:57 -0700
 background: '/img/034.jpg'
 categories: speech
 tags: []  # Add tags if necessary
 ---
 
-Dear esteemed guests, faculty, members of the SCET community, and my fellow graduates,
-------
+_Dear esteemed guests, faculty, members of the SCET community, and my fellow graduates,_
 
 It is with deep honor and gratitude that I stand before you today as the graduate speaker of the inaugural Sutardja Center for Entrepreneurship and Technology Certificate Ceremony. My name is Veronica, and throughout my time at Berkeley, I’ve taken four courses from the program. I am deeply honored to receive the certificate, along with my Electrical Engineering and Computer Sciences degree here at Berkeley. <br>
 
