@@ -3,7 +3,7 @@ layout: post
 title: "Barry Lyndon, Jay Gatsby, and the Doomed Fate of Social Climbers"
 description: "" # Add password here
 date: 2025-10-09 00:14:45 -0700
-background: '/img/000.png'
+background: '/img/035.jpg'
 categories: []  # Add categories if necessary
 tags: commentary, opinion  # Add tags if necessary
 ---
