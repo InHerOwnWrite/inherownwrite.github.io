@@ -47,7 +47,7 @@ Taking this into a modern frame, The Great Gatsby and Barry Lyndon are also caut
 
 _"I'll be happy once I'm rich… once I have her… once I belong."_
 
-It's a dangerous delusion, one that is still quite prevelant. 
+It's a dangerous delusion, one that is still quite prevalant. 
 
 They measure their worth in money, women, and reputation, things that are inherently unstable. And so, when those things are threatened, their entire self-worth collapses. In this light, both stories become warnings for anyone chasing validation instead of healing.
 
@@ -59,7 +59,7 @@ In the end, Barry Lyndon and The Great Gatsby are not moralistic tales about how
 
 The society that these two characters were set in, 18th Century England and 1920s New York offered the promise that if you play the game well enough, you'll win. But the game is rigged— worse, it is meaningless. The tragedy isn't just that Gatsby and Barry fail, it's that they believed success would save them. Their stories challenge us to ask: _What are we chasing? Who are we performing for? And what happens when we fail to reach that dream?_ Because if your identity depends on others seeing you as worthy, then you never truly exist at all.
 
-Gatsby and Barry live in eras where class is fate. Today, class is more like momentum: it's possible to change direction, but it still shapes your speed and trajectory.And the existential core of their stories remains painfully modern: When you stake your self-worth on how others see you, even if you "succeed", you may still end up empty.
+Gatsby and Barry live in eras where class is fate. Today, class is more like momentum: it's possible to change direction, but it still shapes your speed and trajectory. And the existential core of their stories remains painfully modern: When you stake your self-worth on how others see you, even if you "succeed", you may still end up empty.
 
 So yes, today's society might be more fair and more mobile. But the human condition: the longing to be seen, to belong, to feel like we matter, remains unchanged.
 
