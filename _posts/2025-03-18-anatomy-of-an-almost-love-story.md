@@ -18,13 +18,13 @@ And I’m fully aware that no matter how many favors I do, no matter how hard I 
 
 I crossed a line fifteen years ago. They say it takes just three seconds for someone to fall in love. Years have passed, but I can still vividly remember the first night I saw her.
 
-We were young. It was some birthday party of a mutual friend, and we ended up sitting next to each other. She was this ambitious, bright woman, with long auburn hair and big, brown eyes—the kind of eyes you could see your reflection in.
+We were young. It was some birthday party of a mutual friend, and we ended up sitting next to each other. She was this ambitious, bright woman, with long auburn hair and big, brown eyes... the kind of eyes you could see your reflection in.
 
 She told me law school was stupid, that she was going to be a bestselling author.
 
 I smiled at that, back then. I was in love with her already, even before the first word left her mouth.
 
-But now, here I am—forty years old, sitting across from the woman I’ll never get back, the one I can’t let go of.
+But now, here I am. Forty years old, sitting across from the woman I’ll never get back, the one I can’t let go of.
 
 Her kid is now twelve. I see her eyes on him, and it stings. A lovely kid, I comment, glancing at the pictures on the fridge. A husband, a kid, and a dog. What a beautiful family.
 
@@ -54,13 +54,13 @@ I inhale the cigarette, letting the smoke linger in my lungs and ease the hurt b
 
 ---
 
-I try not to think about the fact that her husband is dead. She’s accused of his murder. There’s a part of me—one that I can’t quite suppress—that feels relieved. Not because I wanted him dead, no. I’m not some monster. But because I know this is my chance. I’ve spent too many years watching from the sidelines, waiting for some sign that we could reconnect, that maybe we could pick up where we left off.
+I try not to think about the fact that her husband is dead. She’s accused of his murder. There’s a part of me, one that I can’t quite suppress, that feels relieved. Not because I wanted him dead, no. I’m not some monster. But because I know this is my chance. I’ve spent too many years watching from the sidelines, waiting for some sign that we could reconnect, that maybe we could pick up where we left off.
 
-But the truth is, we’ll never date again—not now. Not after all this. Not after the mess her life has become. The case, the accusations. The guilt that stains the air every time we’re in the same room, heavy with unspoken truths.
+But the truth is, we’ll never date again. Not now. Not after all this. Not after the mess her life has become. The case, the accusations. The guilt that stains the air every time we’re in the same room, heavy with unspoken truths.
 
-I glance at her—this woman I still love—and I think about what her life must be like now. The grief, the public scandal. But beyond that, I can’t help the twinge of something else. The remnants of a dream, of a future that was never meant to be.
+I glance at her, this woman I still love, and I think about what her life must be like now. The grief, the public scandal. But beyond that, I can’t help the twinge of something else. The remnants of a dream, of a future that was never meant to be.
 
-She’s guilty, in a way. Guilty of a thousand small betrayals, maybe. But I’m not blind. The weight of her past, the violence she has endured—it was never as simple as it seemed.
+She’s guilty, in a way. Guilty of a thousand small betrayals, maybe. But I’m not blind. The weight of her past, the violence she has endured, it was never as simple as it seemed.
 
 I glance over at the photos again. The boy, the husband. The life she built. The family she had to destroy to make room for me. To be her defense lawyer.
 
@@ -70,7 +70,7 @@ But that doesn’t mean I’ll stop wishing it were me by her side, not him.
 
 "You’re really asking me to take your case?" I ask, the words slipping out before I can stop them.
 
-Her eyes meet mine, darkened by regret, or maybe something else—something closer to longing. Her lips tremble, almost imperceptibly, as she looks down.
+Her eyes meet mine, darkened by regret, or maybe something else... something closer to longing. Her lips tremble, almost imperceptibly, as she looks down.
 
 “I don’t know who else to turn to,” she admits quietly, and it breaks something inside me. I swallow hard, trying to ignore the sudden ache in my chest.
 
