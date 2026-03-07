@@ -15,7 +15,7 @@ _-Washington Irving_
 _-The Beatles, The End_
 
 All love is never lost.\
-Some love is frozen—\
+Some love is frozen\
 locked in winter’s grasp,\
 molecules clutching each other \
 like hands unwilling to let go.\
@@ -23,18 +23,18 @@ It waits in the frost, untouched,\
 preserved but distant,\
 a memory encased in ice.
 
-Some love melts—\
+Some love melts\
 it runs, reshapes, bends,\
 a river without a destination.\
 It kisses the earth, fills empty spaces,\
 becomes something new with every twist and turn.
 
-Some love burns—\
+Some love burns\
 it flares too bright, too fierce,\
 petrifying those who do not dare to hold the scathing flame.\
 It cracks open, shatters,\
 then vanishes into the air, unseen.\
-But even then, it lingers—\
+But even then, it lingers\
 a whisper in the wind, a shimmer in the heat,\
 weightless but waiting.
 
@@ -42,14 +42,14 @@ But love never disappears.\
 It rises, condenses, falls again,\
 a cycle written in the sky,\
 etching itself into the delicate fog on your window,\
-waiting to be seen—\
+waiting to be seen\
 Even in atomic moments, \
 what once seems lost returns, softened, purified,\
 is always ready to flow back into your heart,\
 never far from eternity.
 
 And when we eventually leave this Earth,\
-our love metamorphoses into plasma—\
+our love metamorphoses into plasma\
 the aurora australis, or distant stars light-years away, immortalized.\
 Boundless, free of sorrow,\
 it dances on the edge of eternity.\
