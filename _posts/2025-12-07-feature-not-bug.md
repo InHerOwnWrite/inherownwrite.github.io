@@ -4,7 +4,7 @@ title: "It's a Feature, Not a Bug"
 description: "" # Add password here
 date: 2025-12-07 00:18:57 -0700
 background: '/img/000.jpg'
-background_color: #40633f
+background_color: '#40633f'
 categories: diary
 tags: [personal]
 ---

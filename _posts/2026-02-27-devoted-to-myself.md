@@ -3,7 +3,7 @@ layout: post
 title: "on being devoted to myself"
 date: 2026-02-27 00:14:45 -0700
 background: '/img/000.png'
-background_color: #6e1f35
+background_color: '#6e1f35'
 categories: [diary]  # Add categories, shown in URL
 tags: [love, personal]  # Add tags, shown as hashtag
 ---
