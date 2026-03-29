@@ -1,17 +1,20 @@
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
+});
 
-  // Dark mode toggle
-  var $toggle = $('#dark-mode-toggle');
-  var $icon = $toggle.find('.dark-toggle-icon');
+// Dark mode toggle — plain JS, no jQuery dependency
+(function () {
+  var toggle = document.getElementById('dark-mode-toggle');
+  if (!toggle) return;
+  var icon = toggle.querySelector('.dark-toggle-icon');
 
   function applyTheme(dark) {
     if (dark) {
-      $('html').attr('data-theme', 'dark');
-      $icon.text('☀');
+      document.documentElement.setAttribute('data-theme', 'dark');
+      if (icon) icon.textContent = '☀';
     } else {
-      $('html').removeAttr('data-theme');
-      $icon.text('☽');
+      document.documentElement.removeAttribute('data-theme');
+      if (icon) icon.textContent = '☽';
     }
   }
 
@@ -19,13 +22,13 @@ $(function () {
   var saved = localStorage.getItem('theme');
   if (saved === 'dark') {
     applyTheme(true);
-  } else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  } else if (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     applyTheme(true);
   }
 
-  $toggle.on('click', function () {
-    var isDark = $('html').attr('data-theme') === 'dark';
+  toggle.addEventListener('click', function () {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     applyTheme(!isDark);
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
   });
-});
+})();
