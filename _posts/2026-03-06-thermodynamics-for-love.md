@@ -4,6 +4,7 @@ title: "Thermodynamics, For Love"
 description: "Essay" # Add password here
 date: 2026-03-06 00:14:45 -0700
 background: '/img/000.png'
+background_color: #052a3d
 categories: []
 tags: [love, physics]
 ---

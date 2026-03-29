@@ -4,6 +4,7 @@ title:  "Dear 22 Year Old Me"
 description: "Happy Birthday"
 date:   2025-11-05 00:14:45 -0700
 background: '/img/000.png'
+background_color: #571059
 categories: birthday
 tags: [birthday, personal]
 ---
