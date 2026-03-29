@@ -3,7 +3,7 @@
 
 .hint {
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   background: #f0ede6;
   border-left: 2px solid #c8c0b0;
   padding: 10px 16px;
@@ -11,4 +11,22 @@
   color: #888;
   font-style: italic;
   border-radius: 0 2px 2px 0;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6,
+.col-lg-8 h2,
+.col-lg-8 h3,
+.col-lg-8 h4,
+.col-lg-8 h5,
+.col-lg-8 h6 {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.page-heading .subheading {
+  font-style: italic;
 }
