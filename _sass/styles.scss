@@ -197,3 +197,141 @@
 @media (max-width: 768px) {
   .post-share { display: none; }
 }
+
+/* ── dark mode toggle button ─────────────────────────────── */
+.dark-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  color: inherit;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+.dark-toggle:hover { opacity: 1; }
+
+/* on large screens the nav is white text over image, so inherit works fine */
+@media only screen and (max-width: 991px) {
+  .dark-toggle { color: #343a40; }
+}
+
+/* ── dark mode ───────────────────────────────────────────── */
+[data-theme="dark"] {
+  /* base */
+  background-color: #1a1a1a;
+  color: #e0ddd6;
+
+  body {
+    background-color: #1a1a1a;
+    color: #e0ddd6;
+  }
+
+  /* navbar */
+  #mainNav {
+    background-color: rgba(30, 30, 30, 0.75) !important;
+    backdrop-filter: blur(6px);
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+
+    .navbar-brand,
+    .navbar-toggler,
+    .nav-link {
+      color: #e0ddd6 !important;
+    }
+
+    .nav-link:hover,
+    .navbar-brand:hover { color: #fff !important; }
+
+    &.is-fixed {
+      background-color: rgba(17, 17, 17, 0.88) !important;
+
+      .navbar-brand,
+      .nav-link { color: #e0ddd6 !important; }
+    }
+  }
+
+  /* dropdown */
+  .dropdown-menu {
+    background-color: #222;
+    border-color: #444;
+  }
+
+  .dropdown-item {
+    color: #e0ddd6;
+
+    &:hover { background-color: #333; color: #fff; }
+  }
+
+  /* main content */
+  .container,
+  .col-lg-8,
+  .post-content,
+  article {
+    color: #e0ddd6;
+  }
+
+  a {
+    color: #c8c0b0;
+
+    &:hover { color: #fff; }
+  }
+
+  hr { border-color: #333; }
+
+  blockquote { color: #999; }
+
+  /* post list */
+  .post-preview > a { color: #e0ddd6; }
+  .post-preview > .post-meta { color: #888; }
+  .post-preview > .post-meta > a { color: #c8c0b0; }
+
+  /* hint box */
+  .hint {
+    background: #2a2a2a;
+    border-left-color: #555;
+    color: #999;
+  }
+
+  /* tag bubbles */
+  .tag-bubble {
+    background: #2a2a2a;
+    color: #999;
+
+    &:hover { background: #e0ddd6; color: #1a1a1a; }
+  }
+
+  /* share button */
+  .share-btn {
+    background: #2a2a2a;
+    border-left-color: #555;
+    color: #999;
+
+    &:hover { background: #e0ddd6; color: #1a1a1a; }
+  }
+
+  /* tag modal */
+  #tag-modal {
+    background: #222;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+
+  #tag-modal-header { border-bottom-color: #333; }
+  #tag-modal-title { color: #e0ddd6; }
+  #tag-modal-close { color: #666; &:hover { color: #e0ddd6; } }
+
+  #tag-modal-list li a {
+    color: #e0ddd6;
+    &:hover { background: #2a2a2a; }
+  }
+
+  .tag-modal-post-date { color: #666; }
+
+  /* footer */
+  footer { color: #888; }
+  .copyright { color: #666 !important; }
+
+  /* masthead overlay — slightly darker */
+  header.masthead .overlay { opacity: 0.65; }
+}

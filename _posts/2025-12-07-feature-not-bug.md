@@ -5,8 +5,8 @@ description: "" # Add password here
 date: 2025-12-07 00:18:57 -0700
 background: '/img/000.jpg'
 background_color: #40633f
-categories: speech
-tags: [speech, personal]
+categories: diary
+tags: [personal]
 ---
 
 For anyone who’s been following the ongoing plot that is my life, 2025 has felt like a massive character arc. I’d like to think I’ve grown, mostly for the better. After losing myself somewhere in the whirlwinds of, well, a lot, I threw myself into multiple rounds of self-leveling, trying to dissect what parts of me may have fed into negative situations. And today, I want to talk about that.
