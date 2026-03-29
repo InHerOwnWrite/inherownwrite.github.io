@@ -4,6 +4,7 @@ title: "Schrödinger's Love: the intimacy in never talking again"
 description: "Template" # Add password here
 date: 2026-03-15 00:14:45 -0700
 background: '/img/000.png'
+background_color: '#560319'
 categories: []  # Add categories if necessary
 tags: []  # Add tags if necessary
 ---
