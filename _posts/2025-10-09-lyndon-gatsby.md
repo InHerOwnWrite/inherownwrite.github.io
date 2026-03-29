@@ -4,8 +4,8 @@ title: "Barry Lyndon, Jay Gatsby, and the Doomed Fate of Social Climbers"
 description: "" # Add password here
 date: 2025-10-09 00:14:45 -0700
 background: '/img/035.jpg'
-categories: [opinion]  # Add categories if necessary
-tags:  # Add tags if necessary
+categories: [opinion]
+tags: [movies, personal]
 ---
 _Barry Lyndon and Jay Gatsby are two men from humble origins who dared to dream above their station. They changed their names, crafted new personas, and clawed their way into elite society. But in the end, both met tragic, almost inevitable, downfalls. Were their fates karmic? Deserved? Or were they simply victims of a cruel society?_
 

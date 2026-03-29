@@ -5,7 +5,7 @@ description: "" # Add password here
 date: 2025-08-17 00:18:57 -0700
 background: '/img/034.jpg'
 categories: speech
-tags: []  # Add tags if necessary
+tags: [speech, personal]
 ---
 
 _Dear esteemed guests, faculty, members of the SCET community, and my fellow graduates,_

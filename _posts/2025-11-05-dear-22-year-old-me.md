@@ -5,6 +5,7 @@ description: "Happy Birthday"
 date:   2025-11-05 00:14:45 -0700
 background: '/img/000.png'
 categories: birthday
+tags: [birthday, personal]
 ---
 
 uh-oh. the age is starting to get serious, isn't it.

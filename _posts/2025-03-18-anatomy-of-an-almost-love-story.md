@@ -4,8 +4,8 @@ title: "Anatomy of An Almost Love Story"
 description: "Inspired by Anatomie d'une chute (2023)." # Add password here
 date: 2025-03-18 00:18:57 -0700
 background: '/img/000.png'
-categories: fiction  # Add categories if necessary
-tags: [love]  # Add tags if necessary
+categories: fiction
+tags: [fiction, love, movies]
 ---
 
 *Inspired by Anatomie d'une chute (2023).*

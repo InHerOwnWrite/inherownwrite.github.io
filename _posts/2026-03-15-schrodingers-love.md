@@ -5,8 +5,8 @@ description: "Template" # Add password here
 date: 2026-03-15 00:14:45 -0700
 background: '/img/000.png'
 background_color: '#560319'
-categories: []  # Add categories if necessary
-tags: [physics, love]  # Add tags if necessary
+categories: []
+tags: [love, physics]
 ---
 
 <!-- Markdown Cheatsheet: https://www.markdownguide.org/cheat-sheet/ -->
