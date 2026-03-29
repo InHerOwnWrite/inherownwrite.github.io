@@ -138,7 +138,25 @@
     document.getElementById('qc-preview').src = dataUrl;
     overlay.classList.add('active');
 
-    document.getElementById('qc-download-btn').onclick = function () {
+    document.getElementById('qc-download-btn').onclick = async function () {
+      const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+
+      if (isMobile && navigator.share && navigator.canShare) {
+        // convert dataUrl → Blob → File for the share sheet
+        const res = await fetch(dataUrl);
+        const blob = await res.blob();
+        const file = new File([blob], 'story-card.png', { type: 'image/png' });
+        if (navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({ files: [file], title: 'Story card' });
+            return;
+          } catch (e) {
+            if (e.name === 'AbortError') return; // user cancelled, do nothing
+          }
+        }
+      }
+
+      // desktop fallback: direct download
       const a = document.createElement('a');
       a.download = 'story-card.png';
       a.href = dataUrl;
