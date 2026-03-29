@@ -187,10 +187,9 @@
   font-size: 13px;
   color: #aaa;
   font-style: italic;
-  opacity: 0;
-  transition: opacity 0.3s;
+  display: none;
 }
 
 .share-confirm.visible {
-  opacity: 1;
+  display: inline;
 }

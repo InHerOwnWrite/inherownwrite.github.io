@@ -135,7 +135,7 @@ function sharePost() {
   const url = window.location.href;
   const confirm = document.getElementById('share-confirm');
   if (navigator.share) {
-    navigator.share({ title: document.title, url: url });
+    navigator.share({ title: document.title.replace(/\p{Emoji}/gu, '').trim(), url: url });
   } else {
     navigator.clipboard.writeText(url).then(function () {
       confirm.classList.add('visible');
