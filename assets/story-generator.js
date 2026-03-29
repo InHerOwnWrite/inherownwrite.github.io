@@ -158,12 +158,18 @@
     canvas.width = W; canvas.height = H;
     const ctx = canvas.getContext('2d');
 
+    // pick palette based on current theme
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const palette = dark
+      ? { bg: '#1a1a1a', accent: '#e0ddd6', eyebrow: '#666666', text: '#e0ddd6', rule: '#444444', meta: '#888888', url: '#666666' }
+      : { bg: '#faf9f6', accent: '#1a1a1a', eyebrow: '#aaaaaa', text: '#1a1a1a', rule: '#cccccc', meta: '#555555', url: '#aaaaaa' };
+
     // background
-    ctx.fillStyle = '#faf9f6';
+    ctx.fillStyle = palette.bg;
     ctx.fillRect(0, 0, W, H);
 
     // top accent bar
-    ctx.fillStyle = '#1a1a1a';
+    ctx.fillStyle = palette.accent;
     ctx.fillRect(0, 0, W, 6);
 
     ctx.textAlign = 'left';
@@ -178,7 +184,7 @@
     // blog name — fixed near top of content area
     const EYEBROW_Y = 260;
     ctx.font = '400 28px ' + FONT;
-    ctx.fillStyle = '#aaaaaa';
+    ctx.fillStyle = palette.eyebrow;
     ctx.fillText('IN HER OWN WRITE', pad, EYEBROW_Y);
 
     // quote — responsive font size, non-italic
@@ -211,12 +217,12 @@
     let y = zoneTop + (zoneH - textBlockH) / 2 + lineH;
 
     ctx.font = '400 ' + fontSize + 'px ' + FONT;
-    ctx.fillStyle = '#1a1a1a';
+    ctx.fillStyle = palette.text;
     for (const ln of lines) { ctx.fillText(ln, pad, y); y += lineH; }
 
     // footer — rule, title (single line), url
     let fy = H - 160 - footerH + 50;
-    ctx.fillStyle = '#cccccc';
+    ctx.fillStyle = palette.rule;
     ctx.fillRect(pad, fy, 90, RULE_H);
     fy += 72;
 
@@ -238,12 +244,12 @@
       if (titleLines.length <= 3) break;
       titleSize -= 2;
     } while (titleSize > 20);
-    ctx.fillStyle = '#555555';
+    ctx.fillStyle = palette.meta;
     for (const ln of titleLines) { ctx.fillText(ln, pad, fy); fy += titleLineH; }
     fy += 10;
 
     ctx.font = '400 ' + URL_SIZE + 'px ' + FONT;
-    ctx.fillStyle = '#aaaaaa';
+    ctx.fillStyle = palette.url;
     ctx.fillText(BLOG_URL.toUpperCase(), pad, fy);
 
     return canvas.toDataURL('image/png');
