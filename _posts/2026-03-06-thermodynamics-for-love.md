@@ -5,7 +5,7 @@ description: "Essay" # Add password here
 date: 2026-03-06 00:14:45 -0700
 background: '/img/000.png'
 categories: []  # Add categories if necessary
-tags: []  # Add tags if necessary
+tags: [physics, love]  # Add tags if necessary
 ---
 _Scene._
 I run towards you with piles and piles of handwritten notes and formulas. I shout, “I HAVE CRACKED THE CODE!!”

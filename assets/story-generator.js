@@ -26,6 +26,7 @@
       letter-spacing: 0.03em; cursor: pointer;
       box-shadow: 0 2px 12px rgba(0,0,0,0.18);
       white-space: nowrap; display: none;
+      pointer-events: none;
       touch-action: manipulation;
       -webkit-user-select: none; user-select: none;
     }
@@ -71,10 +72,14 @@
     bubble.style.left    = x + 'px';
     bubble.style.top     = (y - 44) + 'px';
     bubble.style.display = 'block';
+    bubble.style.pointerEvents = 'auto';
   }
 
   function hideBubble() {
-    if (bubble) bubble.style.display = 'none';
+    if (bubble) {
+      bubble.style.display = 'none';
+      bubble.style.pointerEvents = 'none';
+    }
   }
 
   function handleSelectionChange() {

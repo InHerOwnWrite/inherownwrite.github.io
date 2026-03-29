@@ -22,10 +22,10 @@
             Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ "/birthday" | relative_url }}">Birthday</a>
-            <a class="dropdown-item" href="{{ "/fiction" | relative_url }}">Fiction</a>
-            <a class="dropdown-item" href="{{ "/poetry" | relative_url }}">Poetry</a>
-            
+            {% assign sorted_categories = site.categories | sort %}
+            {% for category in sorted_categories %}
+            <a class="dropdown-item" href="{{ '/' | append: category[0] | relative_url }}">{{ category[0] | capitalize }}</a>
+            {% endfor %}
           </div>
         </li>
         <li class="nav-item">

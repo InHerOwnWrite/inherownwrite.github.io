@@ -3,6 +3,7 @@ layout: post
 title: All Love Is Never Lost
 date:   2025-03-15 12:45:00 -0700
 categories: poetry
+tags: [love]
 ---
 
 > ***Love is never lost***. If not reciprocated, it will flow back and soften and purify the heart.

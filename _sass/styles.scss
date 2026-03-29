@@ -30,3 +30,115 @@
 .page-heading .subheading {
   font-style: italic;
 }
+
+/* ── tag bubbles ─────────────────────────────────────────── */
+.post-tags {
+  margin: 24px 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-bubble {
+  background: #f0ede6;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-family: 'EB Garamond', Georgia, serif;
+  color: #888;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tag-bubble:hover {
+  background: #1a1a1a;
+  color: #faf9f6;
+}
+
+/* ── tag modal ───────────────────────────────────────────── */
+#tag-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 100000;
+  align-items: center;
+  justify-content: center;
+}
+
+#tag-modal-overlay.active {
+  display: flex;
+}
+
+#tag-modal {
+  background: #faf9f6;
+  border-radius: 4px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+#tag-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid #e8e4dc;
+}
+
+#tag-modal-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 20px;
+  color: #1a1a1a;
+}
+
+#tag-modal-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #aaa;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+#tag-modal-close:hover { color: #1a1a1a; }
+
+#tag-modal-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  overflow-y: auto;
+}
+
+#tag-modal-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: #1a1a1a;
+  gap: 16px;
+}
+
+#tag-modal-list li a:hover {
+  background: #f0ede6;
+}
+
+.tag-modal-post-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 16px;
+}
+
+.tag-modal-post-date {
+  font-size: 12px;
+  color: #aaa;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
