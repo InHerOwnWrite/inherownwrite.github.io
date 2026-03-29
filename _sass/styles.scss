@@ -1,2 +1,14 @@
 // Import Core Clean Blog SCSS
 @import "../assets/vendor/startbootstrap-clean-blog/scss/clean-blog.scss";
+
+.hint {
+  display: inline-block;
+  margin-bottom: 40px;
+  background: #f0ede6;
+  border-left: 2px solid #c8c0b0;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  border-radius: 0 2px 2px 0;
+}
