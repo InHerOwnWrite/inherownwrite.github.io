@@ -142,3 +142,55 @@
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+/* ── share button ────────────────────────────────────────── */
+.post-tags-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 0 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.post-tags-row .post-tags {
+  margin: 0;
+}
+
+.post-share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.share-btn {
+  display: inline-block;
+  background: #f0ede6;
+  border: none;
+  border-left: 2px solid #c8c0b0;
+  border-radius: 0 2px 2px 0;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #888;
+  font-style: italic;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.share-btn:hover {
+  background: #1a1a1a;
+  color: #faf9f6;
+}
+
+.share-confirm {
+  font-size: 13px;
+  color: #aaa;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.share-confirm.visible {
+  opacity: 1;
+}

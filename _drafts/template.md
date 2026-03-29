@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Template"
-description: "Template" # Add password here
+subtitle: "Template"
 date: 2025-01-01 00:14:45 -0700
 background: '/img/000.png'
 categories: []  # Add categories, shown in URL

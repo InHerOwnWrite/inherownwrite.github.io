@@ -1,15 +1,12 @@
 ---
 layout: post
 title: "Schrödinger's Love: the intimacy in never talking again"
-description: "Template" # Add password here
 date: 2026-03-15 00:14:45 -0700
 background: '/img/000.png'
 background_color: '#560319'
 categories: []
 tags: [love, physics]
 ---
-
-<!-- Markdown Cheatsheet: https://www.markdownguide.org/cheat-sheet/ -->
 
 _FYI: I use the term Love very loosely. I barely know what that means. I'll let y'all know when I do._
 
@@ -34,3 +31,6 @@ Or, perhaps the cat is alive, but both of us are too scared to open it in case i
 I guess the Schrödinger theory on this tragic intimacy is the final souvenir I get from my short-lived relationship. That the respect and kindness we had for each other resulted in this no-contact phase, forever. The closest stranger we can ever have. 
 
 I'll be okay. 
+
+
+<!-- Markdown Cheatsheet: https://www.markdownguide.org/cheat-sheet/ -->
