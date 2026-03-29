@@ -195,18 +195,29 @@
     let fy = H - 160 - footerH + 50;
     ctx.fillStyle = '#cccccc';
     ctx.fillRect(pad, fy, 90, RULE_H);
-    fy += 48;
+    fy += 72;
 
-    // title: single line, truncate with ellipsis if too wide
-    ctx.font = '400 ' + TITLE_SIZE + 'px ' + FONT;
+    // title: wrap across lines, shrink font if needed
+    let titleSize = TITLE_SIZE;
+    let titleLines, titleLineH;
+    do {
+      titleLineH = Math.round(titleSize * 1.5);
+      ctx.font = 'italic 400 ' + titleSize + 'px ' + FONT;
+      const words = title.split(' ');
+      titleLines = [];
+      let line = '';
+      for (const w of words) {
+        const test = line ? line + ' ' + w : w;
+        if (ctx.measureText(test).width > maxW) { titleLines.push(line); line = w; }
+        else line = test;
+      }
+      if (line) titleLines.push(line);
+      if (titleLines.length <= 3) break;
+      titleSize -= 2;
+    } while (titleSize > 20);
     ctx.fillStyle = '#555555';
-    let displayTitle = title;
-    while (displayTitle.length > 0 && ctx.measureText(displayTitle + '…').width > maxW) {
-      displayTitle = displayTitle.slice(0, -1);
-    }
-    if (displayTitle !== title) displayTitle += '…';
-    ctx.fillText(displayTitle, pad, fy);
-    fy += Math.round(TITLE_SIZE * 1.5) + 10;
+    for (const ln of titleLines) { ctx.fillText(ln, pad, fy); fy += titleLineH; }
+    fy += 10;
 
     ctx.font = '400 ' + URL_SIZE + 'px ' + FONT;
     ctx.fillStyle = '#aaaaaa';
