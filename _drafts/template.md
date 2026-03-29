@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Template"
-subtitle: "Template"
-date: 2025-01-01 00:14:45 -0700
+subtitle: ""
+date: 2026-01-01 00:14:45 -0700
 background: '/img/000.png'
 categories: []  # Add categories, shown in URL
 tags: []  # Add tags, shown as hashtag
