@@ -5,7 +5,7 @@ date: 2026-02-27 00:14:45 -0700
 background: '/img/000.png'
 background_color: '#6e1f35'
 categories: [diary]  # Add categories, shown in URL
-tags: [love, personal]  # Add tags, shown as hashtag
+tags: [love, grief, personal]  # Add tags, shown as hashtag
 ---
 when i fall in love, i try to become better for the other person. i try to be more kind, understanding, trustworthy and disciplined for them. i want to say i do it for myself, but one could say i am trying to level the other person to be worthy of their love. 
 

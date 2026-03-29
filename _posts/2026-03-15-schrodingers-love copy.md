@@ -5,7 +5,7 @@ date: 2026-03-15 00:14:45 -0700
 background: '/img/000.png'
 background_color: '#560319'
 categories: []
-tags: [love, physics]
+tags: [love, grief, physics]
 ---
 
 _FYI: I use the term Love very loosely. I barely know what that means. I'll let y'all know when I do._
