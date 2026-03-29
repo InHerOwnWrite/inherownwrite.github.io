@@ -19,7 +19,7 @@ Even as a seven-year-old, I understood something that took words a long time to 
 
 The same thing happens with the people I've loved romantically.
 
-Friends don't leave my life in that same way. Some grow apart, sure, but nothing I carry much regret over. People I've loved romantically, though... those hurt like moving houses. After a first date with my now ex-boyfriend, I wrote this in my notes: "You know when you first meet someone and you vaguely recall their face, but not fully, yet you remember the feeling they gave you." That feeling is what I find myself nostalgic for. I also remember the misty air in the parking lot, and how _Can't Help Falling In Love_ was playing in the background. BARF, disgusting.
+Friends don't leave my life in that same way. Some grow apart, sure, but nothing I carry much regret over. People I've loved romantically, though... those hurt like moving houses. After a first date with my now ex-boyfriend, I wrote this in my notes: _"You know when you first meet someone and you vaguely recall their face, but not fully, yet you remember the feeling they gave you."_ That feeling is what I find myself nostalgic for. I also remember the misty air in the parking lot, and how _Can't Help Falling In Love_ was playing in the background. BARF, disgusting.
 
 There's something almost cruel about it... the heart holds on longer than the mind does. It is both merciful and torturous, the way the memory freezes and reeks of sadness, even though the very reason why you remembered was because you loved those moments in the first place. Reverse Midas gold.
 
