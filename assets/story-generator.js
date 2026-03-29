@@ -26,6 +26,8 @@
       letter-spacing: 0.03em; cursor: pointer;
       box-shadow: 0 2px 12px rgba(0,0,0,0.18);
       white-space: nowrap; display: none;
+      touch-action: manipulation;
+      -webkit-user-select: none; user-select: none;
     }
     #qc-bubble:hover { background: #333; }
     #qc-overlay {
@@ -60,6 +62,10 @@
         e.preventDefault();
         openPreview(currentQuote, getPostTitle());
       });
+      bubble.addEventListener('touchend', function (e) {
+        e.preventDefault();
+        openPreview(currentQuote, getPostTitle());
+      });
       document.body.appendChild(bubble);
     }
     bubble.style.left    = x + 'px';
@@ -71,7 +77,7 @@
     if (bubble) bubble.style.display = 'none';
   }
 
-  document.addEventListener('mouseup', function () {
+  function handleSelectionChange() {
     const sel = window.getSelection();
     if (!sel || sel.isCollapsed) { hideBubble(); return; }
     const text = sel.toString().trim();
@@ -82,9 +88,21 @@
     const scrollY = window.scrollY || document.documentElement.scrollTop;
     const scrollX = window.scrollX || document.documentElement.scrollLeft;
     showBubble(scrollX + rect.left + rect.width / 2 - 70, scrollY + rect.top);
+  }
+
+  document.addEventListener('mouseup', handleSelectionChange);
+
+  // mobile: fire after the user lifts their finger (selection is finalized by then)
+  document.addEventListener('touchend', function () {
+    // small delay so the browser can finalize the selection
+    setTimeout(handleSelectionChange, 100);
   });
 
   document.addEventListener('mousedown', function (e) {
+    if (bubble && e.target !== bubble) hideBubble();
+  });
+
+  document.addEventListener('touchstart', function (e) {
     if (bubble && e.target !== bubble) hideBubble();
   });
 
