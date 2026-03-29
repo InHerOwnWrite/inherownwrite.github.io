@@ -193,3 +193,7 @@
 .share-confirm.visible {
   display: inline;
 }
+
+@media (max-width: 768px) {
+  .post-share { display: none; }
+}
