@@ -6,7 +6,7 @@ date: 2026-03-29 00:14:45 -0700
 background: '/img/000.png'
 background_color: '#153a42'
 categories: [opinion]  # Add categories, shown in URL
-tags: [tech]  # Add tags, shown as hashtag
+tags: [tech, ai, film]  # Add tags, shown as hashtag
 ---
 
 ## Post-Productive Human
@@ -15,7 +15,7 @@ I started to understand this at a party in San Francisco where everyone had to t
 
 The attendees were the exact demographic as you’d imagined: startup founders, lawyers, engineers. And we all gathered in San Francisco to discuss this burning matter— who are we when AI can do our jobs better than us? 
 
-It is no longer a hypothetical question. We are now witnessing the cracks of capitalism with the rise of Artificial Intelligence: jobs that carried prestige and complexity are now getting displaced. The new grad market is brutal not because there aren't problems to solve, but because companies no longer see the value in growing people — not when they can grow a model instead. We built a thing that is better than us at the work we defined ourselves by. And now we have to figure out who we are without it.
+It is no longer a hypothetical question. We are now witnessing the cracks of capitalism with the rise of Artificial Intelligence: jobs that carried prestige and complexity are now getting displaced. The new grad market is brutal not because there aren't problems to solve, but because companies no longer see the value in growing people, not when they can grow a model instead. We built a thing that is better than us at the work we defined ourselves by. And now we have to figure out who we are without it.
 
 *Who am I, unironically, if I am not maximizing shareholder value? Who am I beyond the things I produce?* 
 
