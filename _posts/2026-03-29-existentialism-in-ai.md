@@ -4,7 +4,7 @@ title: "Existentialism in the Midst of AI: Why Cyberpunk Is More Relevant Than E
 subtitle: "AI doesn't threaten us by becoming human; it threatens us by revealing how much of our humanity we've already outsourced. Cyberpunk saw this coming."
 date: 2026-03-29 00:14:45 -0700
 background: '/img/000.png'
-background_color: '153a42'
+background_color: '#153a42'
 categories: [opinion]  # Add categories, shown in URL
 tags: [tech]  # Add tags, shown as hashtag
 ---
@@ -71,7 +71,7 @@ Cyberpunk is supposed to be just speculative science fiction. But I feel like it
 
 Please do forgive my bluntness. I am not writing this to denounce tech or promote some jaded disillusionment or tell my fellow techbros to go touch grass. I am inside this. The call is very much coming from inside the house. I write this as a plea for soul-searching: because if what we are building is as consequential as we say it is, then we owe it to ourselves and to everyone who will wield it to ask the harder questions. Like that Jurassic Park question that still rings true, not just what could we build, but if we should build. 
 
-I don't want to be a thing that only consumes. I want to produce and provoke. It is the only way I feel truly alive. Not as a profit metric, shareholder value, or a LinkedIn post. That’s just me, trying to be the kind of human that looks in the mirror and thinks about the consequences of what I do, and what I represent. The productive nature of humanity remains, but perhaps this time around, we can do it for the sake of ourselves, for our legacies, and for our next of kin.
+I don't want to be a thing that only consumes. I want to produce and provoke. It is the only way I feel truly alive. Not as a profit metric, shareholder value, or a LinkedIn post. I also don't want to be the machine that is programmed to unplug itself. That’s just me, trying to be the kind of human that looks in the mirror and thinks about the consequences of what I do, and what I represent. The productive nature of humanity remains, but perhaps this time around, we can do it for the sake of ourselves, for our legacies, and for our next of kin.
 
 Objects in the mirror are closer than they appear.
 
