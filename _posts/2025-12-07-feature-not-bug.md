@@ -44,6 +44,6 @@ And the wonderful thing about me is, I’m upfront about my issues. I communicat
 ## The Western Therapy Paradox
 Someone once said, “Western therapy does not counsel the Eastern mind,” and recently that’s been resonating. (I've since done my research, it is from the Netflix Drama BEEF. Great show.) If you force yourself to identify problems you can’t fix overnight, all you do is make yourself feel shittier about not fixing them fast enough.
 
-So naybe the work isn’t about fixing. Maybe it’s about living with. Or maybe, yes, I should seek professional help—real, personalized guidance instead of TikTok/ YouTube diagnoses. But that loops back: if these aren’t “problems” in the strict sense, is fixing even the right paradigm?
+So maybe the work isn’t about fixing. Maybe it’s about living with. Or maybe, yes, I should seek professional help—real, personalized guidance instead of TikTok/ YouTube diagnoses. But that loops back: if these aren’t “problems” in the strict sense, is fixing even the right paradigm?
 
 I don’t know. But I think I’m slowly getting there. I think I'm okay.
