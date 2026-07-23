@@ -2,7 +2,7 @@
 layout: post
 title: "The Odyssey: A Sinner's Journey"
 subtitle: "Spoilers, obviously."
-date: 2026-01-01 00:14:45 -0700
+date: 2026-07-23 00:00:45 -0700
 background: '/img/036.jpg'
 background_color: ''
 categories: [review]  # Add categories, shown in URL
