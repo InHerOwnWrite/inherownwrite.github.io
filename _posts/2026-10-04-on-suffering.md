@@ -6,7 +6,7 @@ date: 2026-10-04 00:14:45 -0700
 background: '/img/000.png'
 background_color: #22426e
 categories: [Opinion]  # Add categories, shown in URL
-tags: [Catholicism]  # Add tags, shown as hashtag
+tags: [catholicism]  # Add tags, shown as hashtag
 ---
 
 To be quite honest with you, I haven't been happy for the past eight months. I am deeply grateful for all the good things happening to me and the lovely people I'm surrounded by, but there is always this lingering melancholia that follows me wherever I go, like bad cologne. I keep hoping I'll wake up one day and be happy again. Some days are better than others, but mostly I am in this consistent motion of "I'll be ok."

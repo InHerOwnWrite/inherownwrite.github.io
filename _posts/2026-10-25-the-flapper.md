@@ -3,7 +3,7 @@ layout: post
 title: The Flapper
 date:   2026-10-25 12:45:00 -0700
 categories: poetry
-tags: []
+tags: [personal, grief]
 ---
 
 the flapper
