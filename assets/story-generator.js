@@ -212,31 +212,48 @@
     const zoneBot = H - 160 - footerH;
     const zoneH   = zoneBot - zoneTop;
 
+    // split selection into paragraphs (line breaks in the selected text)
+    const paragraphs = quote
+      .split(/\s*\n\s*/)
+      .map(p => p.replace(/\s+/g, ' ').trim())
+      .filter(Boolean);
+    paragraphs[0] = '\u201C' + paragraphs[0];
+    paragraphs[paragraphs.length - 1] += '\u201D';
+
+    // lines: array of strings, with null marking a paragraph break
     let fontSize = MAX_FONT;
-    let lines, lineH;
+    let lines, lineH, paraGap, textBlockH;
     do {
       lineH = Math.round(fontSize * 1.43);
+      paraGap = Math.round(lineH * 0.6);
       ctx.font = '400 ' + fontSize + 'px ' + FONT;
-      const words = ('\u201C' + quote + '\u201D').split(' ');
       lines = [];
-      let line = '';
-      for (const w of words) {
-        const test = line ? line + ' ' + w : w;
-        if (ctx.measureText(test).width > maxW) { lines.push(line); line = w; }
-        else line = test;
-      }
-      if (line) lines.push(line);
-      if (lines.length * lineH <= zoneH) break;
+      paragraphs.forEach((para, i) => {
+        if (i > 0) lines.push(null);
+        let line = '';
+        for (const w of para.split(' ')) {
+          const test = line ? line + ' ' + w : w;
+          if (line && ctx.measureText(test).width > maxW) { lines.push(line); line = w; }
+          else line = test;
+        }
+        if (line) lines.push(line);
+      });
+      const breaks = paragraphs.length - 1;
+      textBlockH = (lines.length - breaks) * lineH + breaks * paraGap;
+      if (textBlockH <= zoneH) break;
       fontSize -= 2;
     } while (fontSize > MIN_FONT);
 
     // vertically center the quote block in the zone
-    const textBlockH = lines.length * lineH;
     let y = zoneTop + (zoneH - textBlockH) / 2 + lineH;
 
     ctx.font = '400 ' + fontSize + 'px ' + FONT;
     ctx.fillStyle = palette.text;
-    for (const ln of lines) { ctx.fillText(ln, pad, y); y += lineH; }
+    for (const ln of lines) {
+      if (ln === null) { y += paraGap; continue; }
+      ctx.fillText(ln, pad, y);
+      y += lineH;
+    }
 
     // footer — rule, title (single line), url
     let fy = H - 160 - footerH + 50;
